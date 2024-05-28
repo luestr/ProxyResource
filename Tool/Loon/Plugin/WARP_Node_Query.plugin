@@ -2,8 +2,8 @@
 #!desc = 显示WARP节点的详细信息，请在所有节点页面选择一个节点长按，出现菜单后进行测试。
 #!openUrl = 
 #!author = VirgilClyne R·E
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/1.1.1.1.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/1.1.1.1.png
 #!date = 2024-03-04 12:01:01
 
 [Script]

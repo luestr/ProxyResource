@@ -2,8 +2,8 @@
 #!desc = 自动监控TestFlight名额，一旦有新的名额即刻加入。
 #!openUrl = 
 #!author = DecoAri xream
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/TestFlight.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TestFlight.png
 #!input = APP_ID
 #!date = 2024-03-07 22:10:30
 
@@ -11,9 +11,9 @@
 DOMAIN, testflight.apple.com, PROXY
 
 [Script]
-http-request ^https?:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/apps$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TestFlight/TF_keys.js, tag = TF信息获取
-http-request ^https://testflight.apple.com/join/(.*) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TestFlight/TF_keys.js, tag = APP_ID获取
-cron "*/1 * * * * *" script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TestFlight/Auto_join_TF.js, tag = 自动加入TF, timeout = 180
+http-request ^https?:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/apps$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TestFlight/TF_keys.js, tag = TF信息获取
+http-request ^https://testflight.apple.com/join/(.*) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TestFlight/TF_keys.js, tag = APP_ID获取
+cron "*/1 * * * * *" script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TestFlight/Auto_join_TF.js, tag = 自动加入TF, timeout = 180
 
 [Mitm]
 hostname = testflight.apple.com

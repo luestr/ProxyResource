@@ -2,8 +2,8 @@
 #!desc = 将Safari浏览器伪装为Edge浏览器，以便绕过BingAI的使用限制。
 #!openUrl = 
 #!author = LiuYaChen 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bing.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bing.png
 #!date = 2023-09-08 13:48:55
 
 [Rule]
@@ -21,7 +21,7 @@ DOMAIN-SUFFIX, bingworld.com, PROXY
 #^https:\/\/www\.bing\.com\/(search|new) header-add X-Forwarded-For 1.1.1.1
 
 [Script]
-http-request ^https:\/\/www\.bing\.com\/(search|new) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bing/BingAI.js, requires-body = false, tag = Bing AI
+http-request ^https:\/\/www\.bing\.com\/(search|new) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bing/BingAI.js, requires-body = false, tag = Bing AI
 
 [Mitm]
 hostname = www.bing.com

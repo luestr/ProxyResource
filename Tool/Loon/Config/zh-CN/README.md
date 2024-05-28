@@ -14,10 +14,10 @@
 
 ##### 你应该在导入前备份好你正在用的配置文件：点击[配置]→[导出]→[存储到“文件”]
 
-[点击导入最小配置文件](https://www.nsloon.com/openloon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Config/Loon_Simple_Sample_Configuration_By_iKeLee.conf) - 新手推荐
+[点击导入最小配置文件](https://www.nsloon.com/openloon/import?sub=https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Config/Loon_Simple_Sample_Configuration_By_iKeLee.conf) - 新手推荐
 
 
-[点击导入进阶配置文件](https://www.nsloon.com/openloon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf) - 仅适用于想通过路由器翻墙的用户
+[点击导入进阶配置文件](https://www.nsloon.com/openloon/import?sub=https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf) - 仅适用于想通过路由器翻墙的用户
 
 
 ### 使用说明

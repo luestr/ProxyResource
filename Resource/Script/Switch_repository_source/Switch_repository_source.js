@@ -3,7 +3,7 @@ Loon专用
 2024-04-21 01:29:51
 */
 let githubPrefix = "https://raw.githubusercontent.com/luestr/ProxyResource/main"
-let gitlabPrefix = "https://gitlab.com/lodepuly/vpn_tool/-/raw/master"
+let gitlabPrefix = "https://raw.githubusercontent.com/luestr/ProxyResource/main"
 let gitbucketPrefix = "https://bitbucket.org/luestr/proxyresource/raw/main"
 
 //1: gitbucket 2.gitlab 3.github
