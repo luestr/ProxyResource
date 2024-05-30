@@ -1,6 +1,6 @@
-# 2024-05-24 16:42:29
+# 2024-05-30 15:51:48
 # ChatGPT
-AND, ((DOMAIN-KEYWORD, chatgpt-async-webps-prod-eastus-), (DOMAIN-KEYWORD, .webpubsub.azure.com))
+AND, ((DOMAIN-KEYWORD, chatgpt-async-webps-prod-eastus-), (DOMAIN-SUFFIX, webpubsub.azure.com))
 DOMAIN, chat.openai.com.cdn.cloudflare.net
 DOMAIN, o33249.ingest.sentry.io
 DOMAIN, openaiapi-site.azureedge.net
