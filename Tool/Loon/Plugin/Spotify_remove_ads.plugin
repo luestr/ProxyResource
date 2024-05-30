@@ -2,13 +2,13 @@
 #!desc = 过滤Spotify播放广告，移除随机播放，恢复歌手和专辑列表的正常展示。建议重新登录并清除缓存，且音质不能设置为超高，仅建议iOS 15及以上设备使用。
 #!openUrl = 
 #!author = app2smile
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
 #!date = 2024-04-28 15:54:48
 
 [Script]
-http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Spotify_remove_ads.js, timeout = 10, tag = JSON处理
-http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Spotify_proto.js, requires-body = true, binary-body-mode = true, timeout = 10, tag = Proto处理
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Spotify_remove_ads.js, timeout = 10, tag = JSON处理
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Spotify_proto.js, requires-body = true, binary-body-mode = true, timeout = 10, tag = Proto处理
 
 [Mitm]
 hostname = spclient.wg.spotify.com

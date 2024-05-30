@@ -5,7 +5,7 @@
 
 #[rewrite_local]
 ^https:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*\/builds\/\d*\/install$ url request-body "storefrontId"\x20:\x20.*, request-body "storefrontId":"143441-19,29",
-# ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ url script-request-body https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TestFlight/TF_Download.js
+# ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ url script-request-body https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TestFlight/TF_Download.js
 
 #[mitm]
 hostname = testflight.apple.com

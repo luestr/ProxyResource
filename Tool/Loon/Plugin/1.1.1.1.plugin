@@ -2,8 +2,8 @@
 #!desc = 提取1.1.1.1应用的配置并生成Loon可用的节点配置
 #!openUrl = http://boxjs.com/#/app/Cloudflare.1dot1dot1dot1
 #!author = VirgilClyne R·E
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/1.1.1.1.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/1.1.1.1.png
 #!date = 2024-03-04 09:24:55
 
 [Script]

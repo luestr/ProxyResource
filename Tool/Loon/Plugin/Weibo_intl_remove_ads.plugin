@@ -2,8 +2,8 @@
 #!desc = 过滤轻享国际版广告及去除各部分推广模块
 #!openUrl = 
 #!author = Keywos kokoryh
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weibo_intl.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weibo_intl.png
 #!date = 2023-09-07 23:18:14
 
 [Rewrite]

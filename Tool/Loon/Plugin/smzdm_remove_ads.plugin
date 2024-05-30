@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、首页顶部广告、好价信息顶部广告、信息页广告、红包弹窗、精简我的页面。
 #!openUrl = 
 #!author = ZenmoFeiShi
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/smzdm.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/smzdm.png
 #!date = 2024-02-11 01:02
 
 [Rule]
@@ -22,16 +22,16 @@ DOMAIN, ynuf.aliapp.org, REJECT
 ^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/(other_modul|wiki_related_modul)|^https:\/\/s3\.zdmimg\.com\/third\/index|^https:\/\/app-api\.smzdm\.com\/util\/loading reject-dict
 
 [Script]
-http-response ^https:\/\/app-api\.smzdm\.com\/util\/loading  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/haojia-api\.smzdm\.com\/home\/list  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/app-api\.smzdm\.com\/util\/update  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/homepage-api\.smzdm\.com\/v3\/home  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/user-api\.smzdm\.com\/vip  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/user-api\.smzdm\.com\/vip\/bottom_card_list  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/article-api\.smzdm\.com\/publish\/get_bubble  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/qianbao\.smzdm\.com\/v\d\/app\/home  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/s3\.zdmimg\.com\/third\/index  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/post\.m\.smzdm\.com\/ajax_app\/ajax_get_footer_list  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/app-api\.smzdm\.com\/util\/loading  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/haojia-api\.smzdm\.com\/home\/list  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/app-api\.smzdm\.com\/util\/update  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/homepage-api\.smzdm\.com\/v3\/home  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/user-api\.smzdm\.com\/vip  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/user-api\.smzdm\.com\/vip\/bottom_card_list  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/article-api\.smzdm\.com\/publish\/get_bubble  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/qianbao\.smzdm\.com\/v\d\/app\/home  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/s3\.zdmimg\.com\/third\/index  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/post\.m\.smzdm\.com\/ajax_app\/ajax_get_footer_list  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/smzdm/smzdm_remove_ads.js, requires-body = true, tag = 移除广告
 
 
 [Mitm]

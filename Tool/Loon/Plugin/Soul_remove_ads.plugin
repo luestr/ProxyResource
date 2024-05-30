@@ -3,7 +3,7 @@
 #!openUrl = 
 #!author = ZenmoFeiShi RuCu6 可莉🅥
 #!homepage = https://gitlab.com/lodepuly/vpn_tool//tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Soul.png
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Soul.png
 #!date = 2024-01-26 22:57:44
 
 [Rule]
@@ -32,14 +32,14 @@ IP-CIDR, 121.196.197.147/32, REJECT, no-resolve
 ^https:\/\/ssp\.soulapp\.cn\/api\/q reject-dict
 
 [Script]
-http-response ^https:\/\/api-a\.soulapp\.cn\/v2\/post\/gift\/list script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/post\.soulapp\.cn\/hot\/soul\/rank script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-account\.soulapp\.cn\/teenager\/config script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/47\.110\.187\.87\/winterfell\/v2\/getIpByDomain script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-a\.soulapp\.cn\/v2\/post\/gift\/list script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/post\.soulapp\.cn\/hot\/soul\/rank script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-account\.soulapp\.cn\/teenager\/config script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/47\.110\.187\.87\/winterfell\/v2\/getIpByDomain script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
 
 [Mitm]
 hostname = ssp.soulapp.cn, api-a.soulapp.cn, gateway-mobile-gray.soulapp.cn, api-chat.soulapp.cn, post.soulapp.cn, api-user.soulapp.cn, api-account.soulapp.cn

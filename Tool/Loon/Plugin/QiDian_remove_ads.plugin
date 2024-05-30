@@ -2,12 +2,12 @@
 #!desc = 移除起点读书开屏广告、每日导读、发现页活动弹窗、底栏活动标签及其他推广行为。
 #!openUrl = 
 #!author = app2smile
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/QiDian.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QiDian.png
 #!date = 2024-05-10 15:52:06
 
 [Script]
-http-response ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/deeplink\/geturl|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab|dailyrecommend\/getdailyrecommend)) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/QiDian/QiDian_remove_ads.js, requires-body = true, tag = 起点读书去广告
+http-response ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/deeplink\/geturl|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab|dailyrecommend\/getdailyrecommend)) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/QiDian/QiDian_remove_ads.js, requires-body = true, tag = 起点读书去广告
 
 [Mitm]
 hostname = magev6.if.qidian.com

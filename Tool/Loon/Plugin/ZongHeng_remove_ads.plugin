@@ -2,8 +2,8 @@
 #!desc = 移除纵横小说开屏广告和弹窗
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/ZongHeng.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZongHeng.png
 #!date = 2024-05-16 13:21:05
 
 [Rewrite]
