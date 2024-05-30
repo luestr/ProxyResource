@@ -9,8 +9,8 @@ Surge 脚本实现 QX 的 request-header 重写类型
    
 可改写为Loon复写：
 [Script] 
-http-request ^https?:\/\/httpbin\.org script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)User-Agent:.+(\r\n)->$1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2, tag = 替换UA
-http-response ^https?:\/\/httpbin\.org script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)Content-Type:.+(\r\n)->$1Content-Type: text/plain; charset=UTF-8$2, tag = 替换UA
+http-request ^https?:\/\/httpbin\.org script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)User-Agent:.+(\r\n)->$1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2, tag = 替换UA
+http-response ^https?:\/\/httpbin\.org script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)Content-Type:.+(\r\n)->$1Content-Type: text/plain; charset=UTF-8$2, tag = 替换UA
 
 [MITM]
 hostname = httpbin.org

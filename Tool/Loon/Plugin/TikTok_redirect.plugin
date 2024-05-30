@@ -2,8 +2,8 @@
 #!desc = 移除TikTok视频水印并自定义解锁地区，需要配置此插件至对应地区的节点。
 #!openUrl = 
 #!author = Keywos
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/TikTok.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TikTok.png
 #!select = 解锁地区, 台湾, 日本, 韩国, 泰国, 越南, 英国, 法国, 德国, 美国, 巴西, 俄罗斯, 墨西哥, 土耳其, 西班牙, 阿根廷, 新加坡, 菲律宾, 马来西亚
 #!date = 2024-05-16 17:23:42
 
@@ -114,7 +114,7 @@ DOMAIN-KEYWORD, ttlivecdn.com., PROXY
 ^https:\/\/tnc16-platform-useast1a\.tiktokv\.com\/get_domains\/ reject
 
 [Script]
-http-request https?:\/\/.+.(tiktokv|tiktokcdn).com\/.+(region\d?=CN|&mcc_mnc=\d+) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TikTok/TikTok_redirect.js, tag = TikTok解锁
+http-request https?:\/\/.+.(tiktokv|tiktokcdn).com\/.+(region\d?=CN|&mcc_mnc=\d+) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TikTok/TikTok_redirect.js, tag = TikTok解锁
 
 [Mitm]
 hostname = *.byteoversea.com, *.tik-tokapi.com, *.tiktokv.com, *.tiktokcdn.com

@@ -2,13 +2,13 @@
 #!desc = 移除皮皮虾广告
 #!openUrl = 
 #!author = ZenmoFeiShi
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/PiPiXia.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PiPiXia.png
 #!date = 2024-02-02 13:52:23
 
 [Script]
-http-response ^https:\/\/.+\.pipix\.com\/bds\/feed\/channel_list\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PiPiXia/PiPiXia_remove_ads.js, requires-body = true, tag = 移除皮皮虾广告
-http-response ^https:\/\/.+\.pipix\.com\/bds\/user\/check_in\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PiPiXia/PiPiXia_remove_ads.js, requires-body = true, tag = 移除皮皮虾广告
+http-response ^https:\/\/.+\.pipix\.com\/bds\/feed\/channel_list\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PiPiXia/PiPiXia_remove_ads.js, requires-body = true, tag = 移除皮皮虾广告
+http-response ^https:\/\/.+\.pipix\.com\/bds\/user\/check_in\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PiPiXia/PiPiXia_remove_ads.js, requires-body = true, tag = 移除皮皮虾广告
 
 [Mitm]
 hostname = *.pipix.com

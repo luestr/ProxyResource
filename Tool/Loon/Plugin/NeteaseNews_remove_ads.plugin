@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、置顶新闻、热搜列表和搜索栏填充词。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/NeteaseNews.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/NeteaseNews.png
 #!date = 2024-01-12 08:50:09
 
 [Rule]
@@ -21,11 +21,11 @@ DOMAIN, gw.m.163.com, DIRECT
 ^https?:\/\/interface3?\.music\.163\.com/eapi/(ad|abtest|sp|hot|store|search/(specialkeyword|defaultkeyword|hot)) reject
 
 [Script]
-http-response ^https:\/\/nex\.163\.com\/q script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
+http-response ^https:\/\/nex\.163\.com\/q script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
 
-http-response ^https:\/\/gw\.m\.163\.com\/nc\/api\/v1\/feed\/dynamic\/headline-list\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
+http-response ^https:\/\/gw\.m\.163\.com\/nc\/api\/v1\/feed\/dynamic\/headline-list\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
 
-http-response ^https:\/\/gw\.m\.163\.com\/nc\/api\/v1\/search\/hot-word script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
+http-response ^https:\/\/gw\.m\.163\.com\/nc\/api\/v1\/search\/hot-word script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseNews/NeteaseNews_remove_ads.js, requires-body = true, tag = 移除网易新闻广告
 
 [Mitm]
 hostname = nex.163.com, interface.music.163.com, c.m.163.com, client.mail.163.com, g1.163.com, support.you.163.com, interface3?.music.163.com, gw.m.163.com

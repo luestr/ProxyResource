@@ -2,8 +2,8 @@
 #!desc = 高级订阅管理工具，使用前请在本插件的详情页面为[PROXY]项分配代理策略。
 #!openUrl = https://sub.store
 #!author = Peng-YM
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/Sub-Store.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Sub-Store.png
 #!select = 节点缓存有效期, 1分钟, 5分钟, 10分钟, 30分钟, 1小时, 2小时, 3小时, 6小时, 12小时, 24小时, 48小时, 72小时
 #!date = 2024-02-23 20:09:25
 

@@ -2,8 +2,8 @@
 #!desc = 支持挂载阿里云盘、夸克网盘和PikPak网盘，点击下面的链接查看使用方法。
 #!openUrl = https://gitlab.com/lodepuly/vpn_tool/-/blob/master/Resource/Markdown/Fileball/README.md
 #!author = 小白脸
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Fileball.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Fileball.png
 #!date = 2023-09-08 13:48:55
 
 [General]
@@ -12,4 +12,4 @@ force-http-engine-hosts = aliyun.example.com:0, quark.example.com:0, pikpak.exam
 
 [Script]
 # 阿里云盘、夸克网盘和PikPak网盘挂载
-http-request ^http:\/\/(aliyun|quark|pikpak)\.example\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Fileball/Fileball_mount.js, requires-body = true, tag = 三合一网盘挂载
+http-request ^http:\/\/(aliyun|quark|pikpak)\.example\.com script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Fileball/Fileball_mount.js, requires-body = true, tag = 三合一网盘挂载
