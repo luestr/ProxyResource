@@ -2,8 +2,8 @@
 #!desc = 过滤淘宝开屏广告
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Taobao.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Taobao.png
 #!date = 2024-01-25 18:00:54
 
 [Rule]
@@ -29,8 +29,8 @@ DOMAIN, ut.taobao.com, REJECT
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
 
 [Script]
-http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
-http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
+http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
 
 [Mitm]
 hostname = acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com

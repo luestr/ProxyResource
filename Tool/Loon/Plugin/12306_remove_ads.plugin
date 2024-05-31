@@ -2,8 +2,8 @@
 #!desc = 过滤12306应用内广告及开屏广告
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/12306.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/12306.png
 #!date = 2024-02-20 17:20:29
 
 [Rule]
@@ -12,9 +12,9 @@ DOMAIN, ad.12306.cn, DIRECT
 
 [Script]
 # 移除12306开屏广告
-http-request ^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/12306/12306_remove_splashscreen_ads.js, requires-body = true, tag = 移除12306开屏广告
+http-request ^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/12306/12306_remove_splashscreen_ads.js, requires-body = true, tag = 移除12306开屏广告
 # 移除12306应用内广告
-http-response ^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/12306/12306_remove_ads.js, tag = 移除12306应用内广告
+http-response ^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/12306/12306_remove_ads.js, tag = 移除12306应用内广告
 
 [Mitm]
 hostname = ad.12306.cn, mobile.12306.cn

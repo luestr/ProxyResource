@@ -2,8 +2,8 @@
 #!desc = 移除大部分七猫小说广告，但受限于七猫小说自身对MitM和VPN状态的检测，部分页面广告无法移除。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/SevenCat.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png
 #!date = 2024-05-13 15:40:31
 
 [Rule]
@@ -42,7 +42,7 @@ DOMAIN-SUFFIX, gdt.qq.com, REJECT
 # ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v1\/withdraw\/init reject-dict
 
 # [Script]
-# http-response ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v3\/user\/my-center script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/SevenCat/SevenCat_remove_ads.js, requires-body = true, tag = 移除广告
+# http-response ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v3\/user\/my-center script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/SevenCat/SevenCat_remove_ads.js, requires-body = true, tag = 移除广告
 
 [Mitm]
 hostname = api-cfg.wtzw.com, -xiaoshuo.wtzw.com, sf3-fe-tos.pglstatp-toutiao.com, api-bc.wtzw.com, api-gw.wtzw.com, cdn.wtzw.com

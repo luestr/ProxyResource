@@ -2,8 +2,8 @@
 #!desc = 过滤爱奇艺客户端广告，由于此插件不再维护，客户端版本高于14.11.6可能会导致此插件失效，请勿升级客户端。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/iQiYi_Video.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iQiYi_Video.png
 #!date = 2023-12-06 16:25:52
 
 [Rule]
@@ -25,37 +25,37 @@ DOMAIN, api.iqiyi.com, REJECT
 
 [Script]
 # 首页信息流广告
-http-response ^http:\/\/[\d\.]+\/3f1\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
-http-response ^http:\/\/access\.if\.iqiyi\.com\/3f1\/cards\.iqiyi\.com\/(views_category\/3\.0\/category_home|views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
-http-response ^https:\/\/cards\.iqiyi\.com\/views_category\/3\.0\/(category_home|categorylib_content|film_hybrid)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
-http-response ^https:\/\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
+http-response ^http:\/\/[\d\.]+\/3f1\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
+http-response ^http:\/\/access\.if\.iqiyi\.com\/3f1\/cards\.iqiyi\.com\/(views_category\/3\.0\/category_home|views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
+http-response ^https:\/\/cards\.iqiyi\.com\/views_category\/3\.0\/(category_home|categorylib_content|film_hybrid)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
+http-response ^https:\/\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页信息流广告
 
 # 播放详情页
-http-response ^https:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除播放详情页广告
+http-response ^https:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除播放详情页广告
 
 # 搜索页列表
-http-response ^https:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/(hot_query_)?search\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除搜索页列表推广
+http-response ^https:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/(hot_query_)?search\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除搜索页列表推广
 
 # 评论区
-http-response ^https:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除评论区推广
+http-response ^https:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除评论区推广
 
 # 我的页面菜单
-http-response ^https:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除我的页面菜单推广
+http-response ^https:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除我的页面菜单推广
 
 # 首页左上角天气
-http-response ^https:\/\/iface2\.iqiyi\.com\/control\/3\.0\/init_proxy\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页左上角天气
+http-response ^https:\/\/iface2\.iqiyi\.com\/control\/3\.0\/init_proxy\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除首页左上角天气
 
 # 通用控制 - 各标签页二楼
-http-response ^https:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除各标签页页二楼推广
+http-response ^https:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除各标签页页二楼推广
 
 # 底栏和顶部标签页推广
-http-response ^https:\/\/iface2\.iqiyi\.com\/views\/3\.0\/(bottom_theme|home_top_menu)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除底栏和顶部标签页推广
+http-response ^https:\/\/iface2\.iqiyi\.com\/views\/3\.0\/(bottom_theme|home_top_menu)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除底栏和顶部标签页推广
 
 # 搜索框填充词
-http-response ^https:\/\/search\.video\.iqiyi\.com\/q\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除搜索框填充词
+http-response ^https:\/\/search\.video\.iqiyi\.com\/q\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除搜索框填充词
 
 # 开屏和播放广告
-http-response ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除开屏和播放广告
+http-response ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iQiYi_Video/iQiYi_Video_remove_ads.js, requires-body = true, tag = 移除开屏和播放广告
 
 [Mitm]
 hostname = -i.vip.iqiyi.com, *.iqiyi.com

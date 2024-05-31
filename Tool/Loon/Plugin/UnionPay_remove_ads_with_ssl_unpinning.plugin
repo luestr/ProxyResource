@@ -2,8 +2,8 @@
 #!desc = 过滤银联云闪付广告，需要IPA签名方可使用。App Store用户请勿使用此插件，务必点击下方链接查看详细教程。
 #!openUrl = https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/UnionPay.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/UnionPay.png
 #!date = 2023-12-07 18:25:47
 
 [Rule]
