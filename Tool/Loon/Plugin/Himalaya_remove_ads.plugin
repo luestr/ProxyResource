@@ -2,8 +2,8 @@
 #!desc = 过滤喜马拉雅广告
 #!openUrl = 
 #!author = 佚名
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Himalaya.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Himalaya.png
 #!date = 2023-10-29 13:48:55
 
 [Rewrite]
@@ -46,15 +46,15 @@
 
 [Script]
 # 首页顶部去除直播
-http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页直播推广
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页直播推广
 # 屏蔽首页横幅广告
-http-response ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页横幅广告
+http-response ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页横幅广告
 # 屏蔽首页动态广告
-http-response ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页动态广告
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除首页动态广告
 # 屏蔽标签页滚动广告
-http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除标签页滚动广告
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除标签页滚动广告
 # 去除我的页面广告标签
-http-response ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除我的页面广告
+http-response ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage  script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Himalaya/Himalaya_remove_ads.js, requires-body = true, tag = 移除我的页面广告
 
 [Mitm]
 hostname = *.xima*.*, *.xmcdn.*

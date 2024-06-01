@@ -2,8 +2,8 @@
 #!desc = 解除TestFlight的区域限制，支持tvOS。
 #!openUrl = 
 #!author = NobyDa
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/TestFlight.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TestFlight.png
 #!date = 2023-09-06 01:30:10
 
 [General]
@@ -13,7 +13,7 @@ skip-proxy = iosapps.itunes.apple.com
 DOMAIN, testflight.apple.com, PROXY
 
 [Script]
-http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/TestFlight/TF_Download.js, requires-body = true, tag = TestFlight解锁
+http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/TestFlight/TF_Download.js, requires-body = true, tag = TestFlight解锁
 
 [Mitm]
 hostname = testflight.apple.com

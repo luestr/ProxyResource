@@ -9,7 +9,7 @@ https://service.ilovepdf.com/v1/user url response-body false response-body true
    
 可改写为Loon的脚本复写：
 [Script] 
-http-response https://service.ilovepdf.com/v1/user requires-body=true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-body.js, argument = false->true
+http-response https://service.ilovepdf.com/v1/user requires-body=true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CommonScript/replace-body.js, argument = false->true
 
 argument=要匹配值=作为替换的值
 支持正则：如argument=\w+->test

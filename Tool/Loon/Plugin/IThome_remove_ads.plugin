@@ -2,8 +2,8 @@
 #!desc = 过滤IT之家信息流广告和文末广告，自定义移除置顶和轮播图。自定义移除项需在插件配置，此插件仅支持8.30及以上版本客户端。
 #!openUrl = 
 #!author = keywos
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/IThome.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/IThome.png
 #!select = 移除置顶项, 开启, 关闭
 #!select = 移除轮播图广告, 开启, 关闭
 #!select = 移除全部轮播图, 开启, 关闭
@@ -14,7 +14,7 @@
 ^https?:\/\/dat\.ruanmei\.com\/ithome\/money\/acd\.json$ reject
 
 [Script]
-http-response ^https:\/\/napi\.ithome\.com\/api\/(?:news\/index|topmenu\/getfeeds\?|api\/douyin\/GetLiveInfo) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/IThome/IThome_remove_ads.js, requires-body = true, tag = IT之家去广告
+http-response ^https:\/\/napi\.ithome\.com\/api\/(?:news\/index|topmenu\/getfeeds\?|api\/douyin\/GetLiveInfo) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/IThome/IThome_remove_ads.js, requires-body = true, tag = IT之家去广告
   
 [Mitm]
 hostname = napi.ithome.com, api.zuihuimai.com, dat.ruanmei.com

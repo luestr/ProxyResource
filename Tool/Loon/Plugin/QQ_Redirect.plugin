@@ -2,8 +2,8 @@
 #!desc = 解除QQ内访问非白名单之外的地址提示停止访问该页面的限制，并移除跟踪参数。此插件需要Loon 3.1.4(649)及以上版本方可使用，使用前需要清除QQ的缓存数据。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/QQ.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QQ.png
 #!date = 2024-01-12 20:21:38
 
 [Rewrite]
