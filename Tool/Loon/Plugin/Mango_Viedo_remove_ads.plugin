@@ -2,8 +2,8 @@
 #!desc = 过滤芒果TV客户端广告，由于此插件不再维护，客户端版本高于7.5.4可能会导致此插件失效，请勿升级客户端。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Mango_TV.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Mango_TV.png
 #!date = 2023-12-06 16:25:52
 
 [Rule]
@@ -38,21 +38,21 @@ URL-REGEX, ^http:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v1\?, REJECT-DI
 
 [Script]
 # 我的页面
-http-response ^https:\/\/me\.bz\.mgtv\.com\/v3\/module\/list\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除我的页面推广
+http-response ^https:\/\/me\.bz\.mgtv\.com\/v3\/module\/list\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除我的页面推广
 
 # 首页信息流和顶部标签页
-http-response ^http:\/\/mob-st\.bz\.mgtv\.com\/odin\/c1\/channel\/index\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除首页信息流和顶部标签页推广
-http-response ^https?:\/\/dc2?\.bz\.mgtv\.com\/dynamic\/v1\/channel\/(index|vrsList)\/\w script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除首页信息流和顶部标签页推广
+http-response ^http:\/\/mob-st\.bz\.mgtv\.com\/odin\/c1\/channel\/index\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除首页信息流和顶部标签页推广
+http-response ^https?:\/\/dc2?\.bz\.mgtv\.com\/dynamic\/v1\/channel\/(index|vrsList)\/\w script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除首页信息流和顶部标签页推广
 
 # 底栏
-http-response ^https:\/\/mobile\.api\.mgtv\.com\/mobile\/config\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除无用底栏
+http-response ^https:\/\/mobile\.api\.mgtv\.com\/mobile\/config\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除无用底栏
 
 # 播放详情页
-http-response ^https:\/\/mobile\.api\.mgtv\.com\/v10\/video\/info\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除播放详情页推广
-http-response ^https:\/\/mobile-thor\.api\.mgtv\.com\/v1\/vod\/info\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除播放详情页推广
+http-response ^https:\/\/mobile\.api\.mgtv\.com\/v10\/video\/info\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除播放详情页推广
+http-response ^https:\/\/mobile-thor\.api\.mgtv\.com\/v1\/vod\/info\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除播放详情页推广
 
 # 搜索框填充词
-http-response ^https?:\/\/mobileso\.bz\.mgtv\.com\/mobile\/recommend\/v2\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除搜索框填充词
+http-response ^https?:\/\/mobileso\.bz\.mgtv\.com\/mobile\/recommend\/v2\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Mango_TV/Mango_TV_remove_ads.js, requires-body = true, tag = 移除搜索框填充词
 
 [Mitm]
 hostname = *.mgtv.com

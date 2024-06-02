@@ -2,12 +2,12 @@
 #!desc = 移除百度搜索移动端网页的首页广告信息流
 #!openUrl = 
 #!author = Keywos
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Baidu.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Baidu.png
 #!date = 2023-09-12 20:30:28
 
 [Script]
-http-response ^https?:\/\/(www|m)\.baidu\.com\/?($|\?from=\w{8,9}) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body = true, tag = 移除百度搜索首页信息流广告
+http-response ^https?:\/\/(www|m)\.baidu\.com\/?($|\?from=\w{8,9}) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body = true, tag = 移除百度搜索首页信息流广告
 
 [Mitm]
 hostname = m.baidu.com, www.baidu.com

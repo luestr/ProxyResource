@@ -2,8 +2,8 @@
 #!desc = 用于切换可莉仓库源的插件，以便能够在直连的情况下也能更新仓库资源。此插件和GitHub加速类插件冲突，不可同时启用。可在Bitbucket、GitLab和GitHub平台之间切换可莉的仓库源。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/Switch.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Switch.png
 #!select = 仓库源, Bitbucket - 四网直连, GitLab - 电信联通直连, GitHub - 访问不畅
 #!date = 2024-04-21 02:37:51
 
@@ -12,9 +12,9 @@ DOMAIN-SUFFIX, gitlab.com, DIRECT
 DOMAIN-SUFFIX, bitbucket.org, DIRECT
 
 [Script]
-http-request ^https:\/\/raw\.githubusercontent\.com\/luestr\/ProxyResource\/main\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = GitHub换源
-http-request ^https:\/\/gitlab\.com\/lodepuly\/vpn_tool\/-\/raw\/master\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = GitLab换源
-http-request ^https:\/\/bitbucket\.org\/luestr\/proxyresource\/raw\/main\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = Bitbucket换源
+http-request ^https:\/\/raw\.githubusercontent\.com\/luestr\/ProxyResource\/main\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = GitHub换源
+http-request ^https:\/\/gitlab\.com\/lodepuly\/vpn_tool\/-\/raw\/master\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = GitLab换源
+http-request ^https:\/\/bitbucket\.org\/luestr\/proxyresource\/raw\/main\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Switch_repository_source/Switch_repository_source.js, tag = Bitbucket换源
 
 [Mitm]
 hostname = gitlab.com, raw.githubusercontent.com, bitbucket.org

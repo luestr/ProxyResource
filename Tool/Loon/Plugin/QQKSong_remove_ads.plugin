@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、歌房页面弹窗广告、消息页广告和我的页面广告。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/QQKSong.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QQKSong.png
 #!date = 2024-01-20 16:42:07
 
 [Rule]

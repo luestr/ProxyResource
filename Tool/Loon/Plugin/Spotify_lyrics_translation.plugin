@@ -2,21 +2,21 @@
 #!desc = 将Spotify的外语歌词翻译为简体中文，并提供双语翻译支持。
 #!openUrl = 
 #!author = VirgilClyne
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
 #!date = 2024-02-20 11:11:20
 
 [Script]
-http-response ^https?:\/\/api\.spotify\.com\/v1\/tracks\? requires-body = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Spotify_response.js, tag = 跟踪响应·JSON
+http-response ^https?:\/\/api\.spotify\.com\/v1\/tracks\? requires-body = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Spotify_response.js, tag = 跟踪响应·JSON
 
-http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json requires-body = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Spotify_request.js, tag = 歌词请求·JSON
-http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*) requires-body = true, binary-body-mode = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Spotify_request.js, tag = 歌词请求·Proto
+http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json requires-body = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Spotify_request.js, tag = 歌词请求·JSON
+http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*) requires-body = true, binary-body-mode = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Spotify_request.js, tag = 歌词请求·Proto
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=Translate requires-body = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Translate_response.js, tag = 翻译歌词响应·JSON
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=Translate requires-body = true, binary-body-mode = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/Translate_response.js, tag = 翻译歌词响应·Proto
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=Translate requires-body = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Translate_response.js, tag = 翻译歌词响应·JSON
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=Translate requires-body = true, binary-body-mode = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/Translate_response.js, tag = 翻译歌词响应·Proto
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External requires-body = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/External_Lyrics_response.js, tag = 外部歌词响应·JSON
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External requires-body = true, binary-body-mode = true, script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Spotify/External_Lyrics_response.js, tag = 外部歌词响应·Proto
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External requires-body = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/External_Lyrics_response.js, tag = 外部歌词响应·JSON
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External requires-body = true, binary-body-mode = true, script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Spotify/External_Lyrics_response.js, tag = 外部歌词响应·Proto
 
 [Mitm]
 hostname = api.spotify.com, spclient.wg.spotify.com

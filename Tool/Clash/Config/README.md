@@ -8,7 +8,7 @@
 
 更新日期：2024-05-18
 
-配置地址：[https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Clash_Sample_Configuration_By_iKeLee.yaml](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Clash_Sample_Configuration_By_iKeLee.yaml)
+配置地址：[https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Clash_Sample_Configuration_By_iKeLee.yaml](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Clash_Sample_Configuration_By_iKeLee.yaml)
 
 
 ### 策略说明
@@ -23,16 +23,16 @@
 
 策略组如图
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/1.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/1.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/2.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/2.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/3.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/3.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/4.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/4.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/5.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/5.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/6.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/6.png)
 
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Config/Resource/7.png)
+![](https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Config/Resource/7.png)

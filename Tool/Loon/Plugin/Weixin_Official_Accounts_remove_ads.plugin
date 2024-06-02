@@ -2,8 +2,8 @@
 #!desc = 过滤微信公众号广告
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weixin.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weixin.png
 #!date = 2024-04-14 20:49:25
 
 [Rule]
@@ -16,7 +16,7 @@ URL-REGEX, ^http:\/\/[\d\.]+(:49155)?\/finderpdd\.video\.qq\.com\/\d+\/\d+\/stod
 ^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|masonryfeed|relatedarticle)\? reject-dict
 
 # [Script]
-# http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Weixin/Weixin_Official_Accounts_remove_ads.js, requires-body = true, tag = 微信公众号去广告
+# http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Weixin/Weixin_Official_Accounts_remove_ads.js, requires-body = true, tag = 微信公众号去广告
 
 [Mitm]
 hostname = mp.weixin.qq.com

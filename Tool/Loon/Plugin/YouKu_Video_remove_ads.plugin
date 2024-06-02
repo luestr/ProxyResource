@@ -2,8 +2,8 @@
 #!desc = 过滤优酷视频客户端广告，由于此插件不再维护，客户端版本高于11.0.48可能会导致此插件失效，请勿升级客户端。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouKu_Video.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YouKu_Video.png
 #!date = 2024-01-13 22:16:27
 
 [Rule]
@@ -39,22 +39,22 @@ DOMAIN, youku-acs.m.taobao.com, REJECT
 
 [Script]
 # 播放详情页、首页信息流、顶部标签页、我的页面、评论区
-http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除首页广告
+http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除首页广告
 
 # 底栏
-http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appconfig\.get script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除无用底栏
+http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appconfig\.get script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除无用底栏
 
 # 青少年模式弹窗
-http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.huluwa\.dispatcher\.youthmode\.config2 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除青少年模式弹窗
+http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.huluwa\.dispatcher\.youthmode\.config2 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除青少年模式弹窗
 
 # 搜索列表
-http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除搜索列表推广
+http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除搜索列表推广
 
 # 热剧弹窗
-http-response ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除热剧弹窗
+http-response ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除热剧弹窗
 
 # 开屏广告
-http-response ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除开屏广告
+http-response ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouKu_Video/YouKu_Video_remove_ads.js, requires-body = true, tag = 移除开屏广告
 
 [Mitm]
 hostname = acs.youku.com, push.m.youku.com, un-acs.youku.com

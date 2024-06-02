@@ -3,7 +3,7 @@
 #!openUrl = 
 #!author = RuCu6
 #!homepage = https://gitlab.com/lodepuly/vpn_tool//tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/AliYunDrive.png
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AliYunDrive.png
 #!date = 2024-01-25 18:03:14
 
 [Rule]
@@ -18,8 +18,8 @@ IP-CIDR, 203.107.1.1/24, REJECT, no-resolve
 
 
 [Script]
-http-response ^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js, requires-body = true, tag = 移除阿里云盘广告
-http-response ^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js, requires-body = true, tag = 移除阿里云盘广告
+http-response ^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js, requires-body = true, tag = 移除阿里云盘广告
+http-response ^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js, requires-body = true, tag = 移除阿里云盘广告
 
 [Mitm]
 hostname = api.alipan.com, member.alipan.com
