@@ -2,8 +2,8 @@
 #!desc = 移除稿定设计开屏广告、首页轮播图和弹窗。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/GaoDing.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/GaoDing.png
 #!date = 2024-05-12 00:14:35
 
 [Rewrite]
@@ -15,7 +15,7 @@
 
 [Script]
 # 移除首页轮播图
-http-response ^https:\/\/qiye\.gaoding\.com\/api\/v3\/oc\/exhibitions\/template\/resources$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/GaoDing/GaoDing_remove_ads.js, requires-body = true, tag = 移除首页轮播图
+http-response ^https:\/\/qiye\.gaoding\.com\/api\/v3\/oc\/exhibitions\/template\/resources$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/GaoDing/GaoDing_remove_ads.js, requires-body = true, tag = 移除首页轮播图
 
 [Mitm]
 hostname = qiye.gaoding.com
