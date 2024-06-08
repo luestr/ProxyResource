@@ -2,8 +2,8 @@
 #!desc = 过滤财新广告
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/CaixinMedia.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CaixinMedia.png
 #!date = 2023-11-26 09:25:32
 
 [Rewrite]
@@ -19,15 +19,15 @@
 
 [Script]
 # 财新数据通
-http-response ^https:\/\/entities\.caixin\.com\/api\/dataplus\/columns script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除财新数据通广告
+http-response ^https:\/\/entities\.caixin\.com\/api\/dataplus\/columns script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除财新数据通广告
 # 文章底部广告、搜索框填充词
-http-response ^https:\/\/gateway\.caixin\.com\/api\/app-api\/(caixinapp\/appinfo|search\/getkeyword) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除文章底部广告
+http-response ^https:\/\/gateway\.caixin\.com\/api\/app-api\/(caixinapp\/appinfo|search\/getkeyword) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除文章底部广告
 # 财新FM
-http-response ^https:\/\/gateway\.caixin\.com\/api\/app-content\/fm\/index\/list\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除新FM广告
+http-response ^https:\/\/gateway\.caixin\.com\/api\/app-content\/fm\/index\/list\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除新FM广告
 # 开屏广告、文章顶部横幅
-http-response ^https:\/\/gg\.caixin\.com\/s\?z=caixin&op=1 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除开屏广告和文章顶部横幅
+http-response ^https:\/\/gg\.caixin\.com\/s\?z=caixin&op=1 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除开屏广告和文章顶部横幅
 # 文章中间推广
-http-response ^https:\/\/mapps?v5\.caixin\.com\/(channelv5\/list|\/?index_page_v5\/)\w+ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除文章中间推广
+http-response ^https:\/\/mapps?v5\.caixin\.com\/(channelv5\/list|\/?index_page_v5\/)\w+ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body = true, tag = 移除文章中间推广
 
 [Mitm]
 hostname = e*.caixin.com, g*.caixin.com, m*.caixin.com

@@ -2,14 +2,14 @@
 #!desc = 移除中国移动云盘开屏广告及应用内广告，首页的多余卡片可滑到最底部自定义隐藏掉，插件对此不做处理。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/mobileClouds.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/mobileClouds.png
 #!date = 2024-02-19 09:43:41
 
 [Script]
-http-response ^https:\/\/jzts\.cmpassport\.com\/personalized\/getPushContent script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/mobileClouds/mobileClouds_remove_ads.js, requires-body = true, tag = 移除开屏广告
+http-response ^https:\/\/jzts\.cmpassport\.com\/personalized\/getPushContent script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/mobileClouds/mobileClouds_remove_ads.js, requires-body = true, tag = 移除开屏广告
 
-http-response ^https:\/\/ad\.mcloud\.139\.com\/advertapi\/adv-filter\/ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/mobileClouds/mobileClouds_remove_ads.js, requires-body = true, tag = 移除应用内广告
+http-response ^https:\/\/ad\.mcloud\.139\.com\/advertapi\/adv-filter\/ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/mobileClouds/mobileClouds_remove_ads.js, requires-body = true, tag = 移除应用内广告
 
 [Mitm]
 hostname = jzts.cmpassport.com, ad.mcloud.139.com

@@ -2,8 +2,8 @@
 #!desc = 为Safari提供快速切换搜索引擎的能力，点击下方链接查看使用说明。
 #!openUrl = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Resource/Markdown/QuickSearch/README.md
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Safari.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Safari.png
 #!date = 2023-09-08 13:48:55
 
 [Rewrite]

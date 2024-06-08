@@ -2,8 +2,8 @@
 #!desc = 将其他工具的Rewrite、Rule和JavaScript资源转换为Loon能识别的格式，使用前请在本插件的详情页面为[PROXY]项分配代理策略。点击下方链接查看更详细的使用方法。
 #!openUrl = https://script.hub/
 #!author = 小白脸 xream keywos CKYB
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/Script-Hub.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Script-Hub.png
 #!date = 2023-12-03 12:53:35
 #!select = ScriptHub通知, 开启通知, 关闭通知
 #!select = 启用插件随机图标, 启用, 禁用
