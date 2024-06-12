@@ -2,12 +2,12 @@
 #!desc = 解锁微信外部链接访问限制，跳过中间界面。支付宝链接、被封禁链接进行通知弹窗跳转，在微信中用快照显示被封禁的链接（可选），在微信中进行强制重定向（可选），群聊及扫码均可使用，可选项可在脚本的2~3行更改，也可在BoxJs中更改。
 #!openUrl = 
 #!author = zZPiglet
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weixin.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weixin.png
 #!date = 2024-01-17 19:20:19
 
 [Script]
-http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Weixin/Weixin_external_links_unlock.js, requires-body = true, tag = 微信外部链接解锁
+http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Weixin/Weixin_external_links_unlock.js, requires-body = true, tag = 微信外部链接解锁
 
 [Mitm]
 hostname = weixin110.qq.com, security.wechat.com

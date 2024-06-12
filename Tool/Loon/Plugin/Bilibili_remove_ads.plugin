@@ -2,8 +2,8 @@
 #!desc = 过滤Bilibili广告、移除青少年模式弹窗和交互式弹幕、移除无用功能和链接跟踪参数。此插件仅建议iOS 15以上设备使用，且必须启用MitM-over-HTTP/2功能。
 #!openUrl = 
 #!author = Maasea RuCu6 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bilibili.png
 #!date = 2024-05-23 13:25:06
 
 [Rule]
@@ -43,57 +43,57 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 
 [Script]
 # 移除播放页面视频列表广告
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|ViewProgress)$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除播放页面视频列表广告
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|ViewProgress)$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除播放页面视频列表广告
 
 # 移除搜索结果广告 - 待完善
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除搜索结果广告
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除搜索结果广告
 
 # 移除评论区广告
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除评论区广告
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除评论区广告
 
 # 移除动态页面广告 - 待完善
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除动态页面广告
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除动态页面广告
 
 # 会员特效弹幕处理
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
 
 # 移除交互式弹幕
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
 
 # 移除青少年模式弹窗
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除青少年弹窗
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除青少年弹窗
 
 # 上部为Proto处理，下部为JSON配置处理
 
 # 移除开屏广告
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除开屏广告
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除开屏广告
 
 # 移除首页推荐广告
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除首页推荐广告
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除首页推荐广告
 
 # 移除右上角活动入口
-http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除右上角活动入口
+http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除右上角活动入口
 
 # 移除直播内容和大会员专享
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播内容和大会员专享
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播内容和大会员专享
 
 # 精简首页顶部标签
-http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 精简首页顶部标签
+http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 精简首页顶部标签
 
 # 移除热搜广告
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除热搜广告
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除热搜广告
 
 # 移除观影页广告
-http-response ^https:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除观影页广告
+http-response ^https:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除观影页广告
 
 # 移除直播间广告
-http-response ^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播间广告
+http-response ^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播间广告
 
 # 移除皮肤推送
-http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除皮肤推送
+http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除皮肤推送
 
 # 精简我的页面
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine\?|mine\/ipad\?) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 精简我的页面
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine\?|mine\/ipad\?) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 精简我的页面
 
 [MitM]
 hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net, www.bilibili.com, m.bilibili.com, live.bilibili.com

@@ -2,8 +2,8 @@
 #!desc = 过滤微博广告及去除各部分推广模块
 #!openUrl = 
 #!author = RuCu6 zmqcherish
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weibo.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weibo.png
 #!date = 2024-04-13 19:05:47
 
 [Rule]

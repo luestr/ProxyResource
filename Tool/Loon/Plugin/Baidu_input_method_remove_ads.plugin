@@ -2,8 +2,8 @@
 #!desc = 过滤百度输入法广告，替换个人主页随机图。
 #!openUrl = 
 #!author = Keywos
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Baidu_input_method.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Baidu_input_method.png
 #!date = 2023-09-08 13:48:55
 
 [Rewrite]
@@ -21,7 +21,7 @@
 ^https:\/\/mime\.baidu\.com\/v5\/(fb\/st\?logtype|(notiv3|cellloc_noti|noti_cloudswitch_noti)\/info) reject-dict
 
 [Script]
-http-response ^https?:\/\/mime\.baidu\.com\/(imrobot\/v1\/pub\/relation\/get_robot_list|v5\/custom_page\/(layout|getdata)) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Baidu_input_method/Baidu_input_method_remove_ads.js, requires-body = true, tag = 百度输入法去广告
+http-response ^https?:\/\/mime\.baidu\.com\/(imrobot\/v1\/pub\/relation\/get_robot_list|v5\/custom_page\/(layout|getdata)) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Baidu_input_method/Baidu_input_method_remove_ads.js, requires-body = true, tag = 百度输入法去广告
 
 [Mitm]
 hostname = imeres.baidu.com, mbd.baidu.com, mime.baidu.com

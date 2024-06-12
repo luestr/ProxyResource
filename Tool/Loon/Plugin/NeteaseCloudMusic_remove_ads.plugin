@@ -2,8 +2,8 @@
 #!desc = 过滤网易云音乐广告，并允许自定义界面。
 #!openUrl = 
 #!author = Keywos
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/NeteaseCloudMusic.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/NeteaseCloudMusic.png
 #!date = 22024-06-12 02:09:03
 #!select = 隐藏漫游标签, 是, 否
 #!select = 隐藏动态标签, 是, 否
@@ -40,25 +40,25 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 
 [Script]
 # mian | 热推、有话想说、分享一下、歌曲下的祝福等小提示去除 ｜ 评论区 乐迷、星评等级 关注 等 图标去除
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/(batch|v\d\/resource\/comment\/floor\/get) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_mian
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/(batch|v\d\/resource\/comment\/floor\/get) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_mian
 
 # tab
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/home\/framework\/tab script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_tab
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/home\/framework\/tab script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_tab
 
 # 推荐 | home | 主页
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/(homepage\/block\/page|link\/page\/rcmd\/(resource\/show|block\/resource\/multi\/refresh)) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_home
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/(homepage\/block\/page|link\/page\/rcmd\/(resource\/show|block\/resource\/multi\/refresh)) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_home
 
 # 发现
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_fx
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_fx
 
 # effect
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/song\/play\/more\/list\/v\d script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_effect
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/song\/play\/more\/list\/v\d script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_effect
 
 # 我的 MyPageBar ad
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/position\/show\/resource script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_mybarad
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/position\/show\/resource script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_mybarad
 
 # 显示未关注你
-http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/user\/follow\/users\/mixed\/get script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_foll
+http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/user\/follow\/users\/mixed\/get script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js, requires-body = true, binary-body-mode = true, timeout = 20, tag = ne_foll
 
 [Mitm]
 hostname = interface.music.163.com, interface?.music.163.com, ipv4.music.163.com

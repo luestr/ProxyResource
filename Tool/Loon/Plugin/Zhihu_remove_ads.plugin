@@ -2,8 +2,8 @@
 #!desc = 去除各部广告，建议卸载知乎重新安装。
 #!openUrl = 
 #!author = RuCu6 blackmatrix7
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Zhihu.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Zhihu.png
 #!date = 2024-04-29 00:55:06
 
 [Rule]
@@ -57,26 +57,26 @@ IP-CIDR6, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT
 
 [Script]
 # 首页 - 悬浮图标、顶部横幅、开屏广告、关注页推荐、推荐信息流、热榜信息流、热榜直播、回答底部卡片
-http-response ^https:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
-http-response ^https:\/\/api\.zhihu\.com\/feed\/render\/tab\/config\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
-http-response ^https:\/\/api\.zhihu\.com\/(moments_v3|topstory\/hot-lists\/total|topstory\/recommend) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
-http-response ^https:\/\/api\.zhihu\.com\/v2\/topstory\/hot-lists\/everyone-seeing\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
-http-response ^https:\/\/api\.zhihu\.com\/(answers|articles)\/v2\/\d+ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/feed\/render\/tab\/config\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/(moments_v3|topstory\/hot-lists\/total|topstory\/recommend) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/v2\/topstory\/hot-lists\/everyone-seeing\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/(answers|articles)\/v2\/\d+ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除首页推广
 
 # 会员页面 - 弹窗、悬浮动图
-http-response ^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除会员页面推广
+http-response ^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除会员页面推广
 
 # 搜索页 - 关键词、猜你想搜
-http-response ^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument = ""recommend_queries":\{.+\}->"recommend_queries":{}", tag = 移除搜索页关键词
+http-response ^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument = ""recommend_queries":\{.+\}->"recommend_queries":{}", tag = 移除搜索页关键词
 
 # 回答详情页 - 评论区顶部、下一个回答
-http-response ^https:\/\/api\.zhihu\.com\/next-(bff|data|render)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
-http-response ^https:\/\/api\.zhihu\.com\/questions\/\d+(\/answers|\/feeds|\?include=) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
-http-response ^https:\/\/www\.zhihu\.com\/api\/v4\/(articles|answers)\/\d+\/recommendations?\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
+http-response ^https:\/\/api\.zhihu\.com\/next-(bff|data|render)\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
+http-response ^https:\/\/api\.zhihu\.com\/questions\/\d+(\/answers|\/feeds|\?include=) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
+http-response ^https:\/\/www\.zhihu\.com\/api\/v4\/(articles|answers)\/\d+\/recommendations?\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 移除回答详情页推广
 
 # 其他 - 服务器推送配置
-http-response ^https:\/\/appcloud2\.zhihu\.com\/v3\/config script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 拦截服务器推送配置
-http-response ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 拦截服务器推送配置
+http-response ^https:\/\/appcloud2\.zhihu\.com\/v3\/config script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 拦截服务器推送配置
+http-response ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body = true, tag = 拦截服务器推送配置
 
 [Mitm]
 hostname = api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, link.zhihu.com, zhuanlan.zhihu.com, m-cloud.zhihu.com

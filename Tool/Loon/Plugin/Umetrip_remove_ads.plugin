@@ -2,15 +2,15 @@
 #!desc = 过滤航旅纵横广告
 #!openUrl = 
 #!author = 佚名
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Umetrip.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Umetrip.png
 #!date = 2023-10-27 11:24:48
 
 [Rule]
 URL-REGEX, ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native, REJECT
 
 [Script]
-http-response ^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Umetrip/Umetrip_remove_ads.js, tag = 移除首页广告
+http-response ^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Umetrip/Umetrip_remove_ads.js, tag = 移除首页广告
 
 [Mitm]
 hostname = 114.115.217.129, home.umetrip.com

@@ -2,8 +2,8 @@
 #!desc = 过滤腾讯视频客户端广告，如遇失效，则需要重新安装腾讯视频客户端。由于此插件不再维护，客户端版本高于8.9.40可能会导致此插件失效，请勿升级客户端。
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Tencent_Video.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Tencent_Video.png
 #!date = 2023-10-01 21:35:52
 
 [Rule]
@@ -28,7 +28,7 @@ URL-REGEX, ^http:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.
 ^https?:\/\/vv\.video\.qq\.com\/(diff|get)vmind reject-dict
 
 [Script]
-http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument = "&sppreviewtype=\d(.*)&spsrt=\d->&sppreviewtype=0$1&spsrt=0", tag = 移除广告
+http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument = "&sppreviewtype=\d(.*)&spsrt=\d->&sppreviewtype=0$1&spsrt=0", tag = 移除广告
 
 [Mitm]
 hostname = vv.video.qq.com

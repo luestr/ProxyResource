@@ -2,8 +2,8 @@
 #!desc = 过滤菜鸟广告
 #!openUrl = 
 #!author = RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Cainiao.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cainiao.png
 #!date = 2024-06-08 09:40:34
 
 [Rule]
@@ -40,17 +40,17 @@ DOMAIN, ykad-data.youku.com, REJECT
 
 [Script]
 # 移除阿里巴巴通用广告请求
-http-response ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Alibaba/Alibaba_amdc_reject.js, tag = 移除阿里巴巴通用广告请求
+http-response ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Alibaba/Alibaba_amdc_reject.js, tag = 移除阿里巴巴通用广告请求
 
 # 首页 - 好物推荐、商品推广、底部标签页、快递详情页、问卷调查、主页图标
-http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
-http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
 
 # 消息中心
-http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除消息中心推广
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除消息中心推广
 
 # 支付宝 - 菜鸟小程序
-http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除菜鸟小程序推广
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除菜鸟小程序推广
 
 [Mitm]
 hostname = cn-acs.m.cainiao.com, guide-acs.m.taobao.com
