@@ -2,8 +2,8 @@
 #!desc = 可莉自用的广告过滤器
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/KeLee.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
 #!date = 2024-07-02 01:17:54
 
 [Rule]
@@ -321,11 +321,11 @@ https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome\.do reject-d
 
 [Script]
 # 字节跳动穿山甲
-http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao(\d|-b)?|is\.snssdk)\.com\/api\/ad\/union\/sdk\/get_ads script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除字节跳动广告
+http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao(\d|-b)?|is\.snssdk)\.com\/api\/ad\/union\/sdk\/get_ads script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除字节跳动广告
 # 快手联盟
-http-response ^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除快手联盟广告
+http-response ^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$ script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除快手联盟广告
 # 腾讯优量汇
-http-response ^https:\/\/mi\.gdt\.qq\.com\/gdt_mview\.fcg\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除腾讯优量汇广告
+http-response ^https:\/\/mi\.gdt\.qq\.com\/gdt_mview\.fcg\? script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Remove_ads_by_keli/adsense.js, requires-body = true, tag = 移除腾讯优量汇广告
 
 #向日葵 #开屏广告 #主机名client-api-v2.oray.com
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_STARTUP reject-dict

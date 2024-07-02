@@ -3,7 +3,7 @@
 #!openUrl = https://apps.apple.com/app/id1032287195
 #!author = ZenmoFeiShi RuCu6 可莉🅥
 #!homepage = https://gitlab.com/lodepuly/vpn_tool//tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Soul.png
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Soul.png
 #!date = 2024-06-16 20:23:01
 
 [Rule]
@@ -33,19 +33,19 @@ IP-CIDR, 121.196.197.147/32, REJECT, no-resolve
 ^https:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 reject-200
 
 [Script]
-http-response ^https:\/\/api-a\.soulapp\.cn\/v2\/post\/gift\/list script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/post\.soulapp\.cn\/hot\/soul\/rank script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-account\.soulapp\.cn\/teenager\/config script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/post\.soulapp\.cn\/v2\/post\/recSquare\/subTabs script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
-http-response ^https:\/\/api-user\.soulapp\.cn\/homepage\/diamond\/position\/info script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-a\.soulapp\.cn\/v2\/post\/gift\/list script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/post\.soulapp\.cn\/hot\/soul\/rank script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-account\.soulapp\.cn\/teenager\/config script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/post\.soulapp\.cn\/v2\/post\/recSquare\/subTabs script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
+http-response ^https:\/\/api-user\.soulapp\.cn\/homepage\/diamond\/position\/info script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/Soul/Soul_remove_ads.js, requires-body = true, tag = 移除Soul广告
 
 [Mitm]
 hostname = 47.110.187.87, api-a.soulapp.cn, api-account.soulapp.cn, api-chat.soulapp.cn, api-user.soulapp.cn, chat-live.soulapp.cn, gateway-mobile-gray.soulapp.cn, post.soulapp.cn, ssp.soulapp.cn

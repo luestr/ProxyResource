@@ -2,8 +2,8 @@
 #!desc = 过滤滴滴出行广告
 #!openUrl = https://apps.apple.com/app/id554499054
 #!author = ZenmoFeiShi
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/DiDi.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DiDi.png
 #!date = 2024-06-21 01:28:12
 
 [Rule]
@@ -13,18 +13,18 @@ DOMAIN, gwp.xiaojukeji.com, REJECT
 ^https:\/\/hd\.xiaojukeji\.com\/d reject-dict
 
 [Script]
-http-response ^https:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/daijia\.kuaidadi\.com\/gateway script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/daijia\.kuaidadi\.com:443\/gateway script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/freight\.xiaojukeji\.com\/gateway script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/api\.udache\.com\/gulfstream\/pre-sale\/v1\/other\/pGetSceneList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
-http-response ^https:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/daijia\.kuaidadi\.com\/gateway script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/daijia\.kuaidadi\.com:443\/gateway script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/freight\.xiaojukeji\.com\/gateway script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/api\.udache\.com\/gulfstream\/pre-sale\/v1\/other\/pGetSceneList script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
+http-response ^https:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/DiDi/DiDi_remove_ads.js, requires-body = true, tag = 移除广告
 
 [Mitm]
 hostname = api.udache.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, ct.xiaojukeji.com, daijia.kuaidadi.com, freight.xiaojukeji.com, hd.xiaojukeji.com, res.xiaojukeji.com

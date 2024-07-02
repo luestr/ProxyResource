@@ -191,42 +191,42 @@ rule-providers:
   Direct:
     <<: *RuleProviders
     path: './rules/Direct.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/Direct.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/Direct.yaml'
 
   Proxy:
     <<: *RuleProviders
     path: './rules/Proxy.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/Proxy.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/Proxy.yaml'
 
   ChinaDownloadCDN:
     <<: *RuleProviders
     path: './rules/ChinaDownloadCDN.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/ChinaDownloadCDN.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/ChinaDownloadCDN.yaml'
 
   InternationalDownloadCDN:
     <<: *RuleProviders
     path: './rules/InternationalDownloadCDN.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/InternationalDownloadCDN.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/InternationalDownloadCDN.yaml'
 
   AI:
     <<: *RuleProviders
     path: './rules/AI.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/AI.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/AI.yaml'
 
   TikTok:
     <<: *RuleProviders
     path: './rules/TikTok.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/TikTok.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/TikTok.yaml'
 
   Game:
     <<: *RuleProviders
     path: './rules/Game.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/Game.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/Game.yaml'
 
   1Password:
     <<: *RuleProviders
     path: './rules/1PasswordUS.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/1PasswordUS.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/1PasswordUS.yaml'
 
   Steam:
     <<: *RuleProviders
@@ -241,32 +241,32 @@ rule-providers:
   Emby:
     <<: *RuleProviders
     path: './rules/Emby.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/EmbyServer.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/EmbyServer.yaml'
 
   iCloudChina:
     <<: *RuleProviders
     path: './rules/iCloudChina.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/iCloudChina.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/iCloudChina.yaml'
 
   ApplePushNotificationService:
     <<: *RuleProviders
     path: './rules/ApplePushNotificationService.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/ApplePushNotificationService.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/ApplePushNotificationService.yaml'
 
   AppleSoftwareUpdates:
     <<: *RuleProviders
     path: './rules/AppleSoftwareUpdates.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/AppleSoftwareUpdates.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/AppleSoftwareUpdates.yaml'
 
   AppleID:
     <<: *RuleProviders
     path: './rules/AppleID.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/AppleID.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/AppleID.yaml'
 
   AppStore:
     <<: *RuleProviders
     path: './rules/AppStore.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/AppStore.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/AppStore.yaml'
 
   TestFlight:
     <<: *RuleProviders
@@ -286,12 +286,12 @@ rule-providers:
   Telegram:
     <<: *RuleProviders
     path: './rules/Telegram.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/Telegram.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/Telegram.yaml'
 
   ESET_China:
     <<: *RuleProviders
     path: './rules/ESET_China.yaml'
-    url: 'https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/ESET_China.yaml'
+    url: 'https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/ESET_China.yaml'
 
 # 规则指向
 rules:

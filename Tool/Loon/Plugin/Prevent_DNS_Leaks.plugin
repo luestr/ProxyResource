@@ -2,8 +2,8 @@
 #!desc = 专为小白设计的DNS防泄露
 #!openUrl = 
 #!author = 非正常人类研究中心
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/Prevent_DNS_Leaks.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Prevent_DNS_Leaks.png
 #!date = 2024-01-11 21:38:24
 
 # 你猜为什么会有这个插件呢？

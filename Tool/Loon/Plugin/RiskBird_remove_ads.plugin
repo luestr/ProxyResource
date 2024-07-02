@@ -2,8 +2,8 @@
 #!desc = 移除首页信息流和轮播图
 #!openUrl = https://apps.apple.com/app/id1528682937
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/RiskBird.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/RiskBird.png
 #!date = 2024-06-30 01:25:09
 
 [Rewrite]
@@ -15,7 +15,7 @@
 
 [Script]
 # 查老板 - 推荐老板
-http-response ^https:\/\/m\.riskbird\.com\/prod-qbb-api\/query\/person\/personRecommend script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RiskBird/RiskBird_remove_ads.js, requires-body = true, tag = 移除推荐老板
+http-response ^https:\/\/m\.riskbird\.com\/prod-qbb-api\/query\/person\/personRecommend script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/RiskBird/RiskBird_remove_ads.js, requires-body = true, tag = 移除推荐老板
 
 [Mitm]
 hostname = m.riskbird.com

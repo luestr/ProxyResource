@@ -2,8 +2,8 @@
 #!desc = 移除YouTube视频、瀑布流、搜索和Shorts中的广告，移除底部的上传按钮，增加画中画及字幕翻译功能。移除YouTube Music底部的上传、选段和升级按钮，增加歌词翻译，支持二者的后台播放。此插件需要Loon版本为3.1.7(677)及以上，且需要启用QUIC回退保护。支持Premium订阅用户使用，不支持tvOS设备。
 #!openUrl = https://apps.apple.com/app/id544007664
 #!author = Maasea VirgilClyne Choler DivineEngine app2smile
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YouTube.png
 #!date = 2024-06-11 21:59:22
 #!select = 隐藏上传按钮, true, false
 #!select = 隐藏选段按钮, true, false
@@ -21,9 +21,9 @@ AND, ((DOMAIN-SUFFIX, youtubei.googleapis.com),  (PROTOCOL, QUIC)), REJECT
 
 [Script]
 # YouTube去广告
-http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js, requires-body = true, binary-body-mode = true, tag = YouTube请求
+http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js, requires-body = true, binary-body-mode = true, tag = YouTube请求
 
-http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body = true, binary-body-mode = true, tag = YouTube响应
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body = true, binary-body-mode = true, tag = YouTube响应
 
 [Mitm]
 hostname = *.googlevideo.com, youtubei.googleapis.com

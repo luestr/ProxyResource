@@ -2,8 +2,8 @@
 #!desc = 移除超市去开屏广告，移除首页顶部轮播图和图标广告、启动小弹图广告、首页右下角悬浮动画、搜索热搜榜、搜索建议词、搜索发现热词、订单页面商，精简我的页面。
 #!openUrl = https://apps.apple.com/app/id1144025167
 #!author = kelv1n1n 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/PuPuMall.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PuPuMall.png
 #!date = 2024-06-20 22:28:12
 
 [General]
@@ -22,12 +22,12 @@ URL-REGEX, ^http:\/\/139\.196\.12\.179:8053\/httpdns\/, REJECT
 # ^https:\/\/j1\.pupuapi\.com\/client\/member_card\/index\/my reject
 
 [Script]
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/search_component_banner script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/search\/hot_keywords\/v3 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/app_resource\/resource_preload\/list_h5_resource script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/recommendation\/interests\/products script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
-http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v1 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/search_component_banner script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/search\/hot_keywords\/v3 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/app_resource\/resource_preload\/list_h5_resource script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/recommendation\/interests\/products script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v1 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body = true, tag = 移除朴朴超市广告
 
 [Mitm]
 hostname = j1.pupuapi.com

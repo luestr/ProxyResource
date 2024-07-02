@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、应用内悬浮窗，精简我的页面。
 #!openUrl = https://apps.apple.com/app/id1002355194
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/ZhuanZhuan.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZhuanZhuan.png
 #!date = 2024-06-30 00:52:59
 
 [Rewrite]
@@ -18,10 +18,10 @@
 
 [Script]
 # 移除悬浮窗
-http-response ^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getfeedflowinfo script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js, requires-body = true, tag = 移除悬浮窗
+http-response ^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getfeedflowinfo script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js, requires-body = true, tag = 移除悬浮窗
 
 # 精简我的页面
-http-response ^https:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js, requires-body = true, tag = 精简我的页面
+http-response ^https:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js, requires-body = true, tag = 精简我的页面
 
 [Mitm]
 hostname = app.zhuanzhuan.com

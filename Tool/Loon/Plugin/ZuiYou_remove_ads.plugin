@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、信息流广告和广告轮播图。
 #!openUrl = https://apps.apple.com/app/id942443472
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/ZuiYou.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZuiYou.png
 #!date = 2024-07-02 02:22:54
 
 [Rule]

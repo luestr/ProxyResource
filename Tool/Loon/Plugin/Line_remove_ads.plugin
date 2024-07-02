@@ -2,8 +2,8 @@
 #!desc = 移除Line各类广告
 #!openUrl = https://apps.apple.com/app/id443904275
 #!author = jkgtw
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Line.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!date = 2024-06-20 22:35:09
 
 [Rewrite]

@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、应用内弹窗、首页轮播图、悬浮部件、信息流和搜索填充词。
 #!openUrl = https://apps.apple.com/app/id1527039353
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Aiinquiry.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Aiinquiry.png
 #!date = 2024-06-29 19:35:12
 
 [Rule]

@@ -2,8 +2,8 @@
 #!desc = 移除开屏广告、应用内弹窗、猜你想买、横幅推广和悬浮窗。
 #!openUrl = https://apps.apple.com/app/id1444411068
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/iMaiCai.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iMaiCai.png
 #!date = 2024-06-30 21:57:48
 
 [Rule]
@@ -39,7 +39,7 @@ IP-CIDR6, 2405:1480:1000:3::20/128, REJECT, no-resolve
 
 [Script]
 # 下发广告
-http-response ^https:\/\/portal-portm\.meituan\.com\/horn_ios\/mergeRequest script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/iMaiCai/iMaiCai_remove_ads.js, requires-body = true, tag = 移除下发广告
+http-response ^https:\/\/portal-portm\.meituan\.com\/horn_ios\/mergeRequest script-path = https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/iMaiCai/iMaiCai_remove_ads.js, requires-body = true, tag = 移除下发广告
 
 [Mitm]
 hostname = portal-portm.meituan.com, mall.meituan.com

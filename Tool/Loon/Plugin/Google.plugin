@@ -2,8 +2,8 @@
 #!desc = 将Google搜索重定向至.com域名，如遇频繁跳转请禁用本插件。
 #!openUrl = 
 #!author = 可莉🅥
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Google.png
+#!homepage = https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Google.png
 #!date = 2023-11-14 14:41:32
 
 [Rewrite]
