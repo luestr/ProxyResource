@@ -1,3 +1,6 @@
 # self used list for direct connect
-HOST-SUFFIX,linux.do,China
-HOST-SUFFIX,linux.do,China
+DOMAIN-SUFFIX,linux.do,China
+DOMAIN-KEYWORD,xiaomi,China
+DOMAIN-KEYWORD,mioffice,China
+DOMAIN-KEYWORD,feishu,China
+DOMAIN-KEYWORD,lark,China
