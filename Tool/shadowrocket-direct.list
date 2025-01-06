@@ -1,5 +1,7 @@
 # self used list for direct connect
 DOMAIN-SUFFIX,linux.do,China
+
+# for work company
 DOMAIN-SUFFIX,miui.com,China
 DOMAIN-SUFFIX,miui.srv,China
 DOMAIN-SUFFIX,mi.com,China
