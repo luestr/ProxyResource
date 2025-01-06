@@ -1,6 +1,14 @@
 # self used list for direct connect
 DOMAIN-SUFFIX,linux.do,China
 DOMAIN-SUFFIX,miui.com,China
+DOMAIN-SUFFIX,miui.srv,China
+DOMAIN-SUFFIX,mi.com,China
+DOMAIN-SUFFIX,mi.cn,China
+DOMAIN-SUFFIX,mioffice.com,China
+DOMAIN-SUFFIX,mioffice.cn,China
+DOMAIN-SUFFIX,xiaomi.com,China
+DOMAIN-SUFFIX,xiaomi.net,China
+DOMAIN-SUFFIX,xiaomi.srv,China
 DOMAIN-KEYWORD,xiaomi,China
 DOMAIN-KEYWORD,mioffice,China
 DOMAIN-KEYWORD,feishu,China
