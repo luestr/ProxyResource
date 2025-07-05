@@ -1,0 +1,5 @@
+# Author: 可莉🅥
+# 引用地址 https://support.apple.com/en-us/HT210060
+# iCloud - 除了上面列出的Apple账户主机外，Apple 设备必须能够连接到以下域的主机才能使用 iCloud 服务。
+DOMAIN-SUFFIX, apzones.com // 中国大陆的 iCloud 服务
+DOMAIN-SUFFIX, icloud.com.cn // 中国大陆的 iCloud 服务

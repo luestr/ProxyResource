@@ -1,0 +1,24 @@
+#!name=顺丰速运去广告
+#!desc=移除开屏广告、首页下拉抽屉、首页推广、应用内悬浮窗、横幅广告，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id899529698
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SF-Express.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 广告下发
+^https:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/queryInfoFlow$ reject-dict
+
+# 首页下拉直播
+^https:\/\/ccsp-egmas\.sf-express\.com\/cx-app-video\/video\/app\/video\/labelClusterList$ reject-dict
+
+# 我的页面 - 兑换专区
+^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList$ reject-dict
+
+[MitM]
+hostname=ccsp-egmas.sf-express.com, ucmp.sf-express.com

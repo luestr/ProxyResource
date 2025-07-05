@@ -1,0 +1,28 @@
+#!name=微信公众号去广告
+#!desc=过滤微信公众号广告
+#!openUrl=https://apps.apple.com/app/id414478124
+#!author=RuCu6[https://github.com/RuCu6]
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weixin.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN-SUFFIX, wxs.qq.com, REJECT
+
+[Rewrite]
+# 移除公众号中的推广内容 //mp.weixin.qq.com
+# ^http:\/\/\w+\.wxs\.qq\.com\/\d+\/\d+\/(snscosdownload|snssvpdownload)\/(SH|SZ)\/reserved\/\w+ reject-dict
+^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? reject-dict
+
+# 移除微信公众号文章底栏都在搜 @wish
+^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword reject-dict
+
+# [Script]
+# http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad script-path=https://kelee.one/Resource/Script/Weixin/Weixin_Official_Accounts_remove_ads.js, requires-body=true, tag=微信公众号去广告
+
+[MitM]
+hostname=mp.weixin.qq.com

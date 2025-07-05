@@ -1,0 +1,27 @@
+#!name=小蚕霸王餐去广告
+#!desc=移除开屏广告、首页横幅推广、红包推广、更新弹窗。
+#!open=https://apps.apple.com/app/id1618414236
+#!author=Sliverkiss[https://github.com/Sliverkiss], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaoCan.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 红包推广
+^https:\/\/gw\.xiaocantech\.com\/rpc header-replace-regex methodname .*(GetBannerList|IsShowOrderAwardPopup|UserLifeShopList|BrandBannerList|GetPromotionGlobalCfg) null
+
+# 首页横幅推广
+^https:\/\/web2\.realtech-inc\.com\/oss\/xc-app-assets\/configs\/common\/theme\.json reject-dict
+
+# 开屏广告
+^https:\/\/sdk\.1rtb\.net\/sdk\/req_ad\? reject-dict
+
+# 更新弹窗
+^https:\/\/gw\.xiaocantech\.com\/g\/pa reject-dict
+
+[MitM]
+hostname=gw.xiaocantech.com, web2.realtech-inc.com, sdk.1rtb.net

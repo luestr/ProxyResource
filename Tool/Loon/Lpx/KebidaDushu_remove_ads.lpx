@@ -1,0 +1,37 @@
+#!name=帆书去广告
+#!desc=移除弹窗和会员任务，精简首页、听书页面、课程菜单和我的页面。
+#!openUrl=https://apps.apple.com/app/id963152777
+#!author=Yuheng0101[https://github.com/Yuheng0101]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KebidaDushu.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 帆书移除广告
+^https?:\/\/popup\.dushu365\.com\/api\/v2\/sfo\/(user_)?popup_(config|display)s reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd) reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/fs-retain\/trialVip\/v\d+\/requestTrialVipPopDoNotSendReward reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/resource-orchestration-system\/vipLandingPage\/v\d+\/getVipLandingPageApp reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/fandeng-orch\/dual2211\/config reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/fdtalk-orch\/newcomerzone\/v\d+\/guide reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/fandeng-orch\/bookboy\/v\d+\/vipPagePop reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/appConfig reject
+^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/order-orchestration\/orderWeb\/exchange\/v100\/showExchangeButton reject
+
+[Script]
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/chief-orch\/home\/bookPortal\/v105\/category script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/abtest-front\/banner-modular\/get script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/resource-orchestration-system\/book\/channel\/v100\/info script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/fs-member\/user\/profile\/v100\/detail script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/chief-orch\/home\/bookPortal\/v111\/forApp script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/sns-orchestration-system\/homePage\/api\/v100\/myPage script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/task-orchestration\/taskCenter\/api\/v101\/taskList script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/resource-orchestration-system\/book\/v101\/content script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+http-response ^https?:\/\/g[a-z0-9-]+\.dushu365\.com\/user-orchestration\/user\/api\/v101\/ceiltip script-path=https://kelee.one/Resource/Script/KebidaDushu/KebidaDushu_remove_ads.js, requires-body=true, tag=帆书去广告
+
+[MitM]
+hostname=g*.dushu365.com

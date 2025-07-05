@@ -1,0 +1,31 @@
+#!name=ZAKER去广告
+#!desc=移除开屏广告、置顶轮播图广告和文末广告。
+#!openUrl=https://apps.apple.com/app/id462149227
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZAKER.png
+#!date=2025-06-30 23:34:19
+
+[Rewrite]
+# 开屏广告
+^https:\/\/iphone\.myzaker\.com\/zaker\/cover\.php\? reject-dict
+
+# 文末广告
+^https:\/\/iphone\.myzaker\.com\/zaker\/article_mongo_sec\.php\? response-body-json-del data.ad_url
+^https:\/\/ggs\.myzaker\.com\/zk_article_ad\.php\? response-body-json-del data.article_bottom data.recommend_ad
+
+# 订阅 - 置顶轮播图广告
+^https:\/\/iphone\.myzaker\.com\/zaker\/follow_promote\.php\? response-body-json-jq '.data.list |= map(select(.type != "web"))'
+
+# 汽车 - 置顶轮播图广告
+^https:\/\/iphone\.myzaker\.com\/zaker\/car_tab\/index\.php\? response-body-json-jq '.data.gallery |= map(select(.type != "web"))'
+
+# 热点 - 信息流广告
+^https:\/\/iphone\.myzaker\.com\/zaker\/block_top_ad\.php\? reject-dict
+
+[MitM]
+hostname=iphone.myzaker.com, ggs.myzaker.com

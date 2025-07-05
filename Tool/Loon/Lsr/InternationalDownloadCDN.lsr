@@ -1,0 +1,217 @@
+# Author: 可莉🅥
+# 引用: https://github.com/dogfight360/UsbEAm
+# 2024-05-07 00:02:23
+
+# EPIC游戏下载、更新[国际]
+DOMAIN, download.epicgames.com
+DOMAIN, download2.epicgames.com
+DOMAIN, download3.epicgames.com
+DOMAIN, download4.epicgames.com
+DOMAIN, epicgames-download1.akamaized.net
+DOMAIN, fastly-download.epicgames.com
+DOMAIN, ipv4.egdownload.fastly-edge.com
+DOMAIN-KEYWORD, epicgames-download
+AND, ((DOMAIN-KEYWORD, cdn), (DOMAIN-KEYWORD, -epicgames-))
+
+# Battle.net战网游戏下载、更新[国际]
+DOMAIN, blzddist1-a.akamaihd.net
+DOMAIN, blzddistkr1-a.akamaihd.net
+DOMAIN, blizzard.gcdn.cloudn.co.kr
+DOMAIN, eu.cdn.blizzard.com
+DOMAIN, kr.cdn.blizzard.com
+DOMAIN, level3.blizzard.com
+DOMAIN, us.cdn.blizzard.com
+
+# GOG游戏下载、更新[国际]
+DOMAIN, gog-cdn-fastly-cp77.gog.com
+DOMAIN, gog-cdn-fastly.gog.com
+DOMAIN, gog-cdn-lumen.secure2.footprint.net
+
+# 微软游戏下载、更新[国际]
+DOMAIN, assets1.xboxlive.com
+DOMAIN, assets2.xboxlive.com
+DOMAIN, ak.tiles.virtualearth.net
+DOMAIN, pf-cdn-content-prod.azureedge.net
+DOMAIN, xvcf1.xboxlive.com
+DOMAIN, xvcf2.xboxlive.com
+
+# 微软全家桶上传、下载、同步、在线安装[国际]
+DOMAIN, azurestackhubuat.download.prss.microsoft.com
+DOMAIN, azurestackreleases.download.prss.microsoft.com
+DOMAIN, azuremigratetest.download.prss.microsoft.com
+DOMAIN, azuremigrate.download.prss.microsoft.com
+DOMAIN, afdshield-or.download.prss.microsoft.com
+DOMAIN, azurestackhub.download.prss.microsoft.com
+DOMAIN, contentsync.onenote.com
+DOMAIN, collaborateppe.download.prss.microsoft.com
+DOMAIN, cbdstest.download.prss.microsoft.com
+DOMAIN, collaborate.download.prss.microsoft.com
+DOMAIN, d.docs.live.net
+DOMAIN, dreamspark.download.prss.microsoft.com
+DOMAIN, db.download.prss.microsoft.com
+DOMAIN, dreamsparkuat.download.prss.microsoft.com
+DOMAIN, hierarchyapi.onenote.com
+DOMAIN, itacademy.download.prss.microsoft.com
+DOMAIN, itacademyuat.download.prss.microsoft.com
+DOMAIN, lex.download.prss.microsoft.com
+DOMAIN, lexuat.download.prss.microsoft.com
+DOMAIN, msproductuat.download.prss.microsoft.com
+DOMAIN, msconnect.download.prss.microsoft.com
+DOMAIN, mbsuat.download.prss.microsoft.com
+DOMAIN, myvsuat.download.prss.microsoft.com
+DOMAIN, msdprod-ad.download.prss.microsoft.com
+DOMAIN, mpnbenefitsrtl.download.prss.microsoft.com
+DOMAIN, msdn.download.prss.microsoft.com
+DOMAIN, myvs.download.prss.microsoft.com
+DOMAIN, mpnbenefitsrtluat.download.prss.microsoft.com
+DOMAIN, msproduct.download.prss.microsoft.com
+DOMAIN, mbs.download.prss.microsoft.com
+DOMAIN, mpnbenefits.download.prss.microsoft.com
+DOMAIN, officecdn.microsoft.com
+DOMAIN, oemsocuat.download.prss.microsoft.com
+DOMAIN, officemkt.download.prss.microsoft.com
+DOMAIN, oemsoc.download.prss.microsoft.com
+DOMAIN, osrelease.download.prss.microsoft.com
+DOMAIN, officemktuat.download.prss.microsoft.com
+DOMAIN, public.bn.files.1drv.com
+DOMAIN, rsm.download.prss.microsoft.com
+DOMAIN, rsmuat.download.prss.microsoft.com
+DOMAIN, storecorefulfillment.download.prss.microsoft.com
+DOMAIN, surface.download.prss.microsoft.com
+DOMAIN, software-static.download.prss.microsoft.com
+DOMAIN, software.download.prss.microsoft.com
+DOMAIN, vlportal.download.prss.microsoft.com
+DOMAIN, volic.download.prss.microsoft.com
+DOMAIN, visualstudio.download.prss.microsoft.com
+DOMAIN, windbg.download.prss.microsoft.com
+DOMAIN-SUFFIX, storage.live.com
+
+# UBisoft Connect(Uplay)育碧游戏下载、更新[国际]
+DOMAIN, uplaypc-s-ubisoft.cdn.ubi.com
+DOMAIN, uplaypc-s-ubisoft-ww.cdn.ubi.com
+
+# Origin艺电游戏平台[国际]
+DOMAIN, download.dm.origin.com
+DOMAIN, origin-a.akamaihd.net
+DOMAIN, ssl-lvlt.cdn.ea.com
+
+# EA Desktop游戏下载[国际]
+DOMAIN, origin-a.akamaihd.net
+DOMAIN, ssl-lvlt.cdn.ea.com
+
+# Steam游戏下载、游戏更新、创意工坊下载、Steam.TV直播、社区实况直播[国际]
+AND, ((DOMAIN-KEYWORD, cache), (DOMAIN-SUFFIX, steamcontent.com))
+DOMAIN, avatars.akamai.steamstatic.com
+DOMAIN, avatars.cloudflare.steamstatic.com
+DOMAIN, avatars.steamstatic.com
+DOMAIN, cdn.cloudflare.steamstatic.com
+DOMAIN, cdn.steamstatic.com
+DOMAIN, clan.cloudflare.steamstatic.com
+DOMAIN, community.akamai.steamstatic.com
+DOMAIN, community.cloudflare.steamstatic.com
+DOMAIN, community.steamstatic.com
+DOMAIN, dfs.cloudflare.steamstatic.com
+DOMAIN, edge.steam-dns.top.comcast.net
+DOMAIN, level3.cdn.steampipe.steamcontent.com
+DOMAIN, media.st.dl.eccdnx.com
+DOMAIN, media.steampowered.com
+DOMAIN, steam.eca.qtlglb.com
+DOMAIN, steam.naeu.qtlglb.com
+DOMAIN, steam.ru.qtlglb.com
+DOMAIN, steamcdn-a.akamaihd.net
+DOMAIN, steamcommunity-a.akamaihd.net
+DOMAIN, steampipe-kr.akamaized.net
+DOMAIN, steampipe-partner.akamaized.net
+DOMAIN, steampipe-partner.secure2.footprint.net
+DOMAIN, steampipe.akamaized.net
+DOMAIN, steamstore-a.akamaihd.net
+DOMAIN, steamusercontent-a.akamaihd.net
+DOMAIN, steamuserimages-a.akamaihd.net
+DOMAIN, store.cloudflare.steamstatic.com
+DOMAIN, upos-hz-mirrorakam.akamaized.net
+DOMAIN, video.cloudflare.steamstatic.com
+
+# Riot游戏下载、更新[国际]
+DOMAIN, bacon.secure.dyn.riotcdn.net
+DOMAIN, bacon.dyn.riotcdn.net
+DOMAIN, ks-foundation.secure.dyn.riotcdn.net
+DOMAIN, ks-foundation.dyn.riotcdn.net
+DOMAIN, lol.secure.dyn.riotcdn.net
+DOMAIN, lol.dyn.riotcdn.net
+DOMAIN, riot-client.secure.dyn.riotcdn.net
+DOMAIN, riot-client.dyn.riotcdn.net
+DOMAIN, valorant.secure.dyn.riotcdn.net
+DOMAIN, valorant.dyn.riotcdn.net
+
+# FiveM游戏下载、更新[国际]
+DOMAIN, changelogs-live.fivem.net
+DOMAIN, c.fivem.net
+DOMAIN, cnl-hb-live.fivem.net
+DOMAIN, cookbook.fivem.net
+DOMAIN, crash-ingress.fivem.net
+DOMAIN, crashes.fivem.net
+DOMAIN, content.cfx.re
+DOMAIN, docs.fivem.net
+DOMAIN, docs-backend.fivem.net
+DOMAIN, forum.fivem.net
+DOMAIN, fx-crashingress-1.live.fivem.net
+DOMAIN, forum.cfx.re
+DOMAIN, git.fivem.net
+DOMAIN, idms.fivem.net
+DOMAIN, keymaster.fivem.net
+DOMAIN, kibana-live.fivem.net
+DOMAIN, largo.live.fivem.net
+DOMAIN, lambda.fivem.net
+DOMAIN, mirrors.fivem.net
+DOMAIN, minio-cluster.fivem.net
+DOMAIN, native-collector-live.fivem.net
+DOMAIN, netdata-internal.fivem.net
+DOMAIN, netdata.fivem.net
+DOMAIN, policy-live.fivem.net
+DOMAIN, runtime.fivem.net
+DOMAIN, rethinkdb-admin.fivem.net
+DOMAIN, servers.fivem.net
+DOMAIN, servers-staging.fivem.net
+DOMAIN, sentry.fivem.net
+DOMAIN, servers-ingress-live.fivem.net
+DOMAIN, servers-live.fivem.net
+DOMAIN, storage.fivem.net
+DOMAIN, servers-frontend.fivem.net
+DOMAIN, status.fivem.net
+DOMAIN, wiki.fivem.net
+
+# Bethesda贝塞斯达客户端、游戏及mod的下载、更新[国际]
+DOMAIN, content.cdp.bethesda.net
+DOMAIN, download.cdp.bethesda.net
+
+# Hikari Field游戏下载及更新[国际]
+DOMAIN, download.hikarifield.co.jp
+
+# Dlsite游戏下载[国际]
+DOMAIN, download.dlsite.com
+DOMAIN, file.chobit.cc
+DOMAIN, img.dlsite.jp
+DOMAIN, play.dl.dlsite.com
+DOMAIN, trial.dlsite.com
+
+# Bandai Namco万代南梦宫[国际]
+DOMAIN, account.bandainamcoid.com
+DOMAIN, account-api.bandainamcoid.com
+DOMAIN, clientpatch.aws.blue-protocol.com
+DOMAIN, clientpatch.blue-protocol.com
+DOMAIN, client-patch.gundamevogame.com
+DOMAIN, datastore-main.aws.blue-protocol.com
+DOMAIN, flg-main.aws.blue-protocol.com
+DOMAIN, g-ahpatch-prod.blue-protocol.com
+DOMAIN, masterdata-main.aws.blue-protocol.com
+DOMAIN, object-bnolauncher-ct.bandainamco-ol.jp
+DOMAIN, object-bnolauncher-pf.bandainamco-ol.jp
+DOMAIN, object-web.blue-protocol.com
+DOMAIN, object.gundamevolution.jp
+DOMAIN, object-web.gundamevolution.jp
+
+# Cloudflare云存储
+DOMAIN-SUFFIX, cloudflarestorage.com
+
+# Hugging Face模型下载
+DOMAIN-SUFFIX, hf.co

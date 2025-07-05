@@ -1,0 +1,36 @@
+#!name=快捷搜索
+#!desc=为Safari提供快速切换搜索引擎的能力，在插件列表中点击此插件上的链接查看使用方法。
+#!openUrl=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/QuickSearch/README.md
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Safari.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# Safari内输入快捷键+空格+搜索关键词快速指定搜索引擎搜索
+# 先进入设置更改Safari默认搜索为DuckDuckGo
+
+# bd=百度搜索
+# bdimg=百度图片搜索
+# gimg=谷歌图片搜索
+# b=Bing搜索
+# wk=维基搜索
+# qm=七麦搜索
+# gh=GitHub搜索
+# 无快捷键则默认使用Google搜索
+
+^https:\/\/duckduckgo\.com\/\?q=bd\+([^&]+).+ 307 https://www.baidu.com/s?wd=$1
+^https:\/\/duckduckgo\.com\/\?q=bdimg\+([^&]+).+ 307 https://image.baidu.com/search/index?tn=baiduimage&word=$1
+^https:\/\/duckduckgo\.com\/\?q=gimg\+([^&]+).+ 307 https://www.google.com/search?&tbm=isch&q=$1
+^https:\/\/duckduckgo\.com\/\?q=b\+([^&]+).+ 307 https://www.bing.com/search?q=$1
+^https:\/\/duckduckgo\.com\/\?q=wk\+([^&]+).+ 307 https://zh.wikipedia.org/wiki/$1
+^https:\/\/duckduckgo\.com\/\?q=qm\+([^&]+).+ 307 https://www.qimai.cn/search/index/country/cn/search/$1
+^https:\/\/duckduckgo\.com\/\?q=gh\+([^&]+).+ 307 https://github.com/search?q=$1
+^https:\/\/duckduckgo\.com\/\?q=([^&]+).+ 307 https://www.google.com/search?q=$1
+
+[MitM]
+hostname=duckduckgo.com

@@ -1,0 +1,18 @@
+#!name=Fileball网盘挂载
+#!desc=支持挂载阿里云盘、夸克网盘和PikPak网盘，点击下方署名查看使用方法。
+#!openUrl=https://apps.apple.com/app/id1558391784
+#!author=小白脸
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/Fileball/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Fileball.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+# 阿里云盘、夸克网盘和PikPak网盘挂载
+http-request ^http:\/\/(aliyun|quark|pikpak)\.example\.com script-path=https://kelee.one/Resource/Script/Fileball/Fileball_mount.js, requires-body=true, tag=三合一网盘挂载
+
+[MitM]
+hostname=aliyun.example.com, quark.example.com, pikpak.example.com,

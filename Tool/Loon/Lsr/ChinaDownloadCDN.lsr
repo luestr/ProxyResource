@@ -1,0 +1,49 @@
+# Author: 可莉🅥
+# 引用: https://github.com/dogfight360/UsbEAm
+# 2023-12-18 16:00:40
+
+# EPIC游戏下载、更新[中国]
+DOMAIN, epicgames-download1-1251447533.file.myqcloud.com
+
+# Battle.net 战网游戏下载、更新[中国]
+# DOMAIN-SUFFIX, pdl.wow.battlenet.com.cn
+# DOMAIN, client05.pdl.wow.battlenet.com.cn
+# DOMAIN, client02.pdl.wow.battlenet.com.cn
+# DOMAIN, client02-cm.pdl.wow.battlenet.com.cn
+
+# GOG游戏下载、更新[中国]
+# DOMAIN, gog.qtlglb.com
+
+# 微软商店游戏下载、应用下载、系统更新[中国]
+DOMAIN, assets1.xboxlive.cn
+DOMAIN, assets2.xboxlive.cn
+DOMAIN, dl.delivery.mp.microsoft.com
+DOMAIN, tlu.dl.delivery.mp.microsoft.com
+
+# UBisoft Connect(Uplay)育碧游戏下载、更新[中国]
+DOMAIN, uplaypc-s-ubisoft.cdn.ubionline.com.cn
+
+# Origin艺电游戏平台[中国]
+
+# EA Desktop游戏下载[中国]
+
+# Steam游戏下载、更新[中国]
+DOMAIN, alibaba.cdn.steampipe.steamcontent.com
+DOMAIN, cdn-qc.content.steamchina.com
+DOMAIN, cdn-ws.content.steamchina.com
+DOMAIN, cdn-ali.content.steamchina.com
+DOMAIN, dl.steam.clngaa.com
+DOMAIN, lv.queniujq.cn
+DOMAIN, st.dl.eccdnx.com
+DOMAIN, st.dl.bscstorage.net
+DOMAIN, steampipe.steamcontent.tnkjmec.com
+DOMAIN, trts.baishancdnx.cn
+DOMAIN, xz.pphimalayanrt.com
+
+# Riot游戏下载、更新[中国]
+
+# FiveM游戏下载、更新、社区[中国]
+
+# Bethesda贝塞斯达客户端、游戏及mod的下载、更新[中国]
+
+# Hikari Field游戏下载及更新[中国]

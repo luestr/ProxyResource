@@ -1,0 +1,21 @@
+# Author: 可莉🅥
+# 引用地址 https://support.apple.com/en-us/HT210060
+# 软件更新 - 在安装、恢复和更新 iOS、iPadOS、macOS、watchOS 及 Apple tvOS 时，Apple 设备需要访问以下主机。
+DOMAIN, appldnld.apple.com //iOS、iPadOS 和 watchOS 更新
+DOMAIN, configuration.apple.com //Rosetta 2 更新
+DOMAIN, gdmf.apple.com //软件更新目录
+DOMAIN, gg.apple.com //iOS、iPadOS、Apple tvOS、watchOS 和 macOS 更新
+DOMAIN, gs.apple.com //iOS、iPadOS、Apple tvOS、watchOS 和 macOS 更新
+DOMAIN, ig.apple.com //macOS 更新
+DOMAIN, mesu.apple.com //托管软件更新目录
+DOMAIN, ns.itunes.apple.com
+DOMAIN, oscdn.apple.com //macOS 恢复
+DOMAIN, osrecovery.apple.com //macOS 恢复
+DOMAIN, skl.apple.com //macOS 更新
+DOMAIN, swcdn.apple.com //macOS 更新
+DOMAIN, swdist.apple.com //macOS 更新
+DOMAIN, swdownload.apple.com //macOS 更新
+DOMAIN, swscan.apple.com //macOS 更新
+DOMAIN, updates-http.cdn-apple.com //软件更新下载
+DOMAIN, updates.cdn-apple.com //软件更新下载
+DOMAIN, xp.apple.com

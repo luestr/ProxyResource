@@ -1,0 +1,45 @@
+#!name=财新去广告
+#!desc=过滤财新广告
+#!openUrl=https://apps.apple.com/app/id356023612
+#!author=RuCu6[https://github.com/RuCu6]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CaixinMedia.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 财新数据通
+^https:\/\/entities\.caixin\.com\/api\/(dataplus\/promotionHints|public\/push\/appIndex|public\/recommendNews) reject-dict
+
+# 广告样式
+^https:\/\/gateway\.caixin\.com\/api\/app-api\/cxAdInfo\/selectIndexAdInfo reject-dict
+^https:\/\/mappsv5\.caixin\.com\/channelv5\/article_ad_ios_info\.json reject-dict
+
+# 文章中间推广、文章底部相关阅读
+^https:\/\/gg\.caixin\.com\/s\?z=caixin&slot=\d+ reject-dict
+
+# 首页弹出框
+^https:\/\/msgapi\.caixin\.com\/msg_api\/annmsg\/annlist reject-dict
+
+[Script]
+# 财新数据通
+http-response ^https:\/\/entities\.caixin\.com\/api\/dataplus\/columns script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除财新数据通广告
+
+# 文章底部广告、搜索框填充词
+http-response ^https:\/\/gateway\.caixin\.com\/api\/app-api\/(caixinapp\/appinfo|search\/getkeyword) script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除文末广告
+
+# 财新FM
+http-response ^https:\/\/gateway\.caixin\.com\/api\/app-content\/fm\/index\/list\? script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除财新FM广告
+
+# 开屏广告、文章顶部横幅
+http-response ^https:\/\/gg\.caixin\.com\/s\?z=caixin&op=\d script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除开屏广告
+
+# 文章中间推广、文章底部相关阅读
+http-response ^https:\/\/mappsv5\.caixin\.com\/articlev5\/\d+\/\d+\.json$ script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除正文广告
+http-response ^https:\/\/mapps?v5\.caixin\.com\/(channelv5\/list|\/?index_page_v5\/)\w+ script-path=https://kelee.one/Resource/Script/CaixinMedia/CaixinMedia_remove_ads.js, requires-body=true, tag=移除正文广告
+
+[MitM]
+hostname=e*.caixin.com, g*.caixin.com, m*.caixin.com

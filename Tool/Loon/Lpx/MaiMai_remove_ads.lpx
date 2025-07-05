@@ -1,0 +1,31 @@
+#!name=脉脉去广告
+#!desc=移除开屏广告、信息流广告、横幅推广、相关帖子推荐。
+#!openUrl=https://apps.apple.com/app/id718659370
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MaiMai.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 开屏广告、职位页面横幅
+^https:\/\/(h3\.)?open\.taou\.com\/maimai\/adshow\? reject-dict
+
+# 赠送礼物 - 横幅
+^https:\/\/(h3\.)?open\.taou\.com\/maimai\/pay\/v5\/check_gift\? reject-dict
+
+# 帖子文末推广卡片
+^https:\/\/(h3\.)?open\.taou\.com\/maimai\/go_gossip_darwin\/external\/v2\/query_flow_cards\? reject-dict
+
+# 帖子末尾 - 看过此贴的用户也在看
+^https:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v6\/detail_recommend_feeds\? response-body-json-del feeds
+
+[Script]
+# 移除信息流和评论区大块广告 - 信息流广告focus_feed / 评论区广告gossip_detail_comment / 评论区广告feed_detail_comment?
+http-response ^https:\/\/(h3\.)?open\.taou\.com\/maimai\/(feed|gossip)\/v\d\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\? script-path=https://kelee.one/Resource/Script/MaiMai/MaiMai_remove_ads.js, requires-body=true, tag=移除信息流和评论区大块广告
+
+[MitM]
+hostname=open.taou.com, h3.open.taou.com

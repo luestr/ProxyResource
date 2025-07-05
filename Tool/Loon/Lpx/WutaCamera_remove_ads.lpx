@@ -1,0 +1,20 @@
+#!name=无他相机去广告
+#!desc=移除开屏广告、拍摄页面广告、右小角广告，精简底栏。
+#!openUrl=https://apps.apple.com/app/id1061534032
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WutaCamera.png
+#!date=2025-07-05 02:22:08
+
+[Rewrite]
+# 配置精简 - 开屏广告、大日子营销、右小角广告、上传图片时的广告、拍摄页面一键去广告推广
+^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-body-json-del regular.splash big_day big_day_overrides regular.home_bottom_right_entry_v2 regular.pic_upload_alert regular.retouching_before_icon
+# 精简底栏
+^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-body-json-jq '.regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN("home","me"))))'
+
+[MitM]
+hostname=api-release.wuta-cam.com

@@ -1,0 +1,24 @@
+#!name=微博轻享版去广告
+#!desc=过滤轻享版广告，移除各部分推广模块，仅支持到6.6.8版。
+#!openUrl=https://apps.apple.com/app/id1215210046
+#!author=kokoryh[https://github.com/kokoryh]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weibo_intl.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+^https?:\/\/api\.weibo\.cn\/2\/ad\/weibointl\? reject-dict
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_searching_info& mock-response-body data-type=html data="{"retcode":0,"info":"","data":{"expiration_time":"86400","cards":[{"tip":"搜索微博","word":""}]}}"
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed&a=search_topic& mock-response-body data-type=html data="{"retcode":0,"info":"","data":[],"ext":{}}"
+^https?:\/\/api\.weibo\.cn\/2\/statuses\/unread_hot_timeline$ response-body-json-jq 'del(.ad, .advertises, .trends) | if .statuses then .statuses |= map(select(((.promotion.type == "ad") or (.mblogtypename | IN("广告", "廣告", "热推", "熱推"))) | not)) end'
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_coopen_ads& response-body-json-jq '.data |= . + {"ad_list":[],"pic_ad":[],"gdt_video_ad_ios":[],"display_ad":0,"ad_ios_id":null,"app_ad_ios_id":null,"reserve_ad_ios_id":"","reserve_app_ad_ios_id":"","ad_duration":604800,"ad_cd_interval":604800}'
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=trends& response-body-json-jq 'if .data.order then .data.order=["search_topic"] end'
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic& response-body-json-jq 'if .data.search_topic.cards[0].type == "searchtop" then del(.data.search_topic.cards[0]) end'
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center& response-body-json-jq 'if .data.cards then .data.cards[].items |= map(select(.type != "personal_vip")) | .data.cards |= map(select((.items | length) > 0)) end'
+
+[MitM]
+hostname=api.weibo.cn, weibointl.api.weibo.cn

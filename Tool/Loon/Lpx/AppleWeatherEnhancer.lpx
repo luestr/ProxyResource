@@ -1,0 +1,34 @@
+#!name=Apple天气增强
+#!desc=解锁Apple天气的全部功能、替换空气质量数据源、添加下一小时降水数据，仅支持iOS 18和iPadOS 18。
+#!openUrl=https://itunes.apple.com/app/id1069513131
+#!author=VirgilClyne[https://github.com/VirgilClyne], WordlessEcho[https://github.com/WordlessEcho]
+#!tag=功能增强
+#!system=iOS, iPadOS
+#!system_version=18
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AppleWeather.png
+#!date=2025-05-13 15:17:08
+
+[Argument]
+NextHour.Provider=select, "ColorfulClouds", "WeatherKit", "QWeather", tag=[未来一小时降水强度]数据源, desc=选择WeatherKit等同于不做修改
+AQI.Provider=select, "ColorfulClouds", "WeatherKit", "QWeather", "WAQI", tag=[空气质量]数据源, desc=选择WeatherKit等同于不做修改
+AQI.ReplaceProviders=input, "", tag=[空气质量]需要替换的供应商, desc=填写的空气质量数据源会被替换
+AQI.Local.Scale=select, "WAQI_InstantCast", "NONE", tag=[空气质量]本地替换算法, desc=本地替换时使用的算法
+AQI.Local.ReplaceScales=input, "HJ6332012", tag=[空气质量]需要修改的标准, desc=填写的空气质量标准会被替换
+AQI.Local.ConvertUnits=switch, "false", "true", tag=[空气质量]转换污染物计量单位, desc=将污染物数据替换为转换单位后的数据，方便对照转换后的标准。
+API.ColorfulClouds.Token=input, "", tag=[API]彩云天气API令牌, desc=填写此字段将自动使用彩云天气高级API
+API.QWeather.Host=select, "devapi.qweather.com", "api.qweather.com", tag=[API]和风天气API主机, desc=和风天气API使用的主机名
+API.QWeather.Token=input, "", tag=[API]和风天气API令牌, desc=填写此字段将自动使用和风天气高级API
+API.WAQI.Token=input, "", tag=[API]WAQI API令牌, desc=填写此字段将自动使用WAQI高级API
+
+[Rule]
+DOMAIN, weather-analytics-events.apple.com, REJECT
+DOMAIN-SUFFIX, tthr.apple.com, REJECT
+
+[Script]
+http-response ^https?:\/\/weatherkit\.apple\.com\/api\/v1\/availability\/ script-path=https://github.com/NSRingo/WeatherKit/releases/download/v1.8.17/response.bundle.js, requires-body=true, tag=Availability响应处理, argument=[{NextHour.Provider},{AQI.Provider},{AQI.ReplaceProviders},{AQI.Local.Scale},{AQI.Local.ReplaceScales},{AQI.Local.ConvertUnits},{API.ColorfulClouds.Token},{API.QWeather.Host},{API.QWeather.Token},{API.WAQI.Token}]
+http-response ^https?:\/\/weatherkit\.apple\.com\/api\/v2\/weather\/ script-path=https://github.com/NSRingo/WeatherKit/releases/download/v1.8.17/response.bundle.js, requires-body=true, binary-body-mode=true, tag=Weather响应处理, argument=[{NextHour.Provider},{AQI.Provider},{AQI.ReplaceProviders},{AQI.Local.Scale},{AQI.Local.ReplaceScales},{AQI.Local.ConvertUnits},{API.ColorfulClouds.Token},{API.QWeather.Host},{API.QWeather.Token},{API.WAQI.Token}]
+
+[MitM]
+hostname=weatherkit.apple.com

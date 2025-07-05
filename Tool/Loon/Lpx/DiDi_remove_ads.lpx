@@ -1,0 +1,51 @@
+#!name=滴滴出行去广告
+#!desc=移除开屏广告、精简首页、底栏和我的页面。
+#!openUrl=https://apps.apple.com/app/id554499054
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], ZenmoFeiShi[https://github.com/ZenmoFeiShi]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DiDi.png
+#!date=22025-06-03 19:47:21
+
+[Rule]
+# 拦截广告下发
+DOMAIN, gwp.xiaojukeji.com, REJECT
+AND, ((IP-ASN, 45090, no-resolve), (DEST-PORT, 25641), (PROTOCOL, TCP)), REJECT
+AND, ((IP-ASN, 63646, no-resolve), (DEST-PORT, 25641), (PROTOCOL, TCP)), REJECT
+
+[Rewrite]
+# 活动弹窗
+^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget reject-dict
+
+# 顶部活动通知
+^https:\/\/lion\.didialift\.com\/broker\/\? reject-dict
+
+# 重逢专属福利
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/slow\? reject-dict
+
+# 底栏配置、首页工具栏
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core\? response-body-json-jq '.data.disorder_cards.bottom_nav_list.data |= map(select(.id == "home_page" or .id == "user_center")) | .data.order_cards.nav_list_card.data |= map(select(.nav_id == "dache_anycar" or .nav_id == "carmate" or .nav_id == "driverservice" or .nav_id == "zhandianbashi" or .nav_id == "yuancheng" or .nav_id == "pincheche" or .nav_id == "bike" or .nav_id == "special_ride" or .nav_id == "nav_more_v3"))'
+
+# 首页 - 登录奖励广告、促销提示栏、乘车码、主要轮播广告、车主服务入口、横幅广告
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/fast\? response-body-json-del data.disorder_cards.communicate_card data.disorder_cards.not_login_bottom_bar data.disorder_cards.riding_code_card data.order_cards.car_owner_widget_card data.order_cards.marketing_card data.order_cards.super_banner_card
+
+# 首页 - 横幅广告
+^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget\? response-body-json-del data.mult_home_banner
+
+# 我的 - 营销卡片
+^https:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$ response-body-json-del data.instances.center_marketing_card data.instances.center_widget_list
+
+# 我的 - 钱包
+^https:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$ response-body-json-jq '.data.instances.center_wallet_finance_card.data.view_info |= map(select(.title == "优惠卡券" or .title == "余额" or .title == "福利金"))'
+
+# 首页 - 拼车功能运营卡片配置数据
+^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds\? reject-dict
+
+# 打车页面 - 运营卡片配置数据
+^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf reject-dict
+
+[MitM]
+hostname=res.xiaojukeji.com, lion.didialift.com, conf.diditaxi.com.cn, common.diditaxi.com.cn, ct.xiaojukeji.com, 117.51.169.4, 117.51.169.11, 120.241.143.6, 120.241.143.11, 123.207.209.41, 123.207.209.42, 123.207.209.177, 157.255.76.17, 157.255.76.19, 2402:4e00:4040::15, 2402:4e00:4040::16, 2408:8756:c5f:a00::27, 2408:8756:c5f:a00::28, 2409:8c54:872:40::10, 2409:8c54:872:40::11, 240e:97c:34:540::10, 240e:97c:34:540::13, 123.207.209.142, 123.207.209.143, 157.255.76.12, 157.255.76.15, 117.51.168.12, 117.51.168.13, 120.241.142.11, 120.241.142.13, 2402:4e00:4040::5, 2402:4e00:4040::b, 2408:8756:c5f:a00::20, 2408:8756:c5f:a00::21, 240e:97c:34:510::6, 240e:97c:34:510::15, 2409:8c54:872::11, 2409:8c54:872::13, 116.85.1.6, 116.85.1.7, 123.207.209.41, 123.207.209.42, 123.207.209.177, 2402:4e00:4040::15, 2402:4e00:4040::16, 2402:840:d002::f, 2402:840:d002::10, 116.85.1.6, 116.85.1.7, 123.207.209.56, 123.207.209.57, 123.207.209.160, 2402:4e00:4040::c, 2402:4e00:4040::f, 2402:840:d002::f, 2402:840:d002::10, 116.85.2.14, 116.85.2.15, 2402:840:d001::3, 2402:840:d001::4

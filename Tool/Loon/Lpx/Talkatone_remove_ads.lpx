@@ -1,0 +1,67 @@
+#!name=Talkatone去广告
+#!desc=移除Talkatone各类广告
+#!openUrl=https://apps.apple.com/app/id397648381
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Talkatone.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, aax-fe-sin.amazon-adsystem.com, REJECT
+DOMAIN, aax-fe.amazon-adsystem.com, REJECT
+DOMAIN, aax.amazon-adsystem.com, REJECT
+DOMAIN, ads.inmobi.com, REJECT
+DOMAIN, ads.pubmatic.com, REJECT
+DOMAIN, app-analytics-services.com, REJECT
+DOMAIN, au.w.inmobi.com, REJECT
+DOMAIN, b.de.inmobi.com, REJECT
+DOMAIN, bidder.criteo.com, REJECT
+DOMAIN, c.amazon-adsystem.com, REJECT
+DOMAIN, cdn-f.adsmoloco.com, REJECT
+DOMAIN, cdn.liftoff-creatives.io, REJECT
+DOMAIN, cdn.mobilefuse.com, REJECT
+DOMAIN, cdn2.inner-active.mobi, REJECT
+DOMAIN, config.inmobi.com, REJECT
+DOMAIN, cr.adsappier.com, REJECT
+DOMAIN, dspbeacons.ihasdsp.inmobi.com, REJECT
+DOMAIN, dspbeacons.old.ihasdsp.inmobi.com, REJECT
+DOMAIN, ep7.facebook.com, REJECT
+DOMAIN, et-eus.w.inmobi.com, REJECT
+DOMAIN, ets-ap-southeast-1.track.smaato.net, REJECT
+DOMAIN, exchange-b-events.inner-active.mobi, REJECT
+DOMAIN, firebase-settings.crashlytics.com, REJECT
+DOMAIN, firebaseinstallations.googleapis.com, REJECT
+DOMAIN, firebaselogging-pa.googleapis.com, REJECT
+DOMAIN, firebaseremoteconfig.googleapis.com, REJECT
+DOMAIN, googleads.g.doubleclick-cn.net, REJECT
+DOMAIN, gum.criteo.com, REJECT
+DOMAIN, i.l-dsp.inmobicdn.net, REJECT
+DOMAIN, i.l.inmobicdn.net, REJECT
+DOMAIN, ic.de.inmobi.com, REJECT
+DOMAIN, impression-asia.liftoff.io, REJECT
+DOMAIN, impression.link, REJECT
+DOMAIN, ins.track.tappx.com, REJECT
+DOMAIN, itunes.apple.com, REJECT
+DOMAIN, lh3.googleadsserving.cn, REJECT
+DOMAIN, mads.amazon-adsystem.com, REJECT
+DOMAIN, mfx.mobilefuse.com, REJECT
+DOMAIN, mt-usw.appiersig.com, REJECT
+DOMAIN, ow.pubmatic.com, REJECT
+DOMAIN, pagead2.googlesyndication-cn.com, REJECT
+DOMAIN, sdk-dnt.ad.smaato.net, REJECT
+DOMAIN, sdk-files.smaato.net, REJECT
+DOMAIN, sdk-hb-cfg.smaato.net, REJECT
+DOMAIN, skadnetworks.fyber.com, REJECT
+DOMAIN, ssp.api.tappx.com, REJECT
+DOMAIN, supply.inmobicdn.net, REJECT
+DOMAIN, tpc.googlesyndication-cn.com, REJECT
+DOMAIN, tr-asia.adsmoloco.com, REJECT
+DOMAIN, view.adjust.com, REJECT
+DOMAIN, vst.c.appier.net, REJECT
+DOMAIN, wv.inner-active.mobi, REJECT
+DOMAIN, www.googletagservices-cn.com, REJECT
+DOMAIN, www.smaato.com, REJECT

@@ -1,0 +1,22 @@
+#!name=360摄像机去广告
+#!desc=移除开屏广告、首页推广、底栏商城入口及我的页面推广。
+#!openUrl=https://apps.apple.com/app/id958068931
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/360SmartCamera.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, ad.jia.360.cn, REJECT
+DOMAIN, ad.iot.360.cn, REJECT
+
+[Rewrite]
+# 删除 - 底栏商城入口、首页视频教程、广告配置、我的页面推广语
+^https:\/\/jia\.360\.cn\/conf\/v1\.json response-body-json-del tab_conf ad_conf activity
+ 
+[MitM]
+hostname=jia.360.cn

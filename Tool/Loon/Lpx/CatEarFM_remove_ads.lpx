@@ -1,0 +1,54 @@
+#!name=猫耳FM去广告
+#!desc=移除开屏广告、青少年模式弹窗、首页顶部入口，替换底栏的直播入口为发现入口。
+#!openUrl=https://apps.apple.com/app/id1148465254
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CatEarFM.png
+#!date=2025-05-17 13:50:41
+
+[Rewrite]
+# 开屏广告
+^https:\/\/app\.missevan\.com\/site\/launch\? response-body-json-del info.splash info.splash_ready
+
+# 广告跟踪
+^https:\/\/data\.missevan\.com\/site\/ad-track$ reject-dict
+
+# 配置文件 - 底栏直播入口、底栏直播通知、关闭青少年模式弹窗
+^https:\/\/app\.missevan\.com\/site\/config$ response-body-json-del info.tab_bar_live 0 info.enable_tab_bar_live_notice false info.teenager_popup_mode 0
+
+# 清理HTTPDNS、首页顶部任务按钮配置
+^https:\/\/app\.missevan\.com\/site\/config$ response-body-json-del info.httpdns info.homepage_top_task_button
+
+# 停用QUIC协议
+^https:\/\/app\.missevan\.com\/site\/config$ response-body-json-jq '.info.cronet |= (fromjson | .quic=false | tojson)'
+
+# 弹窗
+^https:\/\/app\.missevan\.com\/x\/recommend\/get-popup$ reject-dict
+
+# 横幅广告
+^https:\/\/fm\.missevan\.com\/api\/v2\/meta\/banner$ reject-dict
+
+# 首页 - 顶部标签
+^https:\/\/app\.missevan\.com\/site\/tabs\? response-body-json-jq '.info.tabs |= map(select(.title as $t | ["直播", "发现", "广播剧", "听书", "分类"] | index($t) != null))'
+
+# 首页 - 顶部图标
+^https:\/\/app\.missevan\.com\/site\/icons\? response-body-json-jq '.info.icons |= map(select(.title as $t | $t == "直播" or $t == "必听剧" or $t == "免费榜" or $t == "夜猫子" or $t == "启动音"))'
+
+# 首页 - 主播推荐列表
+^https:\/\/fm\.missevan\.com\/api\/v2\/recommended\/top\? reject-dict
+
+# 发现页 - 搜索页面
+^https:\/\/app\.missevan\.com\/discovery\/list$ response-body-json-jq '.info |= map(map(select(.title != "免流服务")))'
+
+# 播放器 - 右上角直播入口
+^https:\/\/fm\.missevan\.com\/api\/v2\/chatroom\/sound\/recommend\? reject-dict
+
+# 搜索填充词
+^https:\/\/app\.missevan\.com\/site\/get-top$ response-body-json-del info.search_words
+
+[MitM]
+hostname=app.missevan.com, data.missevan.com, fm.missevan.com

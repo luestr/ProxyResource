@@ -1,0 +1,82 @@
+#!name=什么值得买去广告
+#!desc=移除开屏广告、信息流广告、各类横幅广告、搜索页广告，移除活动皮肤，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id518213356
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/smzdm.png
+#!date=2025-06-29 18:19:35
+
+[Rule]
+# 广告下发
+DOMAIN, adx-api.zdmimg.com, REJECT
+
+[Rewrite]
+# 开屏广告
+^https:\/\/app-api\.smzdm\.com\/util\/loading\? reject-dict
+
+# 停用静默推送广告、禁止通过百川SDK跳转到广告页面
+^https:\/\/app-api\.smzdm\.com\/util\/update$ response-body-json-replace data.silence_local_push 0 data.baichuan_redirect_switch 0
+
+# 删除静默推送的广告文案、视频缓存广告配置、好价列表右下角悬浮广告、首页右下角悬浮部件、社区弹窗
+^https:\/\/app-api\.smzdm\.com\/util\/update$ response-body-json-del data.silence_local_push_msg data.video_cache_num_configs data.haojia_widget data.widget data.operation_float
+
+# 弹窗广告
+^https:\/\/app-api\.smzdm\.com\/util\/update$ response-body-json-jq 'def r: if type=="object" then if has("ad_campaign_name") and (.ad_campaign_name|type=="string") and (.ad_campaign_name|test("\\S")) then empty else . end elif type=="array" then map(r) else . end; .data.operation_float |= map(map(r))'
+
+# 首页 - 信息流广告、横幅
+# 如果`data.rows[*].cell_type`的值是字符串类型的`39001`，则保留他们，并删除其他`data.rows[*]`下的对象
+# 如果`data.banner_v2[*].cell_type`的值是字符串类型的`21028`，则保留他们，并删除其他`data.banner_v2[*]`下的对象
+^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/smzdm/home_smzdm_remove_ads.jq"
+
+# 首页 - 顶部频道
+^https:\/\/app-api\.smzdm\.com\/mychannel\/list$ reject-dict
+
+# 好价 - 今日好券
+^https:\/\/h5\.smzdm\.com\/user\/coupon\/coupon_list\? reject
+
+# 好价 - 顶部主题皮肤
+^https:\/\/haojia-api\.smzdm\.com\/home\/list\? response-body-json-del data.header_operation.theme
+
+# 好价 - 列表 - 红包推广、广告横幅
+^https:\/\/haojia-api\.smzdm\.com\/home\/list\? response-body-json-jq '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
+
+# 好价 - 详情 - 优惠券
+^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? response-body-json-del data.super_coupon
+
+# 好价 - 详情 - 横幅
+^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? response-body-json-del data.banner
+
+# 我的 - 活动入口、横幅
+^https:\/\/user-api\.smzdm\.com\/vip$ response-body-json-del data.activity_entrance_info data.big_banner data.top_banner data.banner_switch
+
+# 我的 - 服务卡片
+^https:\/\/user-api\.smzdm\.com\/vip\/bottom_card_list\? reject-dict
+
+# 气泡提示
+^https:\/\/article-api\.smzdm\.com\/publish\/get_bubble\? reject-dict
+
+# 搜索 - 填充词
+^https:\/\/s-api\.smzdm\.com\/sou\/search_default_keyword\? reject-dict
+
+# 搜索结果 - 信息流广告、置顶广告 
+^https:\/\/s-api\.smzdm\.com\/sou\/list_v10\? response-body-json-jq '.data.rows |= map(select(.model_type != "ads")) | .data.top_aladdin |= map(select(has("ad") | not))'
+
+# 搜索页面 - 搜索发现、推广横幅、红包横幅
+^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-del data.search_faxian data.tonglan data.hongbao
+
+# 搜索页面 - 榜单广告
+^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-jq '.data.search_hot.home |= map(select(.article_tag.article_title != "广告"))'
+
+# 搜索 - 弹窗
+^https:\/\/s-api\.smzdm\.com\/sou\/popup_coupon\? reject-dict
+
+# 好价 - 商品列表的优惠券覆盖
+^https:\/\/haojia-api\.smzdm\.com\/detail\/\d+\? response-body-json-del data.quan_log
+^https:\/\/haojia-cdn\.smzdm\.com\/preload\/\d+\/fiphone\/v\d+_\d+_\d+\/wx\d+\/im\d+\/[0-9a-z]+\/[0-9a-z]+\.json$ response-body-json-del data.quan_log
+
+[MitM]
+hostname=app-api.smzdm.com, homepage-api.smzdm.com, h5.smzdm.com, haojia-api.smzdm.com, haojia.m.smzdm.com, user-api.smzdm.com, article-api.smzdm.com, s-api.smzdm.com, haojia-cdn.smzdm.com

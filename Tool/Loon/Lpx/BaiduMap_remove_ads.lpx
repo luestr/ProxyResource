@@ -1,0 +1,46 @@
+#!name=百度地图去广告
+#!desc=移除开屏广告、出行页面推广、周边页面推广、打车页面推广，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id452186370
+#!author=可莉🅥[https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BaiduMap.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 开屏广告
+^https:\/\/afd\.baidu\.com\/afd\/entry\?action=(update|query) reject-dict
+
+# 出行 - 推荐项目
+^https:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content response-body-json-del data
+# ^https:\/\/newclient\.map\.baidu\.com\/client\/imap\/dl\/s\/UpdateInfo\.php\? reject-dict
+
+# 出行 - 文字横幅
+^https:\/\/newclient\.map\.baidu\.com\/client\/noticebar\/get\? response-body-json-del content.multi_data
+
+# 我的 - 语音包、活动专区
+^https:\/\/newclient\.map\.baidu\.com\/(client\/)?usersystem\/mine\/page\? response-body-json-replace data {}
+
+# 我的 - 精选服务
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads&type=user_home_new_service response-body-json-del ads
+
+# 打车 - 弹窗
+^https:\/\/yongche\.baidu\.com\/gomarketing\/api\/popup\/getentrancecordovaurl$ reject-dict
+
+# 打车 - 推广
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/cobuild\/pull\? reject-dict
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/operationgirdle$ reject-dict
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/baseinfo$ reject-dict
+
+# 酒店 - 弹窗、推广
+^https:\/\/ecom\.map\.baidu\.com\/ad-ops\/afd\/popup\? reject-dict
+^https:\/\/maphotel\.baidu\.com\/hotel\/goextranet\/activity\/detail\? reject-dict
+
+# 周边 - 盲盒卡Result.cards[1] / 搜索热词Result.cards[4] / 每周优惠券卡Result.cards[5] / 推送Result.cards[9]
+^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? response-body-json-del Result.cards[1] Result.cards[4] Result.cards[5] Result.cards[9]
+
+[MitM]
+hostname=afd.baidu.com, newclient.map.baidu.com, yongche.baidu.com, ecom.map.baidu.com

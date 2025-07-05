@@ -1,0 +1,7 @@
+# Author: 可莉🅥
+# 引用地址 https://support.apple.com/en-us/HT210060
+# Apple账户 - Apple 设备必须能够连接到以下主机才能验证 Apple 账户。所有使用 Apple 账户的服务（如 iCloud、App 安装和 Xcode）都需要满足这个条件。
+DOMAIN, account.apple.com //“设置”和“系统偏好设置”中的 Apple 账户认证
+DOMAIN, appleid.cdn-apple.com //“设置”和“系统偏好设置”中的 Apple 账户认证
+DOMAIN, idmsa.apple.com //Apple 账户认证
+DOMAIN, gsa.apple.com //Apple 账户认证

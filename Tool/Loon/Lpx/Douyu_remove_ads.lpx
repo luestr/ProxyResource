@@ -1,0 +1,40 @@
+#!name=斗鱼去广告
+#!desc=移除开屏、首页视频流、首页轮播图广告，移除直播间悬浮窗。
+#!openUrl=https://apps.apple.com/app/id863882795
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Douyu.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 拦截HTTPDNS
+URL-REGEX, "^http:\/\/linkmicschedule\.douyucdn\.cn\/im_schedule\/im_gate_list", REJECT
+
+# 拦截STUN请求
+AND, ((DEST-PORT, 18000), (PROTOCOL, STUN)), REJECT
+DOMAIN, stun1.douyucdn.cn, REJECT
+DOMAIN, stun1.qvb.qcloud.com, REJECT
+
+# 请求重定向
+^(http:\/\/)((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(hlsh5p1\.douyucdn2\.cn)(.*) 307 $1$5$6
+
+[Rewrite]
+# 开屏广告
+^https:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo reject-dict
+
+# 首页直播间悬浮窗 - 直播间悬浮窗data.pendant_a / 直播间宝箱data.entrance_d
+^https:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list response-body-json-del data.pendant_a data.entrance_d
+
+# 修改应用配置 - 大神游戏陪玩greatGodGameSitterSwitch / 关注更多主播入口followMoreAnchorEntrance / 直播横幅sdklivebanner / 首页活动悬浮窗homeActFloatSwitch / 带货开关bringGoodsSwitch / QQ游戏qqGameSwitch
+^https:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config response-body-json-replace greatGodGameSitterSwitch 0 followMoreAnchorEntrance 0 sdklivebanner 0 homeActFloatSwitch 0 bringGoodsSwitch 0 qqGameSwitch 0
+
+[Script]
+# 首页轮播图和视频流广告
+http-response ^https:\/\/apiv2\.douyucdn\.cn\/mgapi\/livenc\/home\/getRecV3 script-path=https://kelee.one/Resource/Script/Douyu/Douyu_remove_ads.js, requires-body=true, tag=移除首页轮播图和视频流广告
+
+[MitM]
+hostname=rtbapi.douyucdn.cn, apiv2.douyucdn.cn, venus.douyucdn.cn

@@ -1,0 +1,12 @@
+# Author: 可莉🅥
+# 引用地址 https://support.apple.com/en-us/HT210060
+# 设备管理 - 已在 MDM 中注册的 Apple 设备需要访问以下主机和域。
+DOMAIN-SUFFIX, push.apple.com //推送通知
+DOMAIN, deviceenrollment.apple.com //DEP 暂时注册
+DOMAIN, deviceservices-external.apple.com
+DOMAIN, gdmf.apple.com //供 MDM 服务器用来识别使用“被管理的软件更新”的设备有哪些可用的软件更新
+DOMAIN, identity.apple.com //APNs 证书请求门户
+DOMAIN, iprofiles.apple.com //托管当设备通过设备注册过程在 Apple 校园教务管理或 Apple 商务管理中注册时使用的注册描述文件
+DOMAIN, mdmenrollment.apple.com //当客户端通过设备注册过程在 Apple 校园教务管理或 Apple 商务管理中注册时，供 MDM 服务器用来上传客户端使用的注册描述文件，还可用来查找设备和帐户
+DOMAIN, setup.icloud.com //需要在共享 iPad 上使用管理式Apple账户登录
+DOMAIN, vpp.itunes.apple.com //供 MDM 服务器用来执行与“App 和图书”有关的操作，例如在设备上分配或撤销许可证

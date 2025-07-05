@@ -1,0 +1,14 @@
+#!name=代理链路检测
+#!desc=查看目标节点的代理走向，在插件列表中点击此插件上的链接查看使用方法。
+#!openUrl=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/NodeLinkCheck/README.md
+#!author=I-am-R-E[https://github.com/I-am-R-E]
+#!tag=节点检测
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Stack.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+generic script-path=https://kelee.one/Resource/Script/NodeLinkCheck/NodeLinkCheck.js, tag=代理链路检测,img-url=link.circle.system

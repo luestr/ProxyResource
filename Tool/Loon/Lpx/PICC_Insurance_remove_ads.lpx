@@ -1,0 +1,29 @@
+#!name=中国人保去广告
+#!desc=移除中国人保开屏广告和应用内广告
+#!openUrl=https://apps.apple.com/app/id710189980
+#!author=Sliverkiss[https://github.com/Sliverkiss]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PICC_Insurance.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 人保头条
+^https:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/h\/headlines\/queryHeadlines reject
+# 启动开屏
+^https:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/update\/startupPage\/v1 reject-dict
+# 猜你喜欢
+^https:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/guessYouLike\/v3 reject-dict
+
+[Script]
+# 主页推广
+http-response ^https:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/homeInit\/v3 script-path=https://kelee.one/Resource/Script/PICC_Insurance/PICC_Insurance_remove_ads.js, requires-body=true, tag=移除主页推广
+
+# 我的页面
+http-response ^https:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/mpageconfig\/myPageConfigList\/v3 script-path=https://kelee.one/Resource/Script/PICC_Insurance/PICC_Insurance_remove_ads.js, requires-body=true, tag=移除我的页面推广
+
+[MitM]
+hostname=zgrb.epicc.com.cn

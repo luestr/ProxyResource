@@ -1,0 +1,10 @@
+# Talkatone
+DOMAIN-SUFFIX, tktn.at
+DOMAIN-SUFFIX, tktn.be
+DOMAIN-SUFFIX, tenor.com
+DOMAIN-SUFFIX, talkatone.com
+IP-CIDR, 50.117.27.0/24, no-resolve
+IP-CIDR, 63.251.124.0/24, no-resolve
+IP-CIDR, 69.46.75.0/24, no-resolve
+IP-CIDR, 205.164.56.0/24, no-resolve
+IP-CIDR, 205.164.56.29/24, no-resolve

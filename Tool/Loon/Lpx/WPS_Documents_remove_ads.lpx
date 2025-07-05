@@ -1,0 +1,24 @@
+#!name=金山文档去广告
+#!desc=移除首页横幅推广、表单收集页面推广和我的页面推广。
+#!openUrl=https://apps.apple.com/app/id1398120225
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WPS_Documents.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 首页横幅广告
+^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/3\?iosVer=\d+\.\d+\.\d+&isGetList=1 reject-dict
+
+# 我的页面推广
+^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/27\?iosVer=\d+\.\d+\.\d+&isGetList=1 reject-dict
+
+# 表单收集页面推广
+^https:\/\/f-api\.kdocs\.cn\/godfather\/api\/thirdparty\/v1\/viewpager\?showLocal=mobileWebIndex reject-dict
+
+[MitM]
+hostname=www.kdocs.cn, f-api.kdocs.cn

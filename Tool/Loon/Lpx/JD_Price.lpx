@@ -1,0 +1,19 @@
+#!name=京东比价
+#!desc=首次使用需安装慢慢买应用，之后点击进入[我的]页面以捕获Cookie，捕获成功后方可在商品详情页面查看比价内容。
+#!openUrl=https://apps.apple.com/app/id414245413
+#!author=wf021325[https://github.com/wf021325], githubdulong[https://github.com/githubdulong], mw418[https://github.com/mw418]
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/JD.png
+#!date=2025-05-15 05:41:50
+
+[Script]
+http-request ^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ script-path=https://kelee.one/Resource/Script/JD/JD_Price.js, requires-body=true, timeout=10, tag=捕获令牌
+
+http-response ^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html script-path=https://kelee.one/Resource/Script/JD/JD_Price.js, requires-body=true, timeout=10, tag=京东比价
+
+[MitM]
+hostname=in.m.jd.com, apapia-sqk-weblogic.manmanbuy.com

@@ -1,0 +1,28 @@
+#!name=朴朴超市去广告
+#!desc=移除超市去开屏广告，移除首页顶部轮播图和图标广告、启动小弹图广告、首页右下角悬浮动画、搜索热搜榜、搜索建议词、搜索发现热词、订单页面商，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id1144025167
+#!author=kelv1n1n[https://github.com/kelv1n1n], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PuPuMall.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+^https:\/\/j1\.pupuapi\.com\/client\/account\/discount\/order reject
+^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=100 reject
+# 旧版应用的主页实惠卡
+# ^https:\/\/j1\.pupuapi\.com\/client\/member_card\/index\/my reject
+
+[Script]
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7 script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/search_component_banner script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/search\/hot_keywords\/v3 script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/app_resource\/resource_preload\/list_h5_resource script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/recommendation\/interests\/products script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+http-response ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v1 script-path=https://kelee.one/Resource/Script/PuPuMall/PuPuMall_remove_ads.js, requires-body=true, tag=移除朴朴超市广告
+
+[MitM]
+hostname=j1.pupuapi.com

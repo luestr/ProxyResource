@@ -1,0 +1,4 @@
+DOMAIN-SUFFIX, ibm.com
+DOMAIN-SUFFIX, plex.tv
+DOMAIN-SUFFIX, steamserver.net // 用于判断用户所在地区分配下载CDN的地址
+AND, ((GEOIP, CN), (DOMAIN, pitaya.bytedance.com)) // 此为抖音和TikTok共用域名，仅国外解析结果走代理

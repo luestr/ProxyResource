@@ -1,0 +1,32 @@
+#!name=书旗小说去广告
+#!desc=移除书城横幅广告、听书广告、阅读广告、章末推荐、福利入口、悬浮窗、推荐搜索词，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id733689509
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShuQiCenterReader.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 移除福利页面
+DOMAIN, render-web.11222.cn, REJECT
+
+[Rewrite]
+# 开屏广告
+^https:\/\/huichuan\.sm\.cn\/nativead reject-dict
+
+# 阅读页面广告
+^https:\/\/ocean\.shuqireader\.com\/api\/route\/iosReadPage\/adV2 reject-dict
+^https:\/\/ocean\.shuqireader\.com\/api\/route\/ios\/readPage$ reject-dict
+# 移除渲染资源 - 移除福利入口、悬浮窗资源、我的页面推广、推荐搜索词
+^https:\/\/ocean\.shuqireader\.com\/api\/render\/load\/resource reject
+
+[Script]
+# 书城横幅和阅读广告
+http-response ^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore$ script-path=https://kelee.one/Resource/Script/ShuQiCenterReader/ShuQiCenterReader_remove_ads.js, requires-body=true, tag=移除书城横幅和阅读广告
+
+[MitM]
+hostname=ocean.shuqireader.com, huichuan.sm.cn

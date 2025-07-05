@@ -1,0 +1,24 @@
+#!name=挖财记账去广告
+#!desc=移除弹窗广告、推广语横幅和右下角悬浮广告。
+#!openUrl=https://apps.apple.com/app/id1544045905
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WaCaiJiZhang.png
+#!date=2025-06-30 21:53:43
+
+[Rewrite]
+# 右下角悬浮广告
+^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/ribbon\? reject-dict
+
+# 弹窗广告
+^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/list\? reject-dict
+
+# 首页 - 横幅推广语
+^https:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$ reject-dict
+
+[MitM]
+hostname=jz.wacaijizhang.com

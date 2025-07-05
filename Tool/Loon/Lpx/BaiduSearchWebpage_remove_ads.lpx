@@ -1,0 +1,17 @@
+#!name=百度网页去广告
+#!desc=移除百度搜索移动端网页的首页广告信息流
+#!openUrl=
+#!author=Keywos[https://github.com/Keywos]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Baidu.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+http-response ^https?:\/\/(www|m)\.baidu\.com\/?($|\?from=\w{8,9}) script-path=https://kelee.one/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body=true, tag=移除百度搜索首页信息流广告
+
+[MitM]
+hostname=m.baidu.com, www.baidu.com

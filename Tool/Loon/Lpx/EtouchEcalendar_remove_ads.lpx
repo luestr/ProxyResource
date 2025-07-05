@@ -1,0 +1,33 @@
+#!name=中华万年历去广告
+#!desc=移除开屏广告、弹窗、信息流推广，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id505424979
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/EtouchEcalendar.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, sdk.ad.sfys365.com, REJECT
+
+[Rewrite]
+# 信息流广告
+^https:\/\/v0-client-lz\.rili\.cn\/lizhi\/api\/zhwnl\/cal_module\/(datas|config)\? response-body-json-jq '.data |= map(select(.module_name as $name | ["实用工具","会员下icon","天气页面_右上角图标","天气页面_24小时","天气页面_15日","每日插屏","下拉屏保","星座Tab（黄历页）"] | index($name) != null))'
+
+^http:\/\/pc\.suishenyun\.net\/peacock\/api\/adspool\? response-body-json-jq '.data |= map((.layout |= map(select(.key_name == "实用工具" or .key_name == "会员下icon" or .key_name == "天气页面_右上角图标" or .key_name == "天气页面_24小时" or .key_name == "天气页面_15日" or .key_name == "每日插屏" or .key_name == "下拉屏保" or .key_name == "星座Tab（黄历页）"))) | select(.layout | length > 0))'
+
+# 天气 - 生活服务 - 热门咨询
+^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/question_spots\/panel\? reject-dict
+
+# 黄历 - 居家布局、为你推荐
+^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/jujia\/flow\? reject-dict
+^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/album\/hl_card\? reject-dict
+
+# 好运 - 快速咨询
+^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/overview\? reject-dict
+
+[MitM]
+hostname=v0-client-lz.rili.cn, client-lz.rili.cn

@@ -1,0 +1,17 @@
+# by 可莉
+# 地址来自https://support.eset.com/en/kb332-ports-and-addresses-required-to-use-your-eset-product-with-a-third-party-firewall
+
+# ESET激活服务
+DOMAIN, register.eset.com
+DOMAIN, h1-weblb01-v.eset.com
+DOMAIN, h3-weblb01-v.eset.com
+DOMAIN, iploc.eset.com
+DOMAIN, pki.eset.com
+DOMAIN, versioncheck.eset.com
+DOMAIN, edf.eset.com
+
+# PICO更新
+DOMAIN, pico.eset.com
+
+# 下载检测引擎更新
+DOMAIN, um01.cn.eset.com

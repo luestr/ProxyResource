@@ -1,0 +1,52 @@
+#!name=七猫小说去广告
+#!desc=移除大部分七猫小说广告，但受限于七猫小说自身对MitM和VPN状态的检测，部分页面广告无法移除。
+#!openUrl=https://apps.apple.com/app/id1387717110
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, cdn-ad.wtzw.com, REJECT
+DOMAIN, cdn-new-ad.wtzw.com, REJECT
+DOMAIN-SUFFIX, gdt.qq.com, REJECT
+
+[Rewrite]
+# 开屏广告
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/splash\/ reject-dict
+# 福利中心
+# ^https:\/\/xiaoshuo\.wtzw\.com\/app-h5\/freebook\/welfare-center reject
+# 腾格尔打卡喵喵歌
+^https:\/\/api-bc\.wtzw\.com\/api\/v4\/search\/dispose reject-dict
+# ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v2\/init\/other-data reject-dict
+# 必读榜弹窗
+^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/book-store\/config reject-dict
+# 推荐书籍弹窗
+^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/book-store\/push-book reject-dict
+# 有声阅读界面广告横幅
+^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/operation reject-dict
+# 头条广告SDK
+^https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/ reject
+# 听书赚金币
+^https:\/\/api-gw\.wtzw\.com\/welf\/app\/v\d\/task\/red-packet reject-dict
+# 正文底部推广
+^https:\/\/cdn\.wtzw\.com\/bookimg\/free\/api\/v\d\/reader\/reader-copy-paragraph-all\.json reject-dict
+# 底栏提现红点
+# ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/user\/red-point reject
+
+# 其他广告
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/reward\/ reject
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/adv\/ reject
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/offline-adv\/index reject-dict
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/operation\/index\?ad_personal_switch reject-dict
+^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/withdraw\/init reject-dict
+
+# 精简我的页面
+^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/user\/my-center\? response-body-json-del data.func_area[1] data.func_area[2]
+
+[MitM]
+hostname=api-cfg.wtzw.com, sf3-fe-tos.pglstatp-toutiao.com, api-bc.wtzw.com, api-gw.wtzw.com, cdn.wtzw.com

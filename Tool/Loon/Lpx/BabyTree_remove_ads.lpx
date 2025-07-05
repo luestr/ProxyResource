@@ -1,0 +1,34 @@
+#!name=宝宝树孕育去广告
+#!desc=过滤宝宝树孕育广告
+#!openUrl=https://apps.apple.com/app/id523063187
+#!author=RuCu6[https://github.com/RuCu6]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BabyTree.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 首页 - 活动弹窗、签到图标
+URL-REGEX, "^http:\/\/go\.babytree\.com\/go_pregnancy\/api\/(index_activity\/get_app_index_activity|sign\/sign_h_5)\?", REJECT-DICT
+# 搜索框填充词
+URL-REGEX, "^http:\/\/go\.babytree\.com\/go_search\/api\/mobile_search_new\/get_multi_search_default_keywords\?", REJECT-DICT
+# 我的页面商品信息流
+URL-REGEX, "^http:\/\/m\.meitun\.com\/newapi\/router\/topic\/hometptf\/feedRecommend", REJECT-DICT
+# 新客专享红包
+URL-REGEX, "^http:\/\/pic08\.babytreeimg\.com\/knowledge\/2022\/0923\/\w+", REJECT
+# 开屏广告
+URL-REGEX, "^http:\/\/plough\.babytree\.com\/plough\.do", REJECT-DICT
+
+[Script]
+# 整体配置
+http-response ^http:\/\/api\.babytree\.com\/bafconfigcenter_intf\/config\/get\? script-path=https://kelee.one/Resource/Script/BabyTree/BabyTree_remove_ads.js, requires-body=true, tag=调整整体配置
+# 底栏标签、首页顶部标签、首页信息流、我的页面
+http-response ^http:\/\/go\.babytree\.com\/go_pregnancy\/api\/(app_index\/get_app_tab|cms_column\/get_column_list|feeds\/get_index_feeds_list|user\/get_user_info)\? script-path=https://kelee.one/Resource/Script/BabyTree/BabyTree_remove_ads.js, requires-body=true, tag=移除各页面推广
+# 搜索列表
+http-response ^http:\/\/go\.babytree\.com\/go_search\/api\/mobile_search_new\/search_index script-path=https://kelee.one/Resource/Script/BabyTree/BabyTree_remove_ads.js, requires-body=true, tag=移除搜索列表推广
+
+[MitM]
+hostname=api.babytree.com, go.babytree.com

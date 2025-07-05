@@ -1,0 +1,48 @@
+#!name=蜻蜓FM去广告
+#!desc=移除开屏广告、信息流广告、各类相关内容推荐，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id506685538
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QtingFM.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 首页 - 头图
+^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$ reject
+
+# 首页 - 搜索填充词
+^https:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$ reject
+
+# 首页 - 签到图标
+^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$ response-body-json-replace data.display_icon false
+
+# 首页 - 精简板块
+^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\? response-body-json-jq 'del(.data.head[].data[] | select(.title == "超级会员")) | del(.data.head[].data[] | select(.link.type == "RadioStation")) | del(.data.head[] | select(.title == "听头条")) | del(.data.feeds[] | select(.type == "ListenListRadio"))'
+
+# 播放器 - 相关推荐
+^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} response-body-json-del data.related_recommend
+
+# 我听 - 横幅推广
+^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage response-body-json-del data.banner
+
+# 我听 - 猜你喜欢
+^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\? reject-dict
+
+# 我听 - 收藏 - 专辑
+^https:\/\/recpage-c\.qtfm\.cn\/v\d\/favorites$ reject-dict
+
+# 我听 - 关注 - 推荐主播
+^https:\/\/user\.qtfm\.cn\/u\d\/api\/v\d\/user\/following_podcaster\? reject-dict
+
+# 我听 - 已购 - 专辑 - 更多内容
+^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\? response-body-json-del data.recommends
+
+# 我的页面
+^https:\/\/entry\.qtfm\.cn\/api\/v\d\/personal\/\?carrier response-body-json-jq 'delpaths([["data", "membership"], ["data", "level_info"]]) | .data.discovery.entries |= map(select(.title != "借钱"))'
+
+[MitM]
+hostname=app.qtfm.cn, entry.qtfm.cn, recpage-c.qtfm.cn, user.qtfm.cn, search.qtfm.cn

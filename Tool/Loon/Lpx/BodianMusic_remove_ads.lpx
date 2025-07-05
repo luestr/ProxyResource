@@ -1,0 +1,32 @@
+#!name=波点音乐去广告
+#!desc=移除开屏广告、横幅推广和悬浮广告。
+#!openUrl=https://apps.apple.com/app/id1541981555
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BodianMusic.png
+#!date=2025-05-23 14:49:53
+
+[Rewrite]
+# 广告下发
+^https:\/\/bd-api\.kuwo\.cn\/api\/play\/advert\/ reject-dict
+
+# 弹窗
+^https:\/\/bd-api\.kuwo\.cn\/api\/popup\/ reject-dict
+
+# 首页和搜索页面 - 横幅推广
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/ reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/home\/module\?.*&moduleId=6 reject-dict
+
+# 首页 - 低价会员推广文本
+^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText\? reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter\? reject-dict
+
+# 搜索 - 大家都在搜、搜索发现
+^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list\? response-body-json-del data.hotTopic data.searchFind data.globalJumpInfo data.hotWord
+
+[MitM]
+hostname=bd-api.kuwo.cn

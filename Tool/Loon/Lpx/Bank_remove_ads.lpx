@@ -1,0 +1,34 @@
+#!name=银行去广告
+#!desc=去除部分银行应用的广告
+#!openUrl=
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Bank.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 建设银行
+DOMAIN, adv.ccb.com, REJECT
+# 广发银行 - 内页广告
+URL-REGEX, "^http:\/\/mps\.95508\.com\/mps\/icppweb\/images\/mps\/migration\/mpspics\/", REJECT
+
+[Rewrite]
+# 广发银行 - 开屏广告、内页广告
+^https:\/\/static\.95508\.com\/icppweb\/images\/modelMaterial\/advertising\/ reject
+# 广发银行 - 国寿联盟悬浮组件
+^https:\/\/unionsr\.chinalifeonline\.com\.cn\/gslm\/upload\/ reject-200
+# 中信银行 - 开屏广告 @jFrecht
+^https:\/\/imcs\.citicbank\.com\/cloud\/([a-fA-F0-9]{32})\.(jpg|png)\?width=(1125|1242|750|563|1400|1863)&height=(2436|2688|1624|1218|3031|4032) reject
+# 浦发银行
+^https:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/getAdvertisementList\.ah$ reject-dict
+^https:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/getAdvList\.ah$ reject-dict
+^https:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/prefetchAdvList\.ah reject-dict
+# 招商银行 - 去开屏广告
+^https:\/\/s3gw\.cmbimg\.com\/mbappinitads\/ reject
+
+[MitM]
+hostname=static.95508.com, unionsr.chinalifeonline.com.cn, imcs.citicbank.com, lban.spdb.com.cn, s3gw.cmbimg.com

@@ -1,0 +1,30 @@
+#!name=虎扑去广告
+#!desc=移除虎扑开屏广告、首页顶部推广、我的页面多余模块及各类横幅推广。
+#!openUrl=https://apps.apple.com/app/id906632439
+#!author=ZenmoFeiShi[https://github.com/ZenmoFeiShi]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/HUPU.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+^https:\/\/games\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bplapi\/reddot\/v1\/app\/getReddot reject-dict
+^https:\/\/bbs\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/(bbsallapi\/tag\/v1\/heatTag|bbsrankapi\/v1\/rating\/list) reject-dict
+^https:\/\/games\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/search\/v2\/(hintkeylist|hotkeylist) reject-dict
+^https:\/\/goblin\.hupu\.com\/\d\/\d\.\d\.\d+\/interfaceAd\/getOther\/v\d reject-dict
+^https:\/\/goblin\.hupu\.com\/\d\/\d\.\d\.\d+\/interfaceAd\/getOther\/batch reject-dict
+^https:\/\/fairy\.mobileapi\.hupu\.com\/gallery\/getmod2 reject-200
+^https:\/\/games\.mobileapi\.hupu\.com\/3\/8\.0\.86\/bplcommentapi\/bpl\/score_tab\/groups reject-dict
+^https:\/\/games\.mobileapi\.hupu\.com\/3\/8\.0\.86\/bplapi\/banner\/getLocationBanners reject-dict
+
+[Script]
+http-response ^https:\/\/fairy\.mobileapi\.hupu\.com\/mang\/preview\/banners script-path=https://kelee.one/Resource/Script/HUPU/HUPU_remove_ads.js, requires-body=true, tag=移除虎扑广告
+http-response ^https:\/\/bbs\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bbsallapi\/lego\/data script-path=https://kelee.one/Resource/Script/HUPU/HUPU_remove_ads.js, requires-body=true, tag=移除虎扑广告
+http-response ^https:\/\/games\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/buffer\/hotList script-path=https://kelee.one/Resource/Script/HUPU/HUPU_remove_ads.js, requires-body=true, tag=移除虎扑广告
+http-response ^https:\/\/games\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bplapi\/user\/v1\/more script-path=https://kelee.one/Resource/Script/HUPU/HUPU_remove_ads.js, requires-body=true, tag=移除虎扑广告
+ 
+[MitM]
+hostname=games.mobileapi.hupu.com, fairy.mobileapi.hupu.com, bbs.mobileapi.hupu.com, goblin.hupu.com

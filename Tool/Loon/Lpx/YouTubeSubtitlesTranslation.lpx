@@ -1,0 +1,37 @@
+#!name=YouTube双语翻译
+#!desc=字幕增强及双语翻译，支持Youtube Music歌词翻译。此插件需要置于YouTube去广告插件之下，且和YouTube去广告插件的歌词翻译冲突，不支持tvOS设备。
+#!openUrl=https://apps.apple.com/app/id544007664
+#!author=VirgilClyne[https://github.com/VirgilClyne]
+#!tag=功能增强
+#!system=
+#!system_version=15
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YouTube.png
+#!date=2025-05-13 15:17:08
+
+[Argument]
+Type=select, "Official", "Translate", tag=字幕类型, desc=请选择要使用的字幕，双语字幕将使用您选择类型呈现。
+AutoCC=switch, "true", "false", tag=自动显示翻译字幕, desc=开启后总是自动开启显示字幕
+ShowOnly=switch, "true", "false", tag=仅显示“自动翻译”字幕, desc=开启后仅显示“自动翻译”后的字幕，不显原文字幕。
+Position=select, "Forward", "Reverse", tag=原文字幕位置, desc=原文字幕的显示位置
+
+[Script]
+# YouTube字幕翻译
+http-request ^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, tag=JSON·YouTube播放器请求, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-response ^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, tag=JSON·YouTube播放器响应, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-request ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, tag=Proto·YouTube播放器请求, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, tag=Proto·YouTube播放器响应.proto, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/get_watch\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, tag=Proto·GetWatch响应, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-request ^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=false, tag=YouTube定时文本请求, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-response ^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=(Official|External) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Composite_Subtitles_response.js, requires-body=true, tag=YouTube合成定时文本响应, argument=
+http-response ^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=Translate script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true, tag=YouTube翻译定时文本响应, argument=
+
+# YouTube Music歌词翻译
+http-request ^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, tag=JSON·YouTube Music浏览请求, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-request ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*) script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, tag=Proto·YouTube Music浏览请求, argument=[{Type},{AutoCC},{ShowOnly},{Position}]
+http-response ^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true, tag=JSON·YouTube Music翻译歌词响应, argument=
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate script-path=https://kelee.one/Resource/Script/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true, binary-body-mode=true, tag=Proto·YouTube Music翻译歌词响应, argument=
+
+[MitM]
+hostname=www.youtube.com, m.youtube.com, tv.youtube.com, music.youtube.com, youtubei.googleapis.com

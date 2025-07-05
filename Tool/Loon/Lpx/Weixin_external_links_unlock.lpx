@@ -1,0 +1,17 @@
+#!name=微信外部链接解锁
+#!desc=解锁微信外部链接访问限制，跳过中间界面。支付宝链接、被封禁链接进行通知弹窗跳转，在微信中用快照显示被封禁的链接（可选），在微信中进行强制重定向（可选），群聊及扫码均可使用，可选项可在脚本的2~3行更改，也可在BoxJs中更改。
+#!openUrl=https://apps.apple.com/app/id414478124
+#!author=zZPiglet[https://github.com/zZPiglet]
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weixin.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path=https://kelee.one/Resource/Script/Weixin/Weixin_external_links_unlock.js, requires-body=true, tag=微信外部链接解锁
+
+[MitM]
+hostname=weixin110.qq.com, security.wechat.com

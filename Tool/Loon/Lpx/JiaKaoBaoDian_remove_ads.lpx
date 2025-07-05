@@ -1,0 +1,37 @@
+#!name=驾考宝典去广告
+#!desc=移除开屏广告、横幅广告、悬浮窗广告、社区帖子广告，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id491024740
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/JiaKaoBaoDian.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 广告配置
+^https:\/\/scs\.kakamobi\.cn\/api\/open\/v3\/advert-sdk\/ reject-dict
+# 广告横幅
+^https:\/\/cheyouquan\.kakamobi\.com\/api\/open\/group\/recommend-subscribe-tag\.htm reject-dict
+# 应用配置 - 悬浮窗
+^https:\/\/swallow\.kakamobi\.cn\/api\/open\/config\/get-config\.htm reject-dict
+# 悬浮窗
+^https:\/\/monkey\.kakamobi\.cn\/api\/open\/live\/get-recommend-live-protocol\.htm reject-dict
+# 新用户弹窗
+^https:\/\/jiaxiao-awd\.kakamobi\.cn\/api\/h5\/v4\/home-lead-advertise\/abtest\.htm reject-dict
+# 买车页面弹窗
+^https:\/\/mcbd\.maiche\.com\/api\/open\/v3\/user\/get-popup-window\.htm reject-dict
+# 我的页面 - 精选服务
+^https:\/\/jiakao-misc\.kakamobi\.cn\/api\/open\/my-tab-config\/selection-list\.htm reject-dict
+# 我的页面 - 横幅
+^https:\/\/jiakao-misc\.kakamobi\.cn\/api\/open\/my-tab-config\/banner-list\.htm reject-dict
+^https:\/\/squirrel\.kakamobi\.cn\/api\/open\/recommend-goods\/get-my-page-banner\.htm reject-dict
+# 买车页面广告
+^https:\/\/mcbd\.maiche\.com\/api\/open\/v2\/jiakao-business\/get-naben-advert\.htm reject-dict
+# 其他广告
+^https:\/\/monkey\.kakamobi\.cn\/api\/open\/live-room\/get-resource\.htm reject-dict
+
+[MitM]
+hostname=jiaxiao-awd.kakamobi.cn, cheyouquan.kakamobi.com, swallow.kakamobi.cn, monkey.kakamobi.cn, mcbd.maiche.com, jiakao-misc.kakamobi.cn, squirrel.kakamobi.cn, scs.kakamobi.cn

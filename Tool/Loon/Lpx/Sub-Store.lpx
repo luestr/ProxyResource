@@ -1,0 +1,27 @@
+#!name=Sub-Store
+#!desc=高级订阅管理工具，使用前请在本插件的详情页面为[PROXY]项分配代理策略。
+#!openUrl=https://sub.store
+#!author=Peng-YM[https://github.com/Peng-YM]
+#!tag=订阅管理
+#!system=
+#!system_version=
+#!loon_version=3.2.1(749)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Sub-Store.png
+#!select=节点缓存有效期,1分钟,5分钟,10分钟,30分钟,1小时,2小时,3小时,6小时,12小时,24小时,48小时,72小时
+#!select=响应头缓存有效期,1分钟,5分钟,10分钟,30分钟,1小时,2小时,3小时,6小时,12小时,24小时,48小时,72小时
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, sub-store.vercel.app, PROXY
+DOMAIN, ip-api.com, PROXY
+
+[Script]
+http-request ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-1.min.js, requires-body=true, timeout=120, tag=Sub-Store Core
+
+http-request ^https?:\/\/sub\.store script-path=https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-0.min.js, requires-body=true, timeout=120, tag=Sub-Store Simple
+
+cron "0 0 1 ? * ?" script-path=https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/cron-sync-artifacts.min.js, tag=Sub-Store Sync
+
+[MitM]
+hostname=sub.store

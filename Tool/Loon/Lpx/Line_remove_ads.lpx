@@ -1,0 +1,47 @@
+#!name=Line去广告
+#!desc=移除Line各类广告
+#!openUrl=https://apps.apple.com/app/id443904275
+#!author=jkgtw[https://github.com/jkgtw]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+^https:\/\/a\.line\.me\/er\/lads\/v\d\/ei\? reject-img
+^https:\/\/a\.line\.me\/er\/l.*\/v\d\/event\/image reject-img
+^https:\/\/a\.line\.me\/lass\/api\/v\d\/ads$ reject
+^https:\/\/a\.line\.me\/oa\/v\d\/e$ reject
+^https:\/\/a\.line\.me\/cs\/v\d\/oa$ reject
+^https:\/\/ad\.line-scdn\.net\/0h.+\/(o|m)\d+x\d+$ reject-img
+^https:\/\/gw\.line\.naver\.jp\/ext\/lgfp\/lad\/v1$ reject
+^https:\/\/gw\.line\.naver\.jp\/lass\/api\/v1\/ads$ reject
+^https:\/\/gw\.line\.naver\.jp\/tr\/event$ reject
+^https:\/\/lan\.line\.me\/v1\/line\/ios reject
+^https:\/\/legy\.line-apps\.com\/ext\/lgfp\/lad\/v1$ reject
+^https:\/\/legy\.line-apps\.com\/ext\/smartch\/banner\/sch\/v1$ reject
+^https:\/\/legy\.line-apps\.com\/tr\/event$ reject
+^https:\/\/web-mmap-pay\.line-apps\.com\/tw\/liff\/campaign\/v1\/aggregate\/ad\/banner\/ reject-img
+^https:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/ reject
+^https:\/\/buy\.line\.me\/api\/graphql\?variables reject
+^https:\/\/crs-event\.line\.me\/v\d\/imp reject
+^https:\/\/obs\.line-scdn\.net\/0h.+\/(o|m)\d+x\d+$ reject
+^https:\/\/obs\.line-scdn\.net\/0hGH\d reject
+^https:\/\/obs\.line-scdn\.net\/0h.+\/\d+p\.mp4$ reject
+^https:\/\/obs\.line-scdn\.net\/r\/linecrs\/.+\/m180x180$ reject-img
+^https:\/\/d\.line-scdn\.net\/lcp-prod-photo\/20.+\.(jpg|jpeg|png) reject-img
+^https:\/\/cix\.line-apps\.com\/R4\? reject
+^https:\/\/scdn\.line-apps\.com\/appresources\/moretab\/list\.json reject
+^https:\/\/scdn\.line-apps\.com\/lan\/image\/line\/bannerImageEvent\/ reject
+^https:\/\/scdn\.line-apps\.com\/lan\/document\/pageEvent\/line\/ios\/ reject
+^https:\/\/sch\.line\.me\/api\/v\d\/ads$ reject
+^https:\/\/uts-front\.line-apps\.com\/event$ reject
+^https:\/\/uts-front\.line-apps\.com\/settings$ reject
+^https:\/\/static\.line-scdn\.net\/ad-sdk\/ reject
+^https:\/\/nelo2-col\.linecorp\.com\/_store$ reject
+
+[MitM]
+hostname=a.line.me, ad.line-scdn.net, w.line.me, gw.line.naver.jp, lan.line.me, legy.line-apps.com, buy.line.me, crs-event.line.me, obs.line-scdn.net, cix.line-apps.com, d.line-scdn.net, scdn.line-apps.com, web-mmap-pay.line-apps.com, sch.line.me, uts-front.line-apps.com, static.line-scdn.net, nelo2-col.linecorp.com

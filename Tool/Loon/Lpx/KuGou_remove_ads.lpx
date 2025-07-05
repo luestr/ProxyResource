@@ -1,0 +1,68 @@
+#!name=酷狗音乐去广告
+#!desc=移除开屏广告、应用各类弹窗、各类横幅广告、评论区广告和播放器界面广告。
+#!openUrl=https://apps.apple.com/app/id472208016
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KuGou.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, ads.service.kugou.com, REJECT
+DOMAIN, adstats.tencentmusic.com, REJECT
+DOMAIN, adsmind.gdtimg.com, REJECT
+DOMAIN, adserviceretry.kugou.com, REJECT
+DOMAIN, adserviceretry.kglink.cn, REJECT
+DOMAIN, ad.tencentmusic.com, REJECT
+DOMAIN, adservice.kugou.com, REJECT
+DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
+
+URL-REGEX, "^http:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html", REJECT
+
+[Rewrite]
+# 广告配置
+^https:\/\/fx\.service\.kugou\.com\/mfx-kugoulive\/ad\/ reject-dict
+^https:\/\/gateway(retry)?\.kugou\.com\/adp\/ad\/ reject-dict
+^https:\/\/gateway(retry)?\.kugou\.com\/ads\.gateway\/ reject-dict
+
+# 我的 - 关注 - 发现更多动态
+^https:\/\/gateway(retry)?\.kugou\.com\/v\d\/feeds\/follow_feed_fallback reject-dict
+
+# 任务广告
+^https:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile reject-dict
+
+# 搜索填充词
+^https:\/\/gateway(retry)?\.kugou\.com\/searchnofocus\/v\d\/search_no_focus_word reject-dict
+
+# 播放页顶部气泡
+^https:\/\/gateway(retry)?\.kugou\.com\/adp\/bubble\/v\d\/song_play reject-dict
+
+# 歌曲评论 - 与歌手有关的回答
+^https:\/\/gateway(retry)?\.kugou\.com\/singerdiscuss\/v\d\/entrance\/comment reject-dict
+^https:\/\/gateway(retry)?\.kugou\.com\/r\/v\d\/general\/putin\/midad reject-dict
+
+# 各类横幅推广
+^https:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/sound\/banner reject-dict
+
+# 热搜主播
+^https:\/\/gzacshow\.kugou\.com\/mfanxing-home\/cdn\/room\/index\/list_v2 reject-dict
+
+# 直播推荐 - 主播修仙中
+^https:\/\/gzacshow\.kugou\.com\/mfx-rt-show\/cdn\/mo\/show\/headline reject-dict
+
+# 歌房弹窗
+^https:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo reject-dict
+
+# 酷狗商城 - 文字广告
+^https:\/\/hwstore\.kugou\.com\/v\d\/get_store_data reject-dict
+# 唱片店 - 文字广告
+^https:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info reject-dict
+
+# 精简顶部标签
+^https:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d response-body-json-jq 'def namesToRemove:["AI帮唱","长相思2","K歌","小说","游戏"];def removeParentIfNameMatches:if type=="object"then with_entries(select(.value|(type=="object"and .name as $name|$name|IN(namesToRemove[])|not)))|map_values(removeParentIfNameMatches)else .end;removeParentIfNameMatches'
+
+[MitM]
+hostname=gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com

@@ -1,0 +1,18 @@
+#!name=成分喵去广告
+#!desc=移除广告组件请求，移除被查商品购买连接。
+#!openUrl=https://apps.apple.com/app/id6444000785
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChengFenMiao.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 商品购买连接
+^https:\/\/app\.chengfenmiao\.com\/item\/closet\? reject-dict
+ 
+[MitM]
+hostname=app.chengfenmiao.com

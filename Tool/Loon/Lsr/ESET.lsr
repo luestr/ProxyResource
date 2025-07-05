@@ -1,0 +1,219 @@
+# by 可莉
+# 地址来自 https://support.eset.com/en/kb332-ports-and-addresses-required-to-use-your-eset-product-with-a-third-party-firewall
+# 此规则未完成
+
+# ESET检测引擎更新
+DOMAIN, um01.eset.com
+DOMAIN, um02.eset.com
+DOMAIN, um03.eset.com
+DOMAIN, um04.eset.com
+DOMAIN, um05.eset.com
+DOMAIN, um06.eset.com
+DOMAIN, um07.eset.com
+DOMAIN, um08.eset.com
+DOMAIN, um09.eset.com
+DOMAIN, um10.eset.com
+DOMAIN, um11.eset.com
+DOMAIN, um12.eset.com
+DOMAIN, um13.eset.com
+DOMAIN, um14.eset.com
+DOMAIN, um15.eset.com
+DOMAIN, um16.eset.com
+DOMAIN, um21.eset.com
+DOMAIN, um23.eset.com
+
+# 广州服务器
+DOMAIN, um01.cn.eset.com
+
+
+# 下载检测引擎更新
+DOMAIN-SUFFIX, update.eset.com
+# 欧洲
+DOMAIN, eu-update.eset.com
+# 美国
+DOMAIN, us-update.eset.com
+
+
+# 下载微更新
+DOMAIN, pico.eset.com
+
+
+# 下载产品安装程序、更新
+DOMAIN, download.eset.com
+
+# 许可证到期日期查询
+DOMAIN, expire.eset.com
+DOMAIN, edf.eset.com
+
+
+# 支持请求功能发送支持请求
+DOMAIN, suppreq.eset.eu
+
+# ESET 安全身份验证设置服务器通信（双因素身份验证）
+DOMAIN, ecp.eset.systems
+DOMAIN, esa.eset.com
+DOMAIN, m.esa.eset.com
+DOMAIN, h1-esa01.eset.com
+DOMAIN, h1-esa02.eset.com
+DOMAIN, h1-esa03.eset.com
+DOMAIN, h1-esa04.eset.com
+DOMAIN, h3-esa2-01-v.eset.com
+DOMAIN, h3-esa2-02-v.eset.com
+DOMAIN, h3-esa2-03-v.eset.com
+DOMAIN, h3-esa2-04-v.eset.com
+
+
+# 在线信誉数据库（ESET LiveGrid）
+DOMAIN, h1-c01.eset.com
+DOMAIN, h1-c02.eset.com
+DOMAIN, h1-c03.eset.com
+DOMAIN, h1-c04.eset.com
+DOMAIN, h1-c05.eset.com
+DOMAIN, h3-c01.eset.com
+DOMAIN, h3-c02.eset.com
+DOMAIN, h3-c03.eset.com
+DOMAIN, h3-c04.eset.com
+DOMAIN, h5-c01.eset.com
+DOMAIN, 38-90-226-11.ptr.eset.com
+DOMAIN, h5-c02.eset.com
+DOMAIN, 38-90-226-12.ptr.eset.com
+DOMAIN, h5-c03.eset.com
+DOMAIN, 38-90-226-13.ptr.eset.com
+DOMAIN, a.cwip.eset.com
+DOMAIN, ae.cwip.eset.com
+DOMAIN, avcloud.e5.sk
+DOMAIN, c.cwip.eset.com
+DOMAIN, ce.cwip.eset.com
+DOMAIN, dnsj.e5.sk
+DOMAIN, i1.cwip.eset.com
+DOMAIN, i1e.cwip.eset.com
+DOMAIN, i3.cwip.eset.com
+DOMAIN, i4.cwip.eset.com
+DOMAIN, i4e.cwip.eset.com
+DOMAIN, u.cwip.eset.com
+DOMAIN, ue.cwip.eset.com
+DOMAIN, c.eset.com
+DOMAIN, a.c.eset.com
+DOMAIN, u.eset.com
+DOMAIN, i1.c.eset.com
+DOMAIN, i3.c.eset.com
+DOMAIN, i4.c.eset.com
+DOMAIN, i5.c.eset.com
+
+# 高级机器学习
+DOMAIN, h1-aidc01.eset.com
+DOMAIN, h3-aidc01.eset.com
+DOMAIN, h5-aidc01.eset.com
+DOMAIN, augur.scanners.eset.systems
+
+# 向 ESET 的威胁实验室提交可疑文件和匿名统计信息
+DOMAIN, tsm09.eset.com
+DOMAIN, tsm10.eset.com
+DOMAIN, tsm11.eset.com
+DOMAIN, tsm12.eset.com
+DOMAIN, tsm13.eset.com
+DOMAIN, tsm14.eset.com
+DOMAIN, tsm15.eset.com
+DOMAIN, tsm16.eset.com
+DOMAIN, tsm17.eset.com
+DOMAIN, tsm18.eset.com
+DOMAIN, ts.eset.com
+DOMAIN, tsm19.eset.com
+DOMAIN, tsm20.eset.com
+DOMAIN, edtd-ts.eset.com
+
+# 使用Web 控制/家长控制模块
+DOMAIN, h1-arsp01-v.eset.com
+DOMAIN, h1-arsp02-v.eset.com
+DOMAIN, h3-arsp01-v.eset.com
+DOMAIN, h3-arsp02-v.eset.com
+DOMAIN, h5-arsp01-v.eset.com
+DOMAIN, h5-arsp02-v.eset.com
+
+# 使用ESET 密码管理器
+DOMAIN, ext-pwm.eset.com
+DOMAIN, eset-870273198.eu-west-1.elb.amazonaws.com
+DOMAIN, esetpwmdata-1.s3.amazonaws.com
+DOMAIN, s3-3-w.amazonaws.com
+
+# 使用反垃圾邮件模块
+DOMAIN, h1-ars01-v.eset.com
+DOMAIN, h1-ars02-v.eset.com
+DOMAIN, h1-ars03-v.eset.com
+DOMAIN, h1-ars04-v.eset.com
+DOMAIN, h1-ars05-v.eset.com
+DOMAIN, h1-ars06.eset.com
+DOMAIN, h1-ars07.eset.com
+DOMAIN, h3-ars01-v.eset.com
+DOMAIN, h3-ars02-v.eset.com
+DOMAIN, h3-ars03-v.eset.com
+DOMAIN, h3-ars04-v.eset.com
+DOMAIN, h3-ars05-v.eset.com
+DOMAIN, h3-ars06.eset.com
+DOMAIN, h3-ars07.eset.com
+DOMAIN, h5-ars01-v.eset.com
+DOMAIN, h5-ars02-v.eset.com
+DOMAIN, h5-ars03-v.eset.com
+DOMAIN, h5-ars04-v.eset.com
+DOMAIN, h5-ars05-v.eset.com
+DOMAIN, h5-ars06.eset.com
+DOMAIN, h5-ars07.eset.com
+DOMAIN, dns.e5.sk
+DOMAIN, salt.e5.sk
+DOMAIN, rsys.e5.sk
+DOMAIN, arb.e5.sk
+DOMAIN, asplog.e5.sk
+DOMAIN, mri.e5.sk
+DOMAIN, ipt.e5.sk
+DOMAIN, sample.e5.sk
+DOMAIN, stat.e5.sk
+DOMAIN, setting.e5.sk
+DOMAIN, gid.e5.sk
+DOMAIN, ds1-uk-rules-1.mailshell.net
+DOMAIN, ds1-uk-rules-2.mailshell.net
+DOMAIN, ds1-uk-rules-3.mailshell.net
+DOMAIN, fh-uk11.mailshell.net
+
+# 从 ESET 产品的主程序窗口正确链接和重定向功能
+DOMAIN, go.eset.com
+DOMAIN, go.eset.eu
+DOMAIN, support-go.eset.eu
+DOMAIN, h1-redir02-v.eset.com h3-redir02-v.eset.com
+
+# 激活 ESET 移动安全软件
+DOMAIN, reg01.eset.com
+DOMAIN, reg04.eset.com
+
+# ESET 数据框架（防盗、ESET 企业帐户、家长控制、Web 控制）
+DOMAIN, edf.eset.com
+DOMAIN, edf.eset.com
+DOMAIN, h1-edfspy02-v.eset.com
+DOMAIN, h1-edfspy02-v.eset.com
+DOMAIN, h1-arse01-v.eset.com
+DOMAIN, h1-arse02-v.eset.com
+DOMAIN, h3-arse01-v.eset.com
+DOMAIN, h3-arse02-v.eset.com
+DOMAIN, h5-arse01-v.eset.com
+DOMAIN, h5-arse02-v.eset.com
+DOMAIN, h5-arse03-v.eset.com
+DOMAIN, h5-arse04-v.eset.com
+DOMAIN, ecp.eset.systems
+DOMAIN, ecp.eset.systems
+
+
+
+ESET 存储库、远程管理器 6.x、ESET 安全管理中心 7.x、ESET保护
+repository.eset.com
+repous.wip.eset.com
+us-repository.eset.com
+us-repository.gtm.eset.com
+h5-repository03-v.eset.com
+reponocdn.wip.eset.com
+h1-repo01-v.eset.com
+hp-webs01-s.eset.com
+h1-repository01-v.eset.com
+reponocdn.wip.eset.com
+h3-repository02-v.eset.com
+91-228-167-25.ptr.eset.com
+nocdn-repository.gtm.eset.com
+reponocdn.wip.eset.com

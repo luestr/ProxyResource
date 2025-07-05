@@ -1,0 +1,39 @@
+#!name=丰巢去广告
+#!desc=移除弹窗，精简首页和生活服务。需要IPA签名注入方可使用，App Store用户请勿使用此插件，务必点击下方主页链接查看详细教程。
+#!openUrl=https://apps.apple.com/app/id1259763050
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FC_Box.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 首页 - 各类服务推广
+^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/v\d\/clientPage\/modulesAggregated\? reject-dict
+^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/v\d\/clientPage\/jinGangFirst\?
+
+# 首页 - 丰巢商城
+^https:\/\/consumer\.fcbox\.com\/v2\/home\/mallInfo$ reject-dict
+
+# 广告配置及横幅推广
+^https:\/\/dsp\.fcbox\.com\/adSearch\/ reject-dict
+
+# 生活服务
+^https:\/\/consumer\.fcbox\.com\/hs-portal\/app\/config\/page\/home\/v2\? reject-dict
+
+# 订单页面 - 邀请开通会员横幅
+^https:\/\/consumer\.fcbox\.com\/post\/suggestion\/query$ reject-dict
+
+# 底栏配置
+^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarConfig\/mainPage$ response-body-json-del data.lifeService data.mall
+
+# 弹窗配置
+^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/marketingEntrance\/retentionPopup$ reject-dict
+^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/clientPopup\/v\d\/queryPopupWithPriority$ reject-dict
+^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/guidePopup\/popup$ reject-dict
+
+[MitM]
+hostname=consumer.fcbox.com, dsp.fcbox.com

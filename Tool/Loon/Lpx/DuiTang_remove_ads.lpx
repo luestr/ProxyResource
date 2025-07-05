@@ -1,0 +1,26 @@
+#!name=堆糖去广告
+#!desc=移除开屏广告、信息流广告、热搜排行榜广告、我的页面横幅广告，移除关注推荐。
+#!openUrl=https://apps.apple.com/app/id533415763
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DuiTang.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 信息流广告
+^https:\/\/(www|api)\.duitang\.com\/napi\/(ad|ads)\/ reject-dict
+# 其他广告
+^https:\/\/api\.duitang\.com\/napi\/infra\/settings\/ reject-dict
+# 达人推荐
+^https:\/\/api\.duitang\.com\/napi\/vienna\/daren\/daren\/recommend\/ reject-dict
+
+[Rewrite]
+# 清理配置文件 - 广告反馈data.AD_MENU_SELECTIONS / 清朗·网络戾气整治”专项行动data.ME_TAB.ANNOUNCEMENT / 我的页面横幅data.ME_TAB.MEMBERSHIP / 我的页面横幅data.ME_TAB.MEMBERSHIP2
+^https:\/\/(www|api)\.duitang\.com\/napi\/settings\/ response-body-json-del data.REWARD_AD_PLACES data.SPLASH_SWING_OPEN data.REWARD_AD_PHOTO_EDITOR data.REWARD_AD_PAG_EDITOR data.AD_PRICE_SHOW data.AD_SCREEN_WAKEUP_TIME data.REWARD_AD_CUTOUT_NUM data.AD_HOME_ENTER_POP_COUNT data.SHARE_BANNER data.AD_MENU_SELECTIONS data.ME_TAB.ANNOUNCEMENT data.ME_TAB.MEMBERSHIP data.ME_TAB.MEMBERSHIP2
+
+[MitM]
+hostname=api.duitang.com, www.duitang.com

@@ -1,0 +1,22 @@
+#!name=1.1.1.1配置管理
+#!desc=提取1.1.1.1应用的配置并生成Loon可用的节点配置，点击下面署名前往配置1.1.1.1的BoxJs配置。
+#!openUrl=https://itunes.apple.com/app/id1423538627
+#!author=VirgilClyne[https://github.com/VirgilClyne], I-am-R-E[https://github.com/I-am-R-E]
+#!tag=配置管理
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=http://boxjs.com/#/app/Cloudflare.1dot1dot1dot1
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/1.1.1.1.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+# WARP Personal
+http-request ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$ script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/1.1.1.1.request.js, requires-body=true, tag=WARP Personal Request
+http-response ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$ script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/1.1.1.1.response.js, requires-body=true, tag=WARP Personal Response
+# Cloudflare for Teams
+http-request ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$ script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/1.1.1.1.request.js, requires-body=true, tag=WARP Teams Request
+http-response ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$ script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/1.1.1.1.response.js, requires-body=true, tag=WARP Teams Response
+
+[MitM]
+hostname=api.cloudflareclient.com, zero-trust-client.cloudflareclient.com

@@ -1,0 +1,7 @@
+# Author: 可莉🅥
+# 当前JOOX仅支持香港、澳门、泰国、马来西亚、印度尼西亚和缅甸的节点使用
+DOMAIN-SUFFIX, joox.com
+DOMAIN-SUFFIX, i-joox.com
+DOMAIN-SUFFIX, myqcloud.com
+DOMAIN, jooxweb-api.tencent.co.th
+DOMAIN, api-jooxtt.sanook.com

@@ -1,0 +1,21 @@
+# Author: 可莉🅥
+# Date：2024-07-20 11:14:56
+DOMAIN, cdn.filen.io
+DOMAIN, drive.filen.io
+DOMAIN, egest.filen.io
+DOMAIN, gateway.filen-1.net
+DOMAIN, gateway.filen-2.net
+DOMAIN, gateway.filen-3.net
+DOMAIN, gateway.filen-4.net
+DOMAIN, gateway.filen-5.net
+DOMAIN, gateway.filen.io
+DOMAIN, gateway.filen.net
+DOMAIN, ingest.filen.io
+DOMAIN, socket.filen.io
+DOMAIN-SUFFIX, filen.io
+DOMAIN-SUFFIX, filen.net
+DOMAIN-SUFFIX, filen-1.net
+DOMAIN-SUFFIX, filen-2.net
+DOMAIN-SUFFIX, filen-3.net
+DOMAIN-SUFFIX, filen-4.net
+DOMAIN-SUFFIX, filen-5.net

@@ -1,0 +1,30 @@
+#!name=WPS每日签到
+#!desc=WPS每日签到并兑换会员，需要进入此插件的主页链接，阅读使用说明操作。
+#!openUrl=https://apps.apple.com/app/id599852710
+#!author=小白脸
+#!tag=签到
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/WPS/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WPS.png
+#!date=2025-05-13 15:17:08
+
+[Argument]
+CaptureCookie=switch, "false", "true", tag=捕获Cookie, desc=此开关控制插件是否捕获Cookie
+AK=input, "", tag=百度API Key, desc=这里需要输入有效的百度API Key
+SK=input, "", tag=百度Secret Key, desc=这里需要输入有效的百度Secret Key
+DAY=input, "1", tag=兑换天数, desc=每日签到时自动兑换的天数，可不做更改。
+MAX_RETRIES=input, "5", tag=失败重试次数, desc=仅允许填写阿拉伯数字
+# TIMEOUT=input, "120", tag=脚本超时参数, desc=仅允许填写阿拉伯数字，单位为秒。 // 此项暂不支持传参
+CRONEXP=input, "0 8 * * *", tag=定时参数, desc=这里需要输入符合CRON表达式的参数
+
+[Script]
+# 捕获Cookie
+http-request ^https:\/\/moapi\.wps\.cn\/app\/ios\/v1\/app$ script-path=https://kelee.one/Resource/Script/WPS/WPS_checkin.js, requires-body=true, tag=捕获Cookie, enable={CaptureCookie}
+
+# 定时签到
+cron {CRONEXP} script-path=https://kelee.one/Resource/Script/WPS/WPS_checkin.js, tag=WPS每日签到, timeout=120, argument=[{AK},{SK},{MAX_RETRIES}]
+
+[MitM]
+hostname=moapi.wps.cn

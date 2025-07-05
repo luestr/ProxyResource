@@ -1,0 +1,26 @@
+#!name=快递100去广告
+#!desc=移除横幅广告、弹窗广告，精简首页。
+#!openUrl=https://apps.apple.com/app/id458270120
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KuaiDi100.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 广告配置
+^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do$ response-body-json-del adsplash adIsConsumable adProductId nologin_tips index_banner me_banner index_banner_shadow adshongbao adsapp_homepage_ticket_pop adsoptimizationsend adsapp_activity_ad_array adbanner adposition adShowAgainTime
+
+# 精简首页
+^https?:\/\/p\.kuaidi100\.com\/apicenter\/xcx\.dox response-body-json-del data.secondMenuList
+
+# 弹窗和横幅推广
+^https?:\/\/p\.kuaidi100\.com\/advertisement\/ reject-dict
+^https?:\/\/p\.kuaidi100\.com\/e-commerce\/act\/actInfo\? reject-dict
+^https?:\/\/p\.kuaidi100\.com\/apicenter\/card\.dox reject-dict
+
+[MitM]
+hostname=p.kuaidi100.com

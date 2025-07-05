@@ -1,0 +1,40 @@
+#!name=YY去广告
+#!desc=移除开屏广告、应用内弹窗，精简底栏和我的页面。
+#!openUrl=https://apps.apple.com/app/id427941017
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YY_Voice.png
+#!date=2025-06-02 01:02:42
+
+[Rule]
+# 开屏广告
+DOMAIN, splash.yy.com, REJECT
+
+# 广告下发
+DOMAIN, dsp-ad.yy.com, REJECT
+DOMAIN, ysad.yy.com, REJECT
+
+[Rewrite]
+# 首页 - 下拉进入直播间
+^https:\/\/yyapp-fastnet\.yy\.com\/dispatch\? reject-dict
+
+# 首页 - 弹窗
+^https:\/\/data\.3g\.yy\.com\/popup\/topLiveCardPopup\? reject-dict
+^https:\/\/yyapp-act-entrance\.yy\.com\/entrance\/list\? reject-dict
+
+# 首页 - 横幅
+^https:\/\/yyapp-idx\.yy\.com\/mobyy\/nav\/index\/idx\? response-body-json-jq '.data[].modules |= map(select(.name != "新版本滚动条" and .name != "通栏轮播" and .name != "新静默位"))'
+
+# 移除底栏按钮
+^https:\/\/tab\.yy\.com\/tabs\? response-body-json-del data.tabsForSelect
+^https:\/\/tab\.yy\.com\/tabs\? response-body-json-jq '.data.tabs |= map(select(.alias == "follow" or .alias == "im" or .alias == "me"))'
+
+# 清理我的页面
+^https:\/\/personal-center\.yy\.com\/personalCenter\/list\? response-body-json-jq '.data.modules |= map(select(.moduleName != "Banner轮播")) | .data.modules |= map(if has("entrances") then .entrances |= map(select(.bizCode|IN("jishijiedaikuan","duxiaoman2","chongzhi","freeData")|not)) else . end)'
+
+[MitM]
+hostname=yyapp-act-entrance.yy.com, yyapp-fastnet.yy.com, personal-center.yy.com, tab.yy.com, data.3g.yy.com, yyapp-idx.yy.com

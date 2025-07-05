@@ -1,0 +1,18 @@
+#!name=小店掌柜去广告
+#!desc=移除开屏广告、活动推广和页面跳转。
+#!openUrl=https://apps.apple.com/app/id1579610611
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShopKeeperAdmin.png
+#!date=2025-05-28 21:48:03
+
+[Rewrite]
+# 广告下发
+^https:\/\/mch\.juhesaas\.com\/api\/advertisement\/ reject-dict
+
+[MitM]
+hostname=mch.juhesaas.com

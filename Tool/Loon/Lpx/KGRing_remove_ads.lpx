@@ -1,0 +1,18 @@
+#!name=酷狗铃声去广告
+#!desc=移除开屏广告，移除歌曲列表、播放器、搜索界面广告，移除悬浮广告和弹窗广告。
+#!openUrl=https://apps.apple.com/app/id1138236198
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KGRing.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# DIY社区 - 关注 - 大家都在关注
+^http:\/\/api\.ring\.kugou\.com\/user\/notice\/recommend$ reject-dict
+
+[MitM]
+hostname=api.ring.kugou.com

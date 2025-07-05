@@ -1,0 +1,34 @@
+#!name=小象超市去广告
+#!desc=移除开屏广告、应用内弹窗、猜你想买、横幅推广和悬浮窗。
+#!openUrl=https://apps.apple.com/app/id1444411068
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iMaiCai.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 开屏广告
+^https:\/\/mall\.meituan\.com\/api\/c\/homepage\/splash reject-dict
+# 首页 - 领券悬浮红包
+^https:\/\/mall\.meituan\.com\/api\/c\/homepage\/bubble\/operate\/info reject-dict
+# 分类 - 横幅推广
+^https:\/\/mall\.meituan\.com\/api\/c\/jigsaw\/code\/category-banner-\d+\/ reject-dict
+# 购物车 - 您可能想买
+^https:\/\/mall\.meituan\.com\/api\/c\/poi\/\d+\/order\/recommend\/v\d reject-dict
+# 我的页面 - 轮播图
+^https:\/\/mall\.meituan\.com\/api\/c\/banner\/ reject-dict
+# 我的页面 - 您可能想买
+^https:\/\/mall\.meituan\.com\/api\/c\/poi\/\d+\/personal\/recommend reject-dict
+# 报名 - 驾校推荐列表
+^https:\/\/businessapi\.ksedt\.com\/signupindex\/jxlist reject-dict
+
+[Script]
+# 下发广告
+http-response ^https:\/\/portal-portm\.meituan\.com\/horn_ios\/mergeRequest script-path=https://kelee.one/Resource/Script/iMaiCai/iMaiCai_remove_ads.js, requires-body=true, tag=移除下发广告
+
+[MitM]
+hostname=portal-portm.meituan.com, mall.meituan.com, businessapi.ksedt.com

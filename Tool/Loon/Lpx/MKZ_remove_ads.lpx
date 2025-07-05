@@ -1,0 +1,30 @@
+#!name=漫客栈去广告
+#!desc=移除开屏广告、漫画广告、小说章末广告，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id1189885433
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MKZ.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 阅读页面视频广告
+^https:\/\/base\.mkzcdn\.com\/advert\/app\/read\/v\d reject-dict
+^https:\/\/base\.mkzcdn\.com\/advert\/app\/story\/read\/v\d reject-dict
+
+# 任务激励视频
+^https:\/\/base\.mkzcdn\.com\/advert\/app\/task\/motivate\/v\d reject-dict
+^https:\/\/base\.mkzcdn\.com\/advert\/app\/task\/motivate\/v\d reject-dict
+
+# 我的页面 - 邀请好友、客栈魔法屋
+^https:\/\/base\.mkzcdn\.com\/advert\/app\/user\/slide\d\/v\d\/ reject-dict
+
+[Script]
+# 配置修改
+http-response ^https:\/\/base\.mkzcdn\.com\/app\/config\/ script-path=https://kelee.one/Resource/Script/MKZ/MKZ_remove_ads.js, requires-body=true, tag=配置修改
+
+[MitM]
+hostname=base.mkzcdn.com

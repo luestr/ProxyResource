@@ -1,0 +1,25 @@
+#!name=VVebo时间线修复
+#!desc=修复失效的用户时间线和我的页面。使用此插件前需要禁用微博去广告插件，避免插件冲突导致失效。
+#!openUrl=https://apps.apple.com/app/id670910957
+#!author=suiyuran[https://github.com/suiyuran], androidcn[https://github.com/androidcn]
+#!tag=suiyuran
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/VVebo.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+http-request ^https:\/\/api\.weibo\.cn\/2\/users\/show\? script-path=https://kelee.one/Resource/Script/VVebo/VVebo_repair.js, tag=修复时间线
+
+http-request ^https:\/\/api\.weibo\.cn\/2\/statuses\/user_timeline\? script-path=https://kelee.one/Resource/Script/VVebo/VVebo_repair.js, tag=修复时间线
+
+http-request ^https:\/\/api\.weibo\.cn\/2\/remind\/unread_count\? script-path=https://kelee.one/Resource/Script/VVebo/VVebo_repair.js, tag=修复时间线
+
+http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/statuses\/tab\? script-path=https://kelee.one/Resource/Script/VVebo/VVebo_repair.js, requires-body=true, tag=修复时间线
+
+http-response ^https:\/\/api\.weibo\.cn\/2\/cardlist\? script-path=https://kelee.one/Resource/Script/VVebo/VVebo_repair.js, requires-body=true, tag=修复我的页面
+
+[MitM]
+hostname=api.weibo.cn

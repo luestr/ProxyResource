@@ -1,0 +1,26 @@
+#!name=Spotify歌词增强
+#!desc=将Spotify的外语歌词翻译为简体中文，并提供双语翻译支持。
+#!openUrl=https://apps.apple.com/app/id324684580
+#!author=VirgilClyne[https://github.com/VirgilClyne]
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
+#!date=2025-05-13 15:17:08
+
+[Script]
+http-response ^https?:\/\/api\.spotify\.com\/v1\/tracks\? requires-body=true,script-path=https://kelee.one/Resource/Script/Spotify/Spotify_response.js, tag=跟踪响应·JSON
+
+http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json requires-body=true,script-path=https://kelee.one/Resource/Script/Spotify/Spotify_request.js, tag=歌词请求·JSON
+http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*) requires-body=true, binary-body-mode=true,script-path=https://kelee.one/Resource/Script/Spotify/Spotify_request.js, tag=歌词请求·Proto
+
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=Translate requires-body=true,script-path=https://kelee.one/Resource/Script/Spotify/Translate_response.js, tag=翻译歌词响应·JSON
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=Translate requires-body=true, binary-body-mode=true,script-path=https://kelee.one/Resource/Script/Spotify/Translate_response.js, tag=翻译歌词响应·Proto
+
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External requires-body=true,script-path=https://kelee.one/Resource/Script/Spotify/External_Lyrics_response.js, tag=外部歌词响应·JSON
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External requires-body=true, binary-body-mode=true,script-path=https://kelee.one/Resource/Script/Spotify/External_Lyrics_response.js, tag=外部歌词响应·Proto
+
+[MitM]
+hostname=api.spotify.com, spclient.wg.spotify.com

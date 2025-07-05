@@ -1,0 +1,13 @@
+# Author: 可莉🅥
+# 引用地址 https://support.apple.com/en-us/HT210060
+# 设备设置 - 在设置期间或者在安装、更新或恢复操作系统时，Apple 设备需要访问以下主机。
+DOMAIN, albert.apple.com //设备激活
+DOMAIN, captive.apple.com //针对使用强制门户的网络进行互联网连接验证
+DOMAIN, gs.apple.com
+DOMAIN, humb.apple.com
+DOMAIN, static.ips.apple.com
+DOMAIN, sq-device.apple.com //eSIM 激活
+DOMAIN, tbsc.apple.com
+DOMAIN, time-ios.apple.com //供设备用来设置日期和时间
+DOMAIN, time.apple.com //供设备用来设置日期和时间
+DOMAIN, time-macos.apple.com //供设备用来设置日期和时间

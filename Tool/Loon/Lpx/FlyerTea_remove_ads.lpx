@@ -1,0 +1,32 @@
+#!name=飞客去广告
+#!desc=移除开屏广告、首页广告、板块广告、帖内广告和我的页面广告。
+#!openUrl=https://apps.apple.com/app/id547560608
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FlyerTea.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 全局广告配置
+^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=advis reject
+# 我的页面 - 弹窗
+^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=vip_coupon reject-dict
+# 我的页面 - 悬浮窗
+^https:\/\/ptf\.flyertrip\.com\/static\/img\/common\/ic_plate_mine_button\.png reject-img
+# 发帖 - 横幅广告
+^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=getdata reject-dict
+
+[Script]
+# 板块广告
+http-response ^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?version=5 script-path=https://kelee.one/Resource/Script/FlyerTea/FlyerTea_remove_ads.js, requires-body=true, tag=移除板块广告
+# 我的页面 - 新用户推广横幅
+# http-response ^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=basicdata&type=app_onoff script-path=https://kelee.one/Resource/Script/FlyerTea/FlyerTea_remove_ads.js, requires-body=true, tag=清理我的页面
+# 签到弹窗广告
+http-response ^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=plugin&id=k_misign:sign script-path=https://kelee.one/Resource/Script/FlyerTea/FlyerTea_remove_ads.js, requires-body=true, tag=移除签到弹窗广告
+
+[MitM]
+hostname=www.flyert.com.cn, ptf.flyertrip.com

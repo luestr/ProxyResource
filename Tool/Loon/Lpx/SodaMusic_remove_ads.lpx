@@ -1,0 +1,60 @@
+#!name=汽水音乐去广告
+#!desc=移除开屏广告、弹窗广告、播放器推广、歌曲详情界面视频推广、播放页面的歌曲视频，精简首页和我的页面。
+#!openUrl=https://apps.apple.com/app/id1605585211
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SodaMusic.png
+#!date=2025-05-18 01:29:34
+
+[Rewrite]
+# 追加的销售配置
+^https:\/\/beta-luna\.douyin\.com\/luna\/commerce\/upsells_config\? reject-dict
+
+# 广告下发
+^https:\/\/api\.qishui\.com\/luna\/ads\/ reject-dict
+^https:\/\/beta-luna\.douyin\.com\/luna\/ads\/ reject-dict
+
+# 发现页面 - 正在直播
+^https:\/\/webcast-open\.douyin\.com\/webcast\/openapi\/feed\/\? reject-dict
+
+# 签到入口
+^https:\/\/beta-luna\.douyin\.com\/luna\/treasure\/entrance\/config\? reject-dict
+
+# 我的页面 - 看视频免费听歌60分钟
+^https:\/\/beta-luna\.douyin\.com\/luna\/me\? response-body-json-del reward_ad_banner
+
+# 搜索页面 - 横幅推广
+^https:\/\/beta-luna\.douyin\.com\/luna\/activities\? reject-dict
+
+# 播放页面 - 视频流
+# ^https:\/\/beta-luna\.douyin\.com\/luna\/me\/recently-played-media\? response-body-json-jq '.media |= map(select(.type != "video"))'
+^https:\/\/beta-luna\.douyin\.com\/luna\/feed\/song-tab\? response-body-json-jq 'del(.items[] | select(.type == "video_track_mix"))'
+
+# 播放器界面 - 播放进度条提示语
+^https:\/\/beta-luna\.douyin\.com\/luna\/card\? response-body-json-del preview_guide
+
+# 播放器界面 - 你关注的人喜欢了
+^https:\/\/beta-luna\.douyin\.com\/luna\/card\? response-body-json-jq 'del(.card_items[] | select(has("priority_display")))'
+
+# 播放器 - 视频广告
+^https:\/\/beta-luna\.douyin\.com\/luna\/media_ads\? reject-dict
+
+# 歌曲详情 - 热门视频
+^https:\/\/beta-luna\.douyin\.com\/luna\/more-panel\? response-body-json-jq '.blocks |= map(select(.type != "related_video"))'
+
+# 免费听歌推广
+^https:\/\/beta-luna\.douyin\.com\/luna\/commerce\/upsells\? reject-dict
+
+# 邀请开通会员弹窗
+^https:\/\/beta-luna\.douyin\.com\/luna\/commerce\/v2\/commerce_info\? reject-dict
+
+[Script]
+# 播放页面 - 视频流[响应体太大]
+http-response ^https:\/\/beta-luna\.douyin\.com\/luna\/me\/recently-played-media\? script-path=https://kelee.one/Resource/Script/SodaMusic/SodaMusic_remove_ads.js, requires-body=true, tag=移除播放页面视频流
+
+[MitM]
+hostname=webcast-open.douyin.com, beta-luna.douyin.com, api.qishui.com

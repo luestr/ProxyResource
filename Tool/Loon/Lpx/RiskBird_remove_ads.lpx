@@ -1,0 +1,25 @@
+#!name=风鸟去广告
+#!desc=移除首页信息流和轮播图
+#!openUrl=https://apps.apple.com/app/id1528682937
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/RiskBird.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 首页 - 轮播图
+^https:\/\/m\.riskbird\.com\/prod-qbb-api\/user\/getBannerList reject-dict
+
+# 首页 - 热门企业
+^https:\/\/m\.riskbird\.com\/prod-qbb-api\/searchHotEnt reject-dict
+
+[Script]
+# 查老板 - 推荐老板
+http-response ^https:\/\/m\.riskbird\.com\/prod-qbb-api\/query\/person\/personRecommend script-path=https://kelee.one/Resource/Script/RiskBird/RiskBird_remove_ads.js, requires-body=true, tag=移除推荐老板
+
+[MitM]
+hostname=m.riskbird.com

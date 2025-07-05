@@ -1,0 +1,28 @@
+#!name=智联招聘去广告
+#!desc=移除开屏广告、弹窗、职位页面推广和各类横幅推广。需要IPA签名注入方可使用，App Store用户请勿使用此插件，务必点击下方主页链接查看详细教程。
+#!openUrl=https://apps.apple.com/app/id488033535
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZhiLianZhaoPin.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 广告下发
+URL-REGEX, "^https:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/", REJECT
+
+[Rewrite]
+# 职Q - 横幅推广
+^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? response-body-json-del data.templates[0].data.banner
+
+# 弹窗 - 补充最新工作经历
+^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ reject-dict
+
+# 职位详情 - 竞争力分析、简历置顶推广
+^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ reject
+
+[MitM]
+hostname=ask.zhaopin.com, cgate.zhaopin.com

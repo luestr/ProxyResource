@@ -1,0 +1,46 @@
+#!name=香港抖音去广告
+#!desc=精简左右侧边栏、移除底栏切换，其余内容后续再完善。
+#!openUrl=https://apps.apple.com/app/id1142110895
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TikTok.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 开屏广告
+AND, ((IP-CIDR, 101.126.58.201/32, no-resolve), (DEST-PORT, 6443)), REJECT
+AND, ((IP-CIDR, 110.249.199.75/32, no-resolve), (DEST-PORT, 6443)), REJECT
+AND, ((IP-CIDR, 111.225.147.191/32, no-resolve), (DEST-PORT, 6443)), REJECT
+AND, ((IP-CIDR, 111.63.61.101/32, no-resolve), (DEST-PORT, 6443)), REJECT
+AND, ((IP-CIDR, 220.243.141.0/32, no-resolve), (DEST-PORT, 6443)), REJECT
+
+# 拦截PCDN
+AND, ((OR, ((DOMAIN-SUFFIX, bytegecko.com), (DOMAIN-SUFFIX, byteeffecttos.com))), (DOMAIN-KEYWORD, ncdn)), REJECT
+
+[Rewrite]
+# 广告下发
+^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ reject
+^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ reject
+^https:\/\/zlink\.ugsdk\.cn\/ad\/ reject
+
+# 左侧边栏 - 常用小程序、常访问的人
+^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? response-body-json-del data_map.recently_apps data_map.recently_users
+
+# 底栏皮肤
+# ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/service\/settings\/v3\/\?need_personal_recommend response-body-json-del data.key_vids_mp.tab_bar_background_use_server_time data.key_vids_mp.dynamic_plus_icon_config data.key_vids_mp.tabbar_config data.key_vids_mp.homepage_two_session_tab_skin_2025 data.key_vids_mp.homepage_tab_skin_enable
+
+# 底栏切换
+^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? response-body-json-del data.tab_config
+
+# 左侧边栏、首页顶部标签
+^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? response-body-json-jq '.data.tab_list[]? |= (if .extra.side_bar.modules != null then .extra.side_bar.modules[]?.items[]? |= (if .data.first_page_module?.module_title == "常用功能" then .data={} else . end) else . end) | .data.tab_list |= map(if .extra.tab_list != null then .extra.tab_list |= map(select(.tab_id | IN("homepage_tablive", "homepage_follow", "homepage_hot_container"))) else . end) | .data.tab_list |= map(select(.extra.tab_list != null and (.extra.tab_list | length > 0)))'
+
+# 底栏皮肤
+^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend response-body-json-replace data["/service/settings/v3/"].body.data.settings.homepage_two_session_tab_skin_2025 false data["/service/settings/v3/"].body.data.settings.homepage_tab_skin_enable false
+
+[MitM]
+hostname=aweme.snssdk.com, api5-normal-m.amemv.com

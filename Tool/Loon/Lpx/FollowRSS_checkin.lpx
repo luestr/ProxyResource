@@ -1,0 +1,23 @@
+#!name=Follow每日签到
+#!desc=Follow每日签到，需要进入此插件的主页链接，阅读使用说明操作。
+#!openUrl=https://follow.is
+#!author=gideonsenku[https://github.com/gideonsenku], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=签到
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/FollowRSS/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FollowRSS.png
+#!date=2025-05-13 15:17:08
+
+[Argument]
+token=input, "", tag=csrfToken, desc=这里需要输入csrfToken的值
+cookie=input, "", tag=Cookie, desc=这里需要输入Cookie的值
+cron=input, "0 1 * * *", tag=定时参数, desc=这里需要输入符合CRON表达式的参数
+
+[Script]
+# 定时签到
+cron {cron} script-path=https://kelee.one/Resource/Script/FollowRSS/FollowRSS_checkin.js, tag=Follow每日签到, timeout=120, argument=[{token},{cookie}]
+
+[MitM]
+hostname=api.follow.is

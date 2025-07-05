@@ -1,0 +1,20 @@
+#!name=TestFlight地区解锁
+#!desc=解除TestFlight的区域限制，支持tvOS。
+#!openUrl=https://apps.apple.com/app/id899247664
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=功能增强
+#!system=
+#!system_version=
+#!loon_version=3.2.1(749)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TestFlight.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, testflight.apple.com, PROXY
+
+[Rewrite]
+^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ request-body-replace-regex "storefrontId"\x20:\x20"\d{6}-\d{2},\d{2}", "storefrontId":"143441-19,29",
+
+[MitM]
+hostname=testflight.apple.com

@@ -1,0 +1,49 @@
+#!name=爱企查去广告
+#!desc=移除开屏广告、应用内弹窗、首页轮播图、悬浮部件、信息流和搜索填充词。
+#!openUrl=https://apps.apple.com/app/id1527039353
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Aiinquiry.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 首页 - 轮播图
+^https:\/\/aiqicha\.baidu\.com\/app\/bannerPicAjax reject-dict
+
+# 首页 - 悬浮部件
+^https:\/\/aiqicha\.baidu\.com\/app\/getPopConfigAjax reject-dict
+
+# 首页 - 热门话题
+^https:\/\/aiqicha\.baidu\.com\/app\/getHotTopicAjax reject-dict
+
+# 首页 - 每日早报
+^https:\/\/aiqicha\.baidu\.com\/app\/getNewsReportAjax reject-dict
+
+# 首页 - 专家讲堂
+^https:\/\/aiqicha\.baidu\.com\/app\/getExpertVideoAjax reject-dict
+
+# 首页 - 热门快讯
+^https:\/\/aiqicha\.baidu\.com\/apps\/getHotRecommendV2Ajax reject-dict
+
+# 首页 - 底部登录横幅
+^https:\/\/aiqicha\.baidu\.com\/m\/getLoginWordsAjax reject-dict
+
+# 首页 - 弹窗
+^https:\/\/aiqicha\.baidu\.com\/app\/getAppPopSettingAjax reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/commonstatusAjax reject
+
+# 首页 - 精选监控
+^https:\/\/aiqicha\.baidu\.com\/apps\/getHomeMonitorDataAjax reject-dict
+
+# 首页 - 搜索栏大家都在搜
+^https:\/\/aiqicha\.baidu\.com\/apps\/searchRecommendAjax reject-dict
+
+# 未知的视频
+# ^https:\/\/b2baifanfan\.baidu\.com\/crm\/web\/b2b\/im\/common\/getConfigByDeviceNum reject-dict
+
+[MitM]
+hostname=aiqicha.baidu.com

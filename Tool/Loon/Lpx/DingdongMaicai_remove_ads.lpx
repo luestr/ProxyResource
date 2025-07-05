@@ -1,0 +1,77 @@
+#!name=叮咚买菜去广告
+#!desc=移除开屏广告、弹窗推广、搜索推荐、信息流广告、悬浮广告、各页面购物推荐、精简我的页面，移除底栏和各页面AI入口。
+#!openUrl=https://apps.apple.com/app/id768082524
+#!author=zirawell[https://github.com/zirawell], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], wish
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DingdongMaicai.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, trackercollect.ddxq.mobi, REJECT
+DOMAIN, ddfs-public.ddimg.mobi, REJECT
+DOMAIN, rttrack.ddxq.mobi, REJECT
+
+[Rewrite]
+# 拦截HTTPDNS
+^https?:\/\/119\.29\.29\.\d+\/d reject-200
+
+# 开屏广告
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject
+
+# 弹窗广告
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop reject
+
+# 底部会员弹窗推广
+^https:\/\/maicai\.api\.ddxq\.mobi\/vip\/getVipAd\/\? reject-dict
+
+# 底部优惠券弹窗
+^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/marketingNotice\? reject-dict
+
+# 搜索推荐 - 填充词
+^https:\/\/maicai\.api\.ddxq\.mobi\/search\/rollHotKeyword\? reject-dict
+
+# 搜索推荐 - 榜单列表
+^https:\/\/maicai\.api\.ddxq\.mobi\/search\/rankingList\? reject-dict
+
+# 搜索推荐 - 搜索发现
+^https:\/\/maicai\.api\.ddxq\.mobi\/search\/hotKeyword\? reject-dict
+
+# 购物车推荐
+^https:\/\/maicai\.api\.ddxq\.mobi\/order\/getRecommend$ reject-dict
+
+# 我的页面推荐
+^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/userLike\? reject-dict
+
+# 我的页面服务
+^https:\/\/user\.api\.ddxq\.mobi\/userportal-service\/api\/v1\/user\/queryMyPage\/\? reject-dict
+
+# 商品分类 - 横幅推广
+^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/categoriesNewDetail\? response-body-json-del data.ad_info
+
+# 商品分类 - AI入口
+^https:\/\/maicai\.api\.ddxq\.mobi\/tool\/getConfig\? response-body-json-del data.ai_enter_config
+
+# 商品页面 - 猜你喜欢
+^https:\/\/maicai\.api\.ddxq\.mobi\/guide-service\/userLike\/flowData$ reject-dict
+
+# 福利中心、右下角悬浮广告
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails\? response-body-json-del data.top_advert_data data.suspension
+
+# 首页横幅广告
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails\? response-body-json-jq '.data.list |= map(select(has("capsule_freedom_zone") | not))'
+
+# 商品页面AI入口
+^https:\/\/maicai\.api\.ddxq\.mobi\/guide-service\/productApi\/productDetail\/info\? response-body-json-del data.detail.chatEntry
+
+# 底部栏AI入口
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/bottomNavi response-body-json-jq 'del(.data.adId?) | if (.data.bottom_list? | length > 0) then .data.bottom_list |= map(select(.type != "eatwhat")) else . end'
+
+# 首页信息流广告
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/homeFlowDetail response-body-json-jq 'walk(if type == "object" and has("list") then .list |= map(if type == "object" and has("multi_advertise_data_list") then del(.multi_advertise_data_list) else . end) else . end)'
+
+[MitM]
+hostname= 119.29.29.*, maicai.api.ddxq.mobi, user.api.ddxq.mobi

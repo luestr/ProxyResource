@@ -1,0 +1,24 @@
+#!name=一甜相机去广告
+#!desc=移除开屏广告、悬浮广告及图片选择器横幅广告。
+#!openUrl=https://apps.apple.com/app/id1415653267
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Yitian.png
+#!date=2025-07-04 23:22:46
+
+[Rewrite]
+# 广告下发
+^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/ad\/ reject-dict
+
+# 清理配置
+^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/system\/configs\? response-body-json-del data.shouldUseLMAdFirst data.incentiveCfgList
+
+# 悬浮广告
+^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v4\/op\/actPositions\? reject-dict
+
+[MitM]
+hostname=m2u-api.getkwai.com, api-m2u.kuaishou.com

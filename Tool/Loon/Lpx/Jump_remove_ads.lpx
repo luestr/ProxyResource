@@ -1,0 +1,29 @@
+#!name=Jump去广告
+#!desc=移除Jump开屏广告
+#!openUrl=https://apps.apple.com/app/id1529434108
+#!author=MoonYuki[https://github.com/MoonYuki]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Jump.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 开屏广告
+DOMAIN, zlsdk.1rtb.net, REJECT
+DOMAIN, jp.ad.gameley.com, REJECT
+DOMAIN, toblog.ctobsnssdk.com, REJECT
+DOMAIN, s3plus.meituan.net, REJECT
+DOMAIN, images.pinduoduo.com, REJECT
+DOMAIN, qh-material.taobao.com, REJECT
+DOMAIN-SUFFIX, admobile.top, REJECT
+
+[Rewrite]
+# 开屏广告
+^https:?\/\/switch.jumpvg.com\/jump\/getlaunchad\/v2$ response-body-json-jq 'del(.data.adList)|.data.launchAd.showType=0'
+^https:?\/\/switch.jumpvg.com\/jump\/recommend\/ad_conf$ response-body-json-jq '.data=[]'
+
+[MitM]
+hostname=switch.jumpvg.com

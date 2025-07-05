@@ -1,0 +1,399 @@
+#!name=广告平台拦截器
+#!desc=此插件是所有去广告插件的基础，只针对广告平台处理。你依然需要安装其他去广告插件来搭配使用，并确保此插件始终排序在顶部。\n\n支持拦截腾讯、字节跳动、快手、百度、邑盟、倍孜、艾狄墨搏、袤博、极光、个推、友盟、阿里、优比客思、秒针、网易、美团、小米、京东、天目、讯飞、泛连、锐讯灵通、聚次方、美数、嗨量、钧云、变现猫、章鱼、分秒、泰之菩、翼信、快易、数萤技术、方麟、益起、上量优选、新义互联、腾云天下、布里奇、塔酷、丽声、推啊、旺脉、新度博望、新多广告、快易科技、封狐信息、互裕科技、旺脉信息、佳量动力、Google、SupersonicAds、APPSAD、Adjust、Sigmob、TradPlus等广告平台的广告请求，更适合iOS平台的应用。
+#!openUrl=
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/Website_icon/120px/TencentAd.png
+#!date=2025-07-05 01:13:04
+
+[Rule]
+# 字节跳动广告
+AND, ((OR, ((DOMAIN-KEYWORD, p1-be-pb), (DOMAIN-KEYWORD, lf3-plat), (DOMAIN-KEYWORD, lf6-plat), (DOMAIN-KEYWORD, lf9-plat), (DOMAIN-KEYWORD, lf26-plat), (DOMAIN-KEYWORD, s1-fe-scm), (DOMAIN-KEYWORD, s9-fe-scm), (DOMAIN-KEYWORD, s3-fe-scm), (DOMAIN-KEYWORD, sf3-be-tos), (DOMAIN-KEYWORD, sf1-fe-tos), (DOMAIN-KEYWORD, v1-be-pack), (DOMAIN-KEYWORD, sf1-be-tos), (DOMAIN-KEYWORD, v9-be-pack), (DOMAIN-KEYWORD, v6-be-pack), (DOMAIN-KEYWORD, v5-be-pack), (DOMAIN-KEYWORD, v3-be-pack), (DOMAIN-KEYWORD, sf6-fe-tos), (DOMAIN-KEYWORD, sf3-fe-tos), (DOMAIN-KEYWORD, p1-platform), (DOMAIN-KEYWORD, sf1-be-pack), (DOMAIN-KEYWORD, sf1-vc-pack), (DOMAIN-KEYWORD, sf3-be-pack), (DOMAIN-KEYWORD, sf3-vc-pack), (DOMAIN-KEYWORD, sf6-be-pack), (DOMAIN-KEYWORD, v1-dpa-pack), (DOMAIN-KEYWORD, p9-be-endcard), (DOMAIN-KEYWORD, p1-be-endcard), (DOMAIN-KEYWORD, sf1-scmcdn-tos), (DOMAIN-KEYWORD, sf3-scmcdn-tos), (DOMAIN-KEYWORD, sf6-scmcdn-tos), (DOMAIN-KEYWORD, lf3-reward-sign), (DOMAIN-KEYWORD, p6-be-pack-sign), (DOMAIN-KEYWORD, p3-be-pack-sign), (DOMAIN-KEYWORD, s3-platform-scm), (DOMAIN-KEYWORD, s9-platform-scm), (DOMAIN-KEYWORD, p9-be-pack-sign), (DOMAIN-KEYWORD, lf9-reward-sign), (DOMAIN-KEYWORD, v6-be-pack-nxyd), (DOMAIN-KEYWORD, lf3-ad-union-sdk), (DOMAIN-KEYWORD, lf6-ad-union-sdk), (DOMAIN-KEYWORD, p26-be-pack-sign), (DOMAIN-KEYWORD, sf1-be-auditpack), (DOMAIN-KEYWORD, lf9-ad-union-sdk), (DOMAIN-KEYWORD, lf3-sf-be-tos-sign), (DOMAIN-KEYWORD, lf9-sf-be-tos-sign), (DOMAIN-KEYWORD, lf6-sf-be-tos-sign), (DOMAIN-KEYWORD, lf26-sf-be-tos-sign), (DOMAIN-KEYWORD, lf6-sf-be-pack-sign), (DOMAIN-KEYWORD, lf9-sf-be-pack-sign), (DOMAIN-KEYWORD, lf3-sf-be-pack-sign), (DOMAIN-KEYWORD, lf26-sf-be-pack-sign))), (DOMAIN-SUFFIX, pglstatp-toutiao.com)), REJECT
+AND, ((OR, ((DOMAIN-KEYWORD, api-access), (DOMAIN-KEYWORD, api-access), (DOMAIN-KEYWORD, api-access), (DOMAIN-KEYWORD, api-access), (DOMAIN-KEYWORD, content-union), (DOMAIN-KEYWORD, dpa-pack), (DOMAIN-KEYWORD, ecom), (DOMAIN-KEYWORD, empower), (DOMAIN-KEYWORD, endcard-pack), (DOMAIN-KEYWORD, ether-pack), (DOMAIN-KEYWORD, gromore), (DOMAIN-KEYWORD, log-api), (DOMAIN-KEYWORD, mix), (DOMAIN-KEYWORD, novel), (DOMAIN-KEYWORD, track-pack-lq))), (DOMAIN-KEYWORD, pangolin-sdk-toutiao)), REJECT
+AND, ((DOMAIN-KEYWORD, tnc), (OR, ((DOMAIN-SUFFIX, zijieapi.com), (DOMAIN-SUFFIX, snssdk.com), (DOMAIN-SUFFIX, sgsnssdk.com)))), REJECT
+AND, ((DOMAIN-KEYWORD, pangolin), (OR, ((DOMAIN-SUFFIX, zijieapi.com), (DOMAIN-SUFFIX, snssdk.com), (DOMAIN-SUFFIX, sgsnssdk.com)))), REJECT
+AND, ((DOMAIN-KEYWORD, -ad-), (DOMAIN-SUFFIX, byteimg.com)), REJECT
+AND, ((DOMAIN-KEYWORD, ads), (DOMAIN-KEYWORD, normal), (DOMAIN-SUFFIX, zijieapi.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, -sign-), (DOMAIN-SUFFIX, tiktokcdn.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, -ttam-), (DOMAIN-SUFFIX, ibyteimg.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, ssdk-), (DOMAIN-SUFFIX, pangle.io)), REJECT
+# AND, ((DOMAIN-KEYWORD, lf), (DOMAIN-KEYWORD, -short.bytetos.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, sf), (DOMAIN-KEYWORD, -ttcdn-tos.pstatp.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, sf), (DOMAIN-KEYWORD, -static.i18n-pglstatp.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, if), (DOMAIN-KEYWORD, -cdn-tos.bytescm.com)), REJECT //误杀
+# AND, ((DOMAIN-KEYWORD, if), (DOMAIN-KEYWORD, -analytics.bytescm.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, lf), (DOMAIN-KEYWORD, -analytics.bytescm.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, lf), (DOMAIN-KEYWORD, -analytics.bytescm.com)), REJECT
+# AND, ((DOMAIN-KEYWORD, api), (DOMAIN-KEYWORD, -access-), (DOMAIN-SUFFIX, pangle.io)), REJECT
+# AND, ((DOMAIN-KEYWORD, api), (DOMAIN-KEYWORD, -log-), (DOMAIN-SUFFIX, pangle.io)), REJECT
+# AND, ((DOMAIN-KEYWORD, api), (DOMAIN-KEYWORD, -dual-event-), (DOMAIN-SUFFIX, pangle.io)), REJECT
+# DOMAIN, mon.zijieapi.com, REJECT
+# DOMAIN, lf-ad-ies.bytecdn.cn, REJECT
+# DOMAIN, i.snssdk.com, REJECT
+# DOMAIN, is.snssdk.com, REJECT
+# DOMAIN, bds.snssdk.com, REJECT
+# DOMAIN, dm.bytedance.com, REJECT
+# DOMAIN, dm.pstatp.com, REJECT
+# DOMAIN, dm.toutiao.com, REJECT
+# DOMAIN, log.snssdk.com, REJECT
+# DOMAIN, s3a.pstatp.com, REJECT
+# DOMAIN, sdfp.snssdk.com, REJECT
+# DOMAIN, tosv.boe.byted.org, REJECT
+# DOMAIN, tosv.byted.org, REJECT
+# DOMAIN, extlog.snssdk.com, REJECT
+# DOMAIN, mssdk-bu.bytedance.com, REJECT
+# DOMAIN, toblog.ctobsnssdk.com, REJECT
+# DOMAIN, mssdk.volces.com, REJECT
+# DOMAIN, pangolin.snssdk.com, REJECT
+# DOMAIN, lf-cdn-tos.bytescm.com, REJECT
+# DOMAIN-KEYWORD, video-cn.snssdk.com, REJECT
+DOMAIN-KEYWORD, -ad-sign.byteimg.com, REJECT
+DOMAIN-KEYWORD, -ad.byteoversea.com, REJECT
+DOMAIN-KEYWORD, asiad.byteactivity, REJECT
+
+# 讯飞AI营销
+DOMAIN-KEYWORD, iflyad.bj.openstorage.cn, REJECT
+DOMAIN-KEYWORD, bjimp.voiceads.cn, REJECT
+
+# 美数科技
+DOMAIN, sdk.1rtb.net, REJECT
+DOMAIN, cdn.1rtb.com, REJECT
+
+# 嗨量科技 - 海贝巨量
+DOMAIN, adx.halomobi.com, REJECT
+
+# 钧云 - ADHUB
+DOMAIN, api.htp.hubcloud.com.cn, REJECT
+DOMAIN, res1.hubcloud.com.cn, REJECT
+DOMAIN, sdktmp.hubcloud.com.cn, REJECT
+DOMAIN, v.adx.hubcloud.com.cn, REJECT
+
+# InMobi - 邑盟信息技术（上海）有限公司
+DOMAIN, config.inmobi.cn, REJECT
+
+# 北京锐讯灵通科技有限公司
+DOMAIN, ztoken.uyunad.com, REJECT
+DOMAIN, aaid.uyunad.com, REJECT
+DOMAIN, yumao.puata.info, REJECT
+
+# 快手联盟 - 广告服务商
+DOMAIN, gdfp.gifshow.com, REJECT
+DOMAIN, open.e.kuaishou.com, REJECT
+DOMAIN, open.e.kuaishou.cn, REJECT
+DOMAIN, adtrack.e.kuaishou.com, REJECT
+DOMAIN-SUFFIX, partner.gifshow.com, REJECT
+DOMAIN-SUFFIX, adukwai.com, REJECT
+DOMAIN-SUFFIX, adkwai.com, REJECT
+
+# SupersonicAds
+DOMAIN, init.supersonicads.com, REJECT
+
+# APPSAD
+DOMAIN, st.appsad.cn, REJECT
+
+# 上海倍孜
+DOMAIN, sdk.beizi.biz, REJECT
+DOMAIN, api-htp.beizi.biz, REJECT
+
+# 秒针系统 - 广告服务商
+DOMAIN, admaster.com.cn, REJECT
+DOMAIN-SUFFIX, miaozhen.com, REJECT
+
+# 艾狄墨搏 - 广告服务商
+DOMAIN, monitor.ssp.admobile.top, REJECT
+DOMAIN, sdk.ssp.admobile.top, REJECT
+DOMAIN, ax.admobile.top, REJECT
+DOMAIN, jump.admobile.top, REJECT
+DOMAIN-SUFFIX, admobile.top, REJECT
+
+# 袤博 - 广告服务商
+DOMAIN, api-c.dutils.com, REJECT
+DOMAIN, api-d.dutils.com, REJECT
+DOMAIN, api-p0.yksdks.com, REJECT
+DOMAIN, cache-verify.dutils.com, REJECT
+DOMAIN, cdn-api-verify.dutils.com, REJECT
+DOMAIN, devs-data.dutils.com, REJECT
+DOMAIN, log-verify.dutils.com, REJECT
+DOMAIN, m.mpl.dutils.com, REJECT
+DOMAIN, api.share.mob.com, REJECT
+DOMAIN, api.verify.mob.com, REJECT
+DOMAIN, log-verify.mob.com, REJECT
+DOMAIN, sdk.push.mob.com, REJECT
+
+# 极光 - 广告服务商
+DOMAIN, ali-stats.jpush.cn, REJECT
+DOMAIN, ce3e75d5.jpush.cn, REJECT
+DOMAIN, config-junion.jpush.cn, REJECT
+DOMAIN, config.jpush.cn, REJECT
+DOMAIN, fcapi-ipv6.jpush.cn, REJECT
+DOMAIN, gd-stats.jpush.cn, REJECT
+DOMAIN, s.jpush.cn, REJECT
+DOMAIN, sdk.verification.jiguang.cn, REJECT
+DOMAIN, sis-ipv6.jpush.cn, REJECT
+DOMAIN, smartop-sdkapi.jiguang.cn, REJECT
+DOMAIN, status-ipv6.jpush.cn, REJECT
+DOMAIN, tsis.jpush.cn, REJECT
+DOMAIN, user.jpush.cn, REJECT
+DOMAIN-SUFFIX, jiguang.cn, REJECT
+DOMAIN-SUFFIX, jpush.cn, REJECT
+DOMAIN-SUFFIX, jpush.io, REJECT
+
+# 百度联盟 - 广告服务商
+DOMAIN, afd.baidu.com, REJECT
+DOMAIN, als.baidu.com, REJECT
+DOMAIN, bgg.baidu.com, REJECT
+DOMAIN, cpro.baidustatic.com, REJECT
+DOMAIN, feed-image.baidu.com, REJECT
+DOMAIN, click-bes.baidu.com, REJECT
+DOMAIN, eclick.baidu.com, REJECT
+DOMAIN, mobads-logs.baidu.com, REJECT
+DOMAIN, mobads-pre-config.cdn.bcebos.com, REJECT
+DOMAIN, mobads.baidu.com, REJECT
+DOMAIN, nadvideo2.baidu.com, REJECT
+DOMAIN, wn.pos.baidu.com, REJECT
+DOMAIN, miniapp-ad.cdn.bcebos.com, REJECT
+DOMAIN, mobads-pre-config.cdn.bcebos.com, REJECT
+DOMAIN-SUFFIX, union.baidu.cn, REJECT
+DOMAIN-SUFFIX, union.baidu.com, REJECT
+
+# 腾讯
+DOMAIN, adsmind.gdtimg.com, REJECT
+DOMAIN, adsmind.ugdtimg.com, REJECT
+DOMAIN, c2.gdt.qq.com, REJECT
+DOMAIN, 2fwin.gdt.qq.com, REJECT
+DOMAIN, huatuocode.huatuo.qq.com, REJECT
+DOMAIN, info4.video.qq.com, REJECT
+DOMAIN, info6.video.qq.com, REJECT
+DOMAIN, ios.bugly.qq.com, REJECT
+DOMAIN, pro.bugly.qq.com, REJECT
+DOMAIN, ios.video.mpush.qq.com, REJECT
+# DOMAIN, mazu.m.qq.com, REJECT // 误杀
+DOMAIN, us.l.qq.com, REJECT
+DOMAIN, mi.gdt.qq.com, REJECT
+DOMAIN, otheve.beacon.qq.com, REJECT
+DOMAIN, pgdt.gtimg.cn, REJECT
+DOMAIN, pgdt.ugdtimg.com, REJECT
+# DOMAIN, qzonestyle.gtimg.cn, REJECT // 误杀
+DOMAIN, qzs.gdtimg.com, REJECT
+DOMAIN, qzs.qq.com, REJECT
+DOMAIN, rmonitor.qq.com, REJECT
+DOMAIN, sdk.e.qq.com, REJECT
+DOMAIN, sdkconfig.video.qq.com, REJECT
+DOMAIN, t.gdt.qq.com, REJECT
+DOMAIN, tmead.y.qq.com, REJECT
+DOMAIN, tmeadbak.y.qq.com, REJECT
+DOMAIN, tmeadcomm.y.qq.com, REJECT
+DOMAIN, tpns.qq.com, REJECT
+DOMAIN, v.gdt.qq.com, REJECT
+DOMAIN, v2.gdt.qq.com, REJECT
+DOMAIN, win.gdt.qq.com, REJECT
+DOMAIN, wup.imtt.qq.com, REJECT
+DOMAIN, tpstelemetry.tencent.com, REJECT
+DOMAIN, ii.gdt.qq.com, REJECT
+DOMAIN-KEYWORD, trace.qq.com, REJECT
+DOMAIN-KEYWORD, trace.video.qq.com, REJECT
+DOMAIN-KEYWORD, ad.hunyuan.tencent.com, REJECT
+DOMAIN-SUFFIX, gdt.qq.com, REJECT
+DOMAIN-SUFFIX, l.qq.com, REJECT
+DOMAIN-SUFFIX, ugdtimg.com, REJECT
+IP-CIDR, 47.110.187.87/32, REJECT, no-resolve
+
+# 分秒网络
+DOMAIN-SUFFIX, openinstall.io, REJECT
+
+# 个推
+DOMAIN, b-gtc.getui.net, REJECT
+DOMAIN, c-gtc.getui.net, REJECT
+DOMAIN, c-hzgt2.getui.com, REJECT
+DOMAIN, c-ido.getui.net, REJECT
+DOMAIN, c-gtc.getui.net, REJECT
+DOMAIN, dnms.getui.com, REJECT
+DOMAIN, ido.getui.net, REJECT
+DOMAIN, sdk-conf.getui.com, REJECT
+DOMAIN, sdk-open-phone.getui.com, REJECT
+DOMAIN, ido.gepush.com, REJECT
+DOMAIN-SUFFIX, mobileservice.cn, REJECT
+DOMAIN-SUFFIX, getui.com, REJECT
+DOMAIN-SUFFIX, igexin.com, REJECT
+
+# 友盟
+DOMAIN, cnlogs.umeng.com, REJECT
+DOMAIN, errlog.umeng.com, REJECT
+DOMAIN, errnewlog.umeng.com, REJECT
+DOMAIN, ucc.umeng.com, REJECT
+DOMAIN, ulogs.umeng.com, REJECT
+DOMAIN, utoken.umeng.com, REJECT
+DOMAIN, deeplink.umeng.com, REJECT
+DOMAIN, aspect-upush.umeng.com, REJECT
+DOMAIN, plbslog.umeng.com, REJECT
+DOMAIN, log.umtrack.com, REJECT
+DOMAIN, aaid.umeng.com, REJECT
+DOMAIN, log.umsns.com, REJECT
+DOMAIN, ulogs.umengcloud.com, REJECT
+
+# FUNLINK - 北京泛连科技
+DOMAIN, adtracker.adfunlink.com, REJECT
+
+# 天目 - 广告服务商
+DOMAIN, sdk.tianmu.mobi, REJECT
+DOMAIN, tracker.tianmu.mobi, REJECT
+
+# 上海优比客思科技有限公司 - 广告服务商
+DOMAIN, e-u1.ubixioe.com, REJECT
+DOMAIN, sdk-data.ubixioe.com, REJECT
+DOMAIN, tower.ubixioe.com, REJECT
+DOMAIN, tx-cfg-u1.ubixioe.com, REJECT
+DOMAIN, tx-data-u1.ubixioe.com, REJECT
+
+# 阿里巴巴
+DOMAIN, ossgw.alicdn.com, REJECT
+DOMAIN, ems.youku.com, REJECT
+DOMAIN, hudong.alicdn.com, REJECT
+DOMAIN, et.tanx.com, REJECT
+DOMAIN, df.tanx.com, REJECT
+DOMAIN, beacon-api.aliyuncs.com, REJECT
+DOMAIN, adash.man.aliyuncs.com, REJECT
+DOMAIN, applog.uc.cn, REJECT
+AND, ((DOMAIN-KEYWORD, adash), (DOMAIN-SUFFIX, ut.taobao.com)), REJECT
+
+# 网易
+DOMAIN, nex.163.com, REJECT
+DOMAIN, iad.g.163.com, REJECT
+DOMAIN, gorgon.youdao.com, REJECT
+
+# 小米
+DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
+
+# 美团
+DOMAIN, al-log.d.meituan.net, REJECT
+DOMAIN, babel-statistics-android.d.meituan.net, REJECT
+DOMAIN, maplocatesdksnapshot.d.meituan.net, REJECT
+DOMAIN, metrics-picture.d.meituan.net, REJECT
+DOMAIN, route-stats.d.meituan.net, REJECT
+
+# 京东
+DOMAIN, dsp-x.jd.com, REJECT
+DOMAIN, im-x.jd.com, REJECT
+DOMAIN, xlog.jd.com, REJECT
+DOMAIN, janapi.jd.com, REJECT
+
+# 聚次方 - TopOn
+DOMAIN, api.mosspf.com, REJECT
+DOMAIN, da.mosspf.com, REJECT
+DOMAIN, mores.toponad.com, REJECT
+DOMAIN, api.toponadss.com, REJECT
+DOMAIN, da.toponadss.com, REJECT
+DOMAIN, tk.toponadss.com, REJECT
+DOMAIN, adx-os.toponadss.com, REJECT
+
+# 塔酷信息
+DOMAIN, mores.motowoo.com, REJECT
+DOMAIN-SUFFIX, motowoo.com, REJECT
+
+# 变现猫
+DOMAIN, guide2.bianxianmao.com, REJECT
+
+# 章鱼移动
+DOMAIN, caid.adintl.cn, REJECT
+DOMAIN, sv.adintl.cn, REJECT
+DOMAIN, v.adintl.cn, REJECT
+DOMAIN, oss.cdn.adintl.cn, REJECT
+
+# 上海泰之菩信息科技有限公司
+DOMAIN, adx.adtaipo.com, REJECT
+
+# 浙江翼信科技有限公司
+DOMAIN, adx.yixin.im, REJECT
+
+# 天津快易科技有限公司
+DOMAIN, adx.kuaiyiad.com, REJECT
+
+# 天脉移动广告平台
+DOMAIN, adreport.adtianmai.com, REJECT
+
+# 数萤技术
+DOMAIN, adxapi.readgps.com, REJECT
+
+# 方麟数字营销
+DOMAIN, t.fanglinad.com, REJECT
+
+# 益起广告
+DOMAIN, trk1.17admob.com, REJECT
+
+# 北京上量优选科技有限公司
+DOMAIN, nfy.slyxmobi.com, REJECT
+
+# 新义互联
+DOMAIN, api.mobrtb.com, REJECT
+
+# 枫岚互联
+DOMAIN, ssp.maplehaze.cn, REJECT
+
+# 北京腾云天下科技有限公司
+DOMAIN-SUFFIX, lnk0.com, REJECT
+
+# 布里奇信息科技有限公司
+DOMAIN-SUFFIX, bridgeoos.com, REJECT
+DOMAIN-SUFFIX, anythinktech.com, REJECT
+
+# 海南丽声影视文化传播有限公司
+DOMAIN, ad-evods.tianya.tv, REJECT
+
+# 杭州推啊网络科技有限公司
+DOMAIN, adx.tuia.cn, REJECT
+
+# 上海旺脉信息科技集团有限公司
+DOMAIN-SUFFIX, 66mobi.com, REJECT
+
+# 深圳新度博望科技有限公司
+DOMAIN, rpe.xdplt.com, REJECT
+
+# Adjust
+DOMAIN-SUFFIX, adjust.com, REJECT
+DOMAIN-SUFFIX, adjust.net.in, REJECT
+
+# Google
+DOMAIN, googleads.g.doubleclick-cn.net, REJECT
+DOMAIN-SUFFIX, doubleclick-cn.net, REJECT
+DOMAIN-SUFFIX, googlesyndication-cn.com, REJECT
+
+# 新多广告
+DOMAIN-SUFFIX, track.xinduoad.com, REJECT
+
+# 快易科技
+DOMAIN, adx.kuaiyiad.com, REJECT
+
+# 封狐信息
+DOMAIN, statis.miwuad.com, REJECT
+
+# Sigmob
+DOMAIN, 2frtbcallback.sigmob.cn, REJECT
+
+# 互裕科技
+DOMAIN, ad.richmob.cn, REJECT
+
+# 旺脉信息
+DOMAIN-SUFFIX, ad.track.66mobi.com, REJECT
+
+# 佳量动力
+DOMAIN, ad.shunchangzhixing.com, REJECT
+DOMAIN, redirect.shunchangzhixing.com, REJECT
+
+# TradPlus
+DOMAIN, api.tradplusad.com, REJECT
+DOMAIN, bidder.tradplusad.com, REJECT
+DOMAIN, event.tradplusad.com, REJECT
+
+[Rewrite]
+# 拼多多广告平台
+^https:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/ reject
+^https:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_ reject
+^https:\/\/images\.pinduoduo\.com\/mrk\/ reject
+^https:\/\/images\.pinduoduo\.com\/marketing_api\/ reject
+
+[MitM]
+hostname=video-dsp.pddpic.com, t-dsp.pinduoduo.com, images.pinduoduo.com

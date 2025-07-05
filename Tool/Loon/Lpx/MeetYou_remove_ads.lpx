@@ -1,0 +1,26 @@
+#!name=美柚去广告
+#!desc=移除开屏广告、弹窗推广和信息流推广，移除青少年模式弹窗和我的页面推广。
+#!openUrl=https://apps.apple.com/app/id634896669
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MeetYou.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+# 广告接口
+DOMAIN, ad.seeyouyima.com, REJECT
+DOMAIN, axxd.xmseeyouyima.com, REJECT
+
+[Rewrite]
+# 帖子底部 - 推荐阅读
+^https:\/\/circle\.(xm)?seeyouyima\.com\/v\d\/article_recommend\? reject
+
+# 青少年模式弹窗
+^https:\/\/common\.seeyouyima\.com\/v2\/conf_list$ response-body-json-del data.confList.Minor_mode_card
+
+[MitM]
+hostname=circle.seeyouyima.com, circle.xmseeyouyima.com, common.seeyouyima.com

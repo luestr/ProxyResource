@@ -1,0 +1,30 @@
+#!name=省钱快报去广告
+#!desc=移除开屏广告、横幅广告、商品推荐，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id1116025300
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YueDanBa.png
+#!date=2025-06-01 19:49:56
+
+[Rewrite]
+# 开屏广告
+^https:\/\/api\.17gwx\.com\/v2\/base\/app\/ad\? reject-dict
+
+# 首页 - 横幅和红包入口、我的 - 横幅、商品 - 红包、返利 - 横幅、返利商品 - 主图横幅
+^https:\/\/api\.17gwx\.com\/operate\/elements\? response-body-json-jq '.data |= with_entries(select(.key | test("home_mid_many|home_mid_banner_multi|user_center_slide_show_pic|newfeed_detail_oper_middle|main_rebate_banner|zhekou_coupon_detail_oper|zhekou_jdcoupon_detail_oper|zhekou_vipcoupon_detail_oper|zhekou_pddcoupon_detail_oper") | not))'
+
+# 弹窗
+^https:\/\/api\.17gwx\.com\/v2\/growth\/popup\/remind$ reject-dict
+
+# 我的 - 品牌全网好价
+^https:\/\/api\.17gwx\.com\/v2\/recommend\/feed\/list\? reject-dict
+
+# 商品 - 相关推荐
+^https:\/\/api\.17gwx\.com\/v2\/homepage\/feed\/similarList\? reject-dict
+
+[MitM]
+hostname=api.17gwx.com

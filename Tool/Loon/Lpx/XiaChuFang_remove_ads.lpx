@@ -1,0 +1,33 @@
+#!name=下厨房去广告
+#!desc=移除开屏广告、信息流推广、各类横幅推广，精简首页标签。
+#!openUrl=https://apps.apple.com/app/id460979760
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaChuFang.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 开屏广告
+^https:\/\/api\.xiachufang\.com\/v2\/ad\/ reject-dict
+
+# 首页 - 信息流广告
+^https:\/\/api\.xiachufang\.com\/v2\/homepage\/paged_waterfall_recommendations\.json$ response-body-json-jq 'del(.multiplex_cells[] | select(.recommendation_cell.impression_sensor_events[]?.properties.target_type? == "ad"))'
+
+# 首页 - 标签
+^https:\/\/api\.xiachufang\.com\/v2\/config\/get\.json$ response-body-json-jq 'del(.content.tab_name[] | select(. == "减脂" or . == "商店" or . == "分类"))'
+
+# 首页 - 关注 - 作品推荐
+^https:\/\/api\.xiachufang\.com\/v2\/account\/feeds_v7\.json reject-dict
+
+# 首页 - 横幅推广
+^https:\/\/api\.xiachufang\.com\/v2\/homepage1810\/init_page\.json reject-dict
+
+# 发布 - 早餐马拉松 - 横幅
+^https:\/\/api\.xiachufang\.com\/v2\/mark_mission\/get_sticker_info\.json reject-dict
+
+[MitM]
+hostname=api.xiachufang.com

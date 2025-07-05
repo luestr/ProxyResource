@@ -1,0 +1,50 @@
+#!name=DNS防泄露
+#!desc=专为小白设计的DNS防泄露
+#!openUrl=
+#!author=非正常人类研究中心
+#!tag=DNS
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Prevent_DNS_Leaks.png
+#!date=2025-05-13 15:17:08
+
+# 你猜为什么会有这个插件呢？
+
+[Rule]
+# DNS Leak from Shadowrocket Default
+DOMAIN-SUFFIX, dnsleaktest.com, PROXY
+DOMAIN-SUFFIX, dnsleak.com, PROXY
+DOMAIN-SUFFIX, expressvpn.com, PROXY
+DOMAIN-SUFFIX, nordvpn.com, PROXY
+DOMAIN-SUFFIX, surfshark.com, PROXY
+DOMAIN-SUFFIX, ipleak.net, PROXY
+DOMAIN-SUFFIX, perfect-privacy.com, PROXY
+DOMAIN-SUFFIX, browserleaks.com, PROXY
+DOMAIN-SUFFIX, browserleaks.org, PROXY
+DOMAIN-SUFFIX, vpnunlimited.com, PROXY
+DOMAIN-SUFFIX, whoer.net, PROXY
+DOMAIN-SUFFIX, whrq.net, PROXY
+
+# Astrill
+DOMAIN-SUFFIX, astrill.com, PROXY
+DOMAIN-SUFFIX, astrill.org, PROXY
+DOMAIN-SUFFIX, dnsleak.asn247.net, PROXY
+
+# Surfshark
+DOMAIN-SUFFIX, surfshark.com, PROXY
+DOMAIN-SUFFIX, surfsharkdns.com, PROXY
+
+# Pixelscan
+DOMAIN-SUFFIX, pixelscan.net, PROXY
+
+# PING0
+DOMAIN, ipv4.ping0.cc, PROXY
+DOMAIN, ipv6.ping0.cc, PROXY
+
+# IPAPI.CO
+DOMAIN-SUFFIX, ipapi.co, PROXY
+
+# BrowserScan
+DOMAIN, ip-scan.adspower.net, PROXY

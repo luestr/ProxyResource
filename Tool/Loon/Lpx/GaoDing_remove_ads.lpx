@@ -1,0 +1,33 @@
+#!name=稿定设计去广告
+#!desc=移除稿定设计开屏广告、首页轮播图和弹窗，移除功能入口角标。
+#!openUrl=https://apps.apple.com/app/id1113276760
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/GaoDing.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 开屏广告
+^https:\/\/www\.gaoding\.com\/api\/v\d\/oc\/v\d\/delivery-pits\/ios-splash\/modules$ reject-dict
+
+# 模板中心弹窗
+^https:\/\/www\.gaoding\.com\/api\/v\d\/oc\/delivery-pits\/(template|mine|home)-page-dialog\/modules$ reject-dict
+
+# 搜索栏填充词
+^https:\/\/www\.gaoding\.com\/api\/v\d\/cp\/search-words\/v2\/placeholder reject-dict
+
+# 移除首页轮播图
+^https:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/template\/resources$ response-body-json-jq '.pits |= map(select(.module_type != "BANNER"))'
+
+# 我的页面轮播图
+^https:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/app_mine\/resources$ response-body-json-jq '.pits |= map(select(.module_type != "BANNER"))'
+
+# 移除功能入口角标
+^https:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/(templates|all_editor_tools)\/resources$ response-body-json-jq 'walk(if type == "object" and .badge_img_url? then .badge_img_url="" else . end)'
+
+[MitM]
+hostname=www.gaoding.com

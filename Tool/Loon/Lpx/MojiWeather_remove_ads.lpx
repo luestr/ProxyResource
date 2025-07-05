@@ -1,0 +1,33 @@
+#!name=墨迹天气去广告
+#!desc=移除天气页面横幅、工具栏，移除时景关注页面推荐，精简我的页面。
+#!openUrl=https://apps.apple.com/app/id434209233
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MojiWeather.png
+#!date=2025-05-13 15:17:08
+
+[Rewrite]
+# 天气 - 天气横幅
+^https:\/\/fcard\.api\.moji\.com\/flycard\/flyCard\? reject
+
+# 天气 - 墨迹看点
+^https:\/\/vdo\.api\.moji\.com\/shortvideo\/card\/subscribe$ reject-dict
+# 天气 - 墨迹看点 - 生活圈
+^https:\/\/vdo\.api\.moji\.com\/shortvideo\/video\/index_flow\? reject-dict
+# 天气 - 墨迹看点 - 达人推荐
+^https:\/\/vdo\.api\.moji\.com\/shortvideo\/video_user\/hotGuyRcm\? reject-dict
+# 天气 - 墨迹看点 - 关注
+^https:\/\/vdo\.api\.moji\.com\/shortvideo\/zone\/follow_src_zone\? reject-dict
+
+# 时景 - 关注 - 你可能感兴趣的人
+^https:\/\/sns\.api\.moji\.com\/user\/dynamic_v9\/json\/someone_interest\? reject-dict
+
+# 我的页面
+^https:\/\/mme\.api\.moji\.com\/json\/entrance\/list$ response-body-json-jq 'del(.entrance_region_res_list[] | select(.region_name == "皇冠区域" or .region_name == "banner区")) | .entrance_region_res_list[].entrance_res_list |= if . then map(select(.entrance_name | . != "墨迹钱包" and . != "墨圈")) else . end'
+
+[MitM]
+hostname=fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com

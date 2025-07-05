@@ -1,0 +1,44 @@
+#!name=百度贴吧去广告
+#!desc=移除开屏广告、信息流广告和帖内广告，精简侧拉抽屉及我的页面。需注意此插件会导致新回复等通知功能不可用，需手动进入消息页点击查看。仅限iOS 15及以上版本系统使用。
+#!openUrl=https://apps.apple.com/app/id477927812
+#!author=app2smile[https://github.com/app2smile], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=15
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Tieba.png
+#!date=2025-05-13 15:17:08
+
+[Rule]
+DOMAIN, 180.76.76.200, REJECT
+IP-CIDR, 180.76.76.200/32, REJECT, no-resolve
+
+[Rewrite]
+# 弹窗广告
+^https:\/\/tieba\.baidu\.com\/c\/f\/member\/getMemberPopups$ reject-dict
+
+# 我的 - 推荐列表、度小满推广、自定义网格、度小满入口、金融标签
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-del recom_naws_list namoaixud_entry custom_grid duxiaoman_entry finance_tab
+
+# 禁用摇一摇开屏广告
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-replace user.shake_ad_switch.is_show 0
+
+# 我的 - 度小满钱包入口、横幅广告、游戏专区
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-jq '.zone_info |= map(select(.type as $t | ["commerce","banner","game"] | index($t) | not))'
+
+# 侧边栏和我的页面 - 签到任务列表、游戏中心、社区工具、社区资产、休闲娱乐、度小满钱包入口
+^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-body-json-del task_list game_center tools tools.yunying_tools_list tools.show_tools_list
+^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-body-json-jq '.tools.show_tools_list |= map(.tools_list |= map(select(.title != "度小满钱包")))'
+
+# 搜索填充词
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover$ reject-dict
+
+# 吧内推广板块 - 吧友直播、度小满入口
+^https:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$ response-body-json-del card_activity
+
+[Script]
+http-response ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd script-path=https://kelee.one/Resource/Script/Tieba/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Proto处理
+
+[MitM]
+hostname=tiebac.baidu.com, tieba.baidu.com

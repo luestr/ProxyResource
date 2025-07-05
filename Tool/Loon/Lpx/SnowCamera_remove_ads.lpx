@@ -1,0 +1,19 @@
+#!name=B612咔叽去广告
+#!desc=移除开屏广告、弹窗及拍摄页面底部横幅广告。
+#!openUrl=https://apps.apple.com/app/id1125855154
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SnowCamera.png
+#!date=2025-07-05 01:31:35
+
+[Rule]
+# 广告下发
+DOMAIN, api-ad.kajicam.com, REJECT // 开屏广告
+DOMAIN, zjres-ad.kajicam.com, REJECT // 底部广告
+
+# 弹窗
+DOMAIN, popup-api.b612kaji.com, REJECT
