@@ -1,0 +1,91 @@
+# Loon 回国配置
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+# 更多的插件可以前往此处安装 https://github.com/luestr/ProxyResource/blob/main/README.md
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+sni-sniffing = true
+# Cloudflare和Goole DoH
+doh-server = https://1.1.1.1/dns-query, https://dns.google/dns-query
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+回国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇨🇳|回国|中国|上海|广州|北京(\b(CN|China)(\d+)?\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+其他节点 = NameRegex, FilterKey = "^(?=.*(.*))(?!.*((?i)🇨🇳|回国|中国|上海|广州|北京|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(CN|China|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# 手动策略组
+回国手动策略 = select, 回国节点, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+其他手动策略 = select, 其他节点, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,Proxy,REJECT
+# Options:no-resolve(no-resolve(only for cidr))
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# 配置文件已自带远程GEOIP, cn, DIRECT规则，请勿在此添加
+# 请勿修改远程CN REGION规则的排序甚至删除
+FINAL, DIRECT
+
+[Remote Rule]
+https://rule.kelee.one/Loon/iQIYI.lsr, policy = 回国手动策略, tag = 爱奇艺视频, enabled = true
+https://rule.kelee.one/Loon/Youku.lsr, policy = 回国手动策略, tag = 优酷视频, enabled = true
+https://rule.kelee.one/Loon/TencentVideo.lsr, policy = 回国手动策略, tag = 腾讯视频, enabled = true
+https://rule.kelee.one/Loon/BiliBili.lsr, policy = 回国手动策略, tag = 哔哩哔哩, enabled = true
+https://rule.kelee.one/Loon/NetEaseMusic.lsr, policy = 回国手动策略, tag = 网易云音乐, enabled = true
+https://rule.kelee.one/Loon/Himalaya.lsr, policy = 回国手动策略, tag = 喜马拉雅, enabled = true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER, policy = 回国手动策略, tag = CN REGION, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy = DIRECT, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy = DIRECT, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, policy = DIRECT, enabled = true
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy = DIRECT, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy = DIRECT, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, policy = DIRECT, enabled = true
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false

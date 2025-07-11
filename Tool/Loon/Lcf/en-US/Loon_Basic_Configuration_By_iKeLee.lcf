@@ -1,0 +1,71 @@
+# Loon basic configuration
+# This configuration file can serve as a foundation for creating your own custom configurations. It doesn't include any policy groups and is primarily intended for troubleshooting errors in your own configurations and as a starting point for building your personalized setup.
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+# Cloudflare and Goole DoH
+doh-server = https://1.1.1.1/dns-query, https://dns.google/dns-query
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+
+[Proxy Group]
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,PROXY,REJECT
+# Options:no-resolve(only for cidr)
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# Replace "us" in the following line with the English abbreviation of your country.
+GEOIP, us, DIRECT
+# When there are no valid policy groups in the configuration file,Loon will use the built-in PROXY policy group;
+# When there are valid policy groups in the configuration file,the built-in PROXY policy group will no longer be allowed to be called,and only user-configured policy groups can be used.
+# This line below does not need any modification.
+FINAL, PROXY
+
+[Remote Rule]
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
