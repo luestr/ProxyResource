@@ -1,0 +1,97 @@
+# Loon Simple configuration
+# This configuration file is designed for simplicity, featuring a single policy group. Its straightforward nature allows for effortless setup and immediate usability.
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+# Cloudflare and Goole DoH
+doh-server = https://1.1.1.1/dns-query, https://dns.google/dns-query
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+Global Nodes = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+Global Selection = select, Global Nodes, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,PROXY,REJECT
+# Options:no-resolve(only for cidr)
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# Replace "us" in the following line with the English abbreviation of your country.
+GEOIP, us, DIRECT
+FINAL, Global Selection
+
+[Remote Rule]
+https://rule.kelee.one/Loon/Telegram.lsr, policy = Global Selection, tag = Telegram, enabled = true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = Global Selection, tag = TikTok, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = Global Selection, tag = AI, enabled = true
+https://kelee.one/Tool/Loon/Lsr/ApplePushNotificationService.lsr, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy = DIRECT, tag = Apple Account, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy = DIRECT, tag = App Store, enabled = false
+https://rule.kelee.one/Loon/GitHub.lsr, policy = Global Selection, tag = GitHub, enabled = true
+https://rule.kelee.one/Loon/Netflix.lsr, policy = Global Selection, tag = Netflix, enabled = true
+https://rule.kelee.one/Loon/YouTube.lsr, policy = Global Selection, tag = Youtube, enabled = true
+https://rule.kelee.one/Loon/Disney.lsr, policy = Global Selection, tag = Disney, enabled = true
+https://rule.kelee.one/Loon/Twitter.lsr, policy = Global Selection, tag = Twitter, enabled = true
+https://rule.kelee.one/Loon/Facebook.lsr, policy = Global Selection, tag = Facebook, enabled = true
+https://rule.kelee.one/Loon/Instagram.lsr, policy = Global Selection, tag = Instagram, enabled = true
+https://rule.kelee.one/Loon/Spotify.lsr, policy = Global Selection, tag = Spotify, enabled = true
+https://rule.kelee.one/Loon/Google.lsr, policy = Global Selection, tag = Google, enabled = true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy = Global Selection, tag = OneDrive, enabled = true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy = Global Selection, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy = Global Selection, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_lyrics_translation.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Auto_Join_TF.lpx, policy = DIRECT, enabled = false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy = Global Selection, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy = Global Selection, enabled = true
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
