@@ -1,0 +1,159 @@
+# Loon Advanced configuration for automatically selecting the node with the lowest latency
+# This configuration file enables you to automatically select the node with the lowest network latency, eliminating the need for manual intervention. The entire process is fully automated. When connected to a router equipped with a transparent proxy, your Loon will establish connections using the "DIRECT" policy, allowing direct access to restricted websites through your router. Conversely, when using other networks, access to these websites will be achieved through Loon's own proxy mode. This prevents potential double-proxy situations that might arise when connected to a router already employing a transparent proxy.
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+# Cloudflare and Goole DoH
+doh-server = https://1.1.1.1/dns-query, https://dns.google/dns-query
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+HK Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+TW Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+JP Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+KR Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+SG Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+US Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Gaming Nodes = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+Global Nodes = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# --------------------------------
+# SSID regional scenario strategy
+HK Scenario = ssid, default = HK Strategy, cellular = HK Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+TW Scenario = ssid, default = TW Strategy, cellular = TW Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+JP Scenario = ssid, default = JP Strategy, cellular = JP Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+KR Scenario = ssid, default = KP Strategy, cellular = KP Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+SG Scenario = ssid, default = SG Strategy, cellular = SG Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+US Scenario = ssid, default = US Strategy, cellular = US Strategy, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+Gaming scenario = ssid, default = Gaming Selection, cellular = Gaming Selection, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+Select scenario = ssid, default = Global Selection, cellular = Global Selection, "PHICOMM_5G" = DIRECT, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+# --------------------------------
+# Manually select regional strategy
+HK Strategy = select, HK·Lowest latency, HK·Fallback, US·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW Strategy = select, TW·Lowest latency, TW·Fallback, TW·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP Strategy = select, JP·Lowest latency, JP·Fallback, JP·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KP Strategy = select, KR·Lowest latency, KR·Fallback, KR·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG Strategy = select, SG·Lowest latency, SG·Fallback, SG·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US Strategy = select, US·Lowest latency, US·Fallback, US·Load balance, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Automatic strategy group
+# Lowest latency
+HK·Lowest latency = url-test, HK Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW·Lowest latency = url-test, TW Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP·Lowest latency = url-test, JP Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR·Lowest latency = url-test, KR Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG·Lowest latency = url-test, SG Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US·Lowest latency = url-test, US Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Fallback
+HK·Fallback = fallback, HK Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW·Fallback = fallback, TW Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP·Fallback = fallback, JP Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR·Fallback = fallback, KR Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG·Fallback = fallback, SG Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US·Fallback = fallback, US Nodes, interval = 60, max-timeout = 2000, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Load balance
+HK·Load balance = load-balance, HK Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW·Load balance = load-balance, TW Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP·Load balance = load-balance, JP Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR·Load balance = load-balance, KR Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG·Load balance = load-balance, SG Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US·Load balance = load-balance, US Nodes, interval = 60, max-timeout = 2000, algorithm = pcc, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Final strategy fallback
+Final Fallback = fallback, HK Scenario, TW Scenario, JP Scenario, KR Scenario, SG Scenario, US Scenario, interval = 60, max-timeout = 2000, img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+# --------------------------------
+# Manually select node strategy group
+Gaming Selection = select, Gaming Nodes, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png
+Global Selection = select, Global Nodes, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,PROXY,REJECT
+# Options:no-resolve(only for cidr)
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# Replace "us" in the following line with the English abbreviation of your country.
+IP-CIDR, 28.0.0.1/8, DIRECT
+IP-CIDR, 198.18.0.1/16, DIRECT
+IP-CIDR, 198.18.0.0/15, DIRECT
+IP-CIDR6, fc00::/18, DIRECT
+GEOIP, us, DIRECT
+# This line below does not need any modification.
+FINAL, Final Fallback
+
+[Remote Rule]
+https://rule.kelee.one/Loon/Telegram.lsr, policy = Final Fallback, tag = Telegram, enabled = true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = Global Selection, tag = TikTok, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = Global Selection, tag = AI, enabled = true
+https://kelee.one/Tool/Loon/Lsr/ApplePushNotificationService.lsr, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy = DIRECT, tag = Apple Account, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy = DIRECT, tag = App Store, enabled = false
+https://rule.kelee.one/Loon/GitHub.lsr, policy = Final Fallback, tag = GitHub, enabled = true
+https://rule.kelee.one/Loon/Netflix.lsr, policy = SG Scenario, tag = Netflix, enabled = true
+https://rule.kelee.one/Loon/YouTube.lsr, policy = Final Fallback, tag = Youtube, enabled = true
+https://rule.kelee.one/Loon/Disney.lsr, policy = Final Fallback, tag = Disney, enabled = true
+https://rule.kelee.one/Loon/Twitter.lsr, policy = Final Fallback, tag = Twitter, enabled = true
+https://rule.kelee.one/Loon/Facebook.lsr, policy = Final Fallback, tag = Facebook, enabled = true
+https://rule.kelee.one/Loon/Instagram.lsr, policy = US Scenario, tag = Instagram, enabled = true
+https://rule.kelee.one/Loon/Spotify.lsr, policy = US Scenario, tag = Spotify, enabled = true
+https://rule.kelee.one/Loon/Google.lsr, policy = Final Fallback, tag = Google, enabled = true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy = Final Fallback, tag = OneDrive, enabled = true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+
+[Host]
+ssid: PHICOMM_5G = server: 10.0.0.1
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_lyrics_translation.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Auto_Join_TF.lpx, policy = DIRECT, enabled = false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy = Final Fallback, enabled = true
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false

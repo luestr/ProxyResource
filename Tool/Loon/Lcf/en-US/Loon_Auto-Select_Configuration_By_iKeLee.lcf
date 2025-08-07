@@ -1,0 +1,118 @@
+# Loon automatically select the one with the lowest latency
+# This configuration file automatically selects the node with the lowest network latency, eliminating the need for manual intervention. The entire process is fully automated.
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+# Cloudflare and Goole DoH
+doh-server = https://1.1.1.1/dns-query, https://dns.google/dns-query
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+HK Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+TW Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+JP Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+KR Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+SG Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+US Nodes = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Gaming Nodes = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+Global Nodes = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# Auto-select the lowest latency node
+HK·Lowest latency = url-test, HK Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW·Lowest latency = url-test, TW Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP·Lowest latency = url-test, JP Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR·Lowest latency = url-test, KR Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG·Lowest latency = url-test, SG Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US·Lowest latency = url-test, US Nodes, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Final strategy fallback
+Final Fallback = fallback, HK·Lowest latency, TW·Lowest latency, JP·Lowest latency, KR·Lowest latency, SG·Lowest latency, US·Lowest latency, interval = 60, max-timeout = 2000, img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+# --------------------------------
+# Manually select node strategy group
+Gaming Selection = select, Gaming Nodes, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+Global Selection = select, Global Nodes, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,PROXY,REJECT
+# Options:no-resolve(only for cidr)
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# Replace "us" in the following line with the English abbreviation of your country.
+GEOIP, us, DIRECT
+# This line below does not need any modification.
+FINAL, Final Fallback
+
+[Remote Rule]
+https://rule.kelee.one/Loon/Telegram.lsr, policy = Final Fallback, tag = Telegram, enabled = true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = Global Selection, tag = TikTok, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = Global Selection, tag = AI, enabled = true
+https://kelee.one/Tool/Loon/Lsr/ApplePushNotificationService.lsr, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy = DIRECT, tag = Apple Account, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy = DIRECT, tag = App Store, enabled = false
+https://rule.kelee.one/Loon/GitHub.lsr, policy = Final Fallback, tag = GitHub, enabled = true
+https://rule.kelee.one/Loon/Netflix.lsr, policy = SG·Lowest latency, tag = Netflix, enabled = true
+https://rule.kelee.one/Loon/YouTube.lsr, policy = Final Fallback, tag = Youtube, enabled = true
+https://rule.kelee.one/Loon/Disney.lsr, policy = Final Fallback, tag = Disney, enabled = true
+https://rule.kelee.one/Loon/Twitter.lsr, policy = Final Fallback, tag = Twitter, enabled = true
+https://rule.kelee.one/Loon/Facebook.lsr, policy = Final Fallback, tag = Facebook, enabled = true
+https://rule.kelee.one/Loon/Instagram.lsr, policy = US·Lowest latency, tag = Instagram, enabled = true
+https://rule.kelee.one/Loon/Spotify.lsr, policy = Final Fallback, tag = Spotify, enabled = true
+https://rule.kelee.one/Loon/Google.lsr, policy = Final Fallback, tag = Google, enabled = true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy = Final Fallback, tag = OneDrive, enabled = true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Spotify_lyrics_translation.lpx, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Auto_Join_TF.lpx, policy = DIRECT, enabled = false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy = Final Fallback, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy = Final Fallback, enabled = true
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
