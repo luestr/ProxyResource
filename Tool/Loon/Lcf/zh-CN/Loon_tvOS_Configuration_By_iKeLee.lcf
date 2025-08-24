@@ -1,0 +1,118 @@
+# Loon tvOS配置
+# Date: 2025-07-06 18:25:00
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode = v4-only
+ipv6-vif = off
+dns-server = system
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+香港节点 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+台湾节点 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+日本节点 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+韩国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+新国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+美国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+游戏节点 = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+全球节点 = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# 手动策略组
+AI = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChatGPT.png
+TikTok = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TikTok.png
+Netflix = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Netflix.png
+Disney = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Disney+.png
+Prime Video = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PrimeVideo.png
+Discovery Plus = select, 全球节点, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Discovery+.png
+YouTube = select, 香港时延优选, 台湾时延优选, 日本时延优选, 韩国时延优选, 新国时延优选, 美国时延优选, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YouTube.png
+Telegram = select, 香港时延优选, 台湾时延优选, 日本时延优选, 韩国时延优选, 新国时延优选, 美国时延优选, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Telegram.png
+Apple Account = select, DIRECT, 香港时延优选, 台湾时延优选, 日本时延优选, 韩国时延优选, 新国时延优选, 美国时延优选, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png
+App Store = select, DIRECT, 香港时延优选, 台湾时延优选, 日本时延优选, 韩国时延优选, 新国时延优选, 美国时延优选, img-url = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/AppStore.png
+国内下载CDN = select, DIRECT, 全球节点, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+国际下载CDN = select, DIRECT, 全球节点, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png
+游戏手动 = select, 游戏节点, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+全球手动 = select, 全球节点, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+# --------------------------------
+# 时延优选策略组
+香港时延优选 = url-test, 香港节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾时延优选 = url-test, 台湾节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本时延优选 = url-test, 日本节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国时延优选 = url-test, 韩国节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+新国时延优选 = url-test, 新国节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国时延优选 = url-test, 美国节点, interval = 60, tolerance = 20, img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# 兜底策略后备
+兜底后备策略 = fallback, 香港时延优选, 台湾时延优选, 日本时延优选, 韩国时延优选, 新国时延优选, 美国时延优选, interval = 60, max-timeout = 2000, img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+# --------------------------------
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,Proxy,REJECT
+# Options:no-resolve(no-resolve(only for cidr))
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# 配置文件已自带远程GEOIP, cn, DIRECT规则，请勿在此添加
+# 请勿修改远程CN REGION规则的排序甚至删除
+FINAL, 兜底后备策略
+
+[Remote Rule]
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = AI, tag = AI, enabled = true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = TikTok, tag = TikTok, enabled = true
+https://rule.kelee.one/Loon/YouTube.lsr, policy = YouTube, tag = Youtube, enabled = true
+https://rule.kelee.one/Loon/Netflix.lsr, policy = Netflix, tag = Netflix, enabled = true
+https://rule.kelee.one/Loon/Disney.lsr, policy = Disney, tag = Disney, enabled = true
+https://rule.kelee.one/Loon/PrimeVideo.lsr, policy = Prime Video, tag = Prime Video, enabled = true
+https://rule.kelee.one/Loon/DiscoveryPlus.lsr, policy = Discovery Plus, tag = Discovery Plus, enabled = true
+https://kelee.one/Tool/Loon/Lsr/Telegram.lsr, policy = Telegram, tag = Telegram, enabled = true
+https://kelee.one/Tool/Loon/Lsr/ApplePushNotificationService.lsr, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy = Apple Account, tag = Apple Account, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy = App Store, tag = App Store, enabled = true
+https://rule.kelee.one/Loon/Bing.lsr, policy = 兜底后备策略, tag = Open AI, enabled = true
+https://rule.kelee.one/Loon/GitHub.lsr, policy = 兜底后备策略, tag = GitHub, enabled = true
+https://rule.kelee.one/Loon/Google.lsr, policy = 兜底后备策略, tag = Google, enabled = true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy = 兜底后备策略, tag = OneDrive, enabled = true
+https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy = 国内下载CDN, tag = 国内下载CDN, enabled = true
+https://kelee.one/Tool/Loon/Lsr/InternationalDownloadCDN.lsr, policy = 国际下载CDN, tag = 国际下载CDN, enabled = true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER, policy = DIRECT, tag = LAN, enabled = true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER, policy = DIRECT, tag = CN REGION, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, policy = DIRECT, enabled = true
+
+[Mitm]
+hostname = 
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
