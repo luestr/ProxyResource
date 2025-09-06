@@ -1,0 +1,14 @@
+#!name=TestFlight解锁
+#!desc=解除TestFlight的区域限制
+#!author=RuCu6[https://github.com/RuCu6]
+#!system=iOS
+#!system_version=
+#!loon_version=3.2.1(372)
+#!homepage=https://gitlab.com/lodepuly/ProxyResource/-/tree/main/Tool/QuantumultX/Rewrite
+
+#[rewrite_local]
+^https:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*\/builds\/\d*\/install$ url request-body "storefrontId"\x20:\x20.*,request-body "storefrontId":"143441-19,29",
+# ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ url script-request-body https://kelee.one/Resource/JavaScript/TestFlight/TF_Download.js
+
+#[mitm]
+hostname=testflight.apple.com
