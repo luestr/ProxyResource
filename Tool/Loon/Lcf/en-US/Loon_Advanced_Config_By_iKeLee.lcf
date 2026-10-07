@@ -1,0 +1,140 @@
+# Loon Advanced Config: Automatically Select the Proxy Node with the Lowest Network Latency
+# This configuration file automatically selects the proxy node with the lowest network latency, requiring no manual intervention—all processes are fully automated. When connected to a router equipped with a transparent proxy, Loon will use the "DIRECT" policy, routing all traffic directly through your router; in other network environments, Loon will employ its own "Rule Base" mode to access these websites, thereby avoiding double proxying when already using a transparent proxy router.
+# Date: 2025-11-08 00:21:37
+# Author: https://t.me/iKeLee
+
+[General]
+ip-mode=v4-only
+ipv6-vif=off
+dns-server=system
+# Cloudflare and Goole DoH
+doh-server=https://1.1.1.1/dns-query, https://dns.google/dns-query
+sni-sniffing=true
+disable-stun=true
+dns-reject-mode=LoopbackIP
+domain-reject-mode=DNS
+udp-fallback-mode=REJECT
+wifi-access-http-port=7222
+wifi-access-socks5-port=7221
+allow-wifi-access=false
+interface-mode=auto
+test-timeout=5
+disconnect-on-Scenario-change=false
+internet-test-url=http://www.msftconnecttest.com/connecttest.txt
+proxy-test-url=http://www.gstatic.com/generate_204
+resource-parser=https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url=https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url=https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy=192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun=10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+HK Nodes=NameRegex, FilterKey="^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+TW Nodes=NameRegex, FilterKey="^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+JP Nodes=NameRegex, FilterKey="^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+KR Nodes=NameRegex, FilterKey="^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+SG Nodes=NameRegex, FilterKey="^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+US Nodes=NameRegex, FilterKey="^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Gaming Nodes=NameRegex, FilterKey="^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+Global Nodes=NameRegex, FilterKey="^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# Scenario Policy
+HK Manual Scenario=ssid, default=HK Manual Scenario, cellular=HK Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+TW Manual Scenario=ssid, default=TW Manual Scenario, cellular=TW Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+JP Manual Scenario=ssid, default=JP Manual Scenario, cellular=JP Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+KR Manual Scenario=ssid, default=KR Manual Scenario, cellular=KR Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+SG Manual Scenario=ssid, default=SG Manual Scenario, cellular=SG Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+US Manual Scenario=ssid, default=US Manual Scenario, cellular=US Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+GAME Manual Scenario=ssid, default=GAME Manual Scenario, cellular=GAME Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+Global Manual Scenario=ssid, default=Global Manual Scenario, cellular=Global Manual Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+HK Auto Scenario=ssid, default=HK Auto Scenario, cellular=HK Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+TW Auto Scenario=ssid, default=TW Auto Scenario, cellular=TW Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+JP Auto Scenario=ssid, default=JP Auto Scenario, cellular=JP Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+KR Auto Scenario=ssid, default=KR Auto Scenario, cellular=KR Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+SG Auto Scenario=ssid, default=SG Auto Scenario, cellular=SG Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+US Auto Scenario=ssid, default=US Auto Scenario, cellular=US Auto Scenario, "PHICOMM_5G"=DIRECT, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+# --------------------------------
+# Regional Policy
+HK Manual Policy=select, HK Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW Manual Policy=select, TW Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP Manual Policy=select, JP Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR Manual Policy=select, KR Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG Manual Policy=select, SG Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US Manual Policy=select, US Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+GAME Manual Policy=select, GAME Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png
+Global Manual Policy=select, Global Nodes, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+HK Auto Policy=url-test, HK Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+TW Auto Policy=url-test, TW Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+JP Auto Policy=url-test, JP Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR Auto Policy=url-test, KR Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG Auto Policy=url-test, SG Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+US Auto Policy=url-test, US Nodes, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# Final Fallback Policy
+Final Fallback=fallback, HK Auto Profile, TW Auto Profile, JP Auto Profile, KR Auto Profile, SG Auto Profile, US Auto Profile, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+
+[Rule]
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,PROXY,REJECT
+# Options:no-resolve(only for cidr)
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# Replace "us" in the following line with the English abbreviation of your country.
+IP-CIDR, 28.0.0.1/8, DIRECT
+IP-CIDR, 198.18.0.1/16, DIRECT
+IP-CIDR, 198.18.0.0/15, DIRECT
+IP-CIDR6, fc00::/18, DIRECT
+GEOIP, us, DIRECT
+# This line below does not need any modification.
+FINAL, Final Fallback
+
+[Remote Rule]
+https://rule.kelee.one/Loon/Telegram.lsr, Policy=Final Fallback, tag=Telegram, enabled=true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, Policy=Global Manual Scenario, tag=TikTok, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, Policy=Global Manual Scenario, tag=AI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/ApplePushNotificationService.lsr, Policy=DIRECT, tag=Apple Push Notification Service, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, Policy=DIRECT, tag=Apple Account, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, Policy=DIRECT, tag=App Store, enabled=false
+https://rule.kelee.one/Loon/GitHub.lsr, Policy=Final Fallback, tag=GitHub, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, Policy=SG Manual Scenario, tag=Netflix, enabled=true
+https://rule.kelee.one/Loon/YouTube.lsr, Policy=Final Fallback, tag=Youtube, enabled=true
+https://rule.kelee.one/Loon/Disney.lsr, Policy=Final Fallback, tag=Disney, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, Policy=Final Fallback, tag=Twitter, enabled=true
+https://rule.kelee.one/Loon/Facebook.lsr, Policy=Final Fallback, tag=Facebook, enabled=true
+https://rule.kelee.one/Loon/Instagram.lsr, Policy=US Auto Scenario, tag=Instagram, enabled=true
+https://rule.kelee.one/Loon/Spotify.lsr, Policy=US Auto Scenario, tag=Spotify, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, Policy=Final Fallback, tag=Google, enabled=true
+https://rule.kelee.one/Loon/OneDrive.lsr, Policy=Final Fallback, tag=OneDrive, enabled=true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, Policy=DIRECT, tag=LAN, enabled=true
+
+[Host]
+ssid: PHICOMM_5G=server: 10.0.0.1
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, Policy=Final Fallback, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Spotify_lyrics_translation.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, Policy=Final Fallback, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, Policy=Final Fallback, enabled=true
+
+[Mitm]
+hostname=
+ca-p12=
+ca-passphrase=
+skip-server-cert-verify=false
