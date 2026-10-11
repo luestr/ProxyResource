@@ -1,0 +1,24 @@
+#!name=快捷搜索
+#!desc=为Safari提供快速切换搜索引擎的能力，在插件列表中点击此插件上的链接查看使用方法。
+#!openUrl=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/QuickSearch/README.md
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=
+#!loon_version=3.5.1(998)
+#!homepage=https://hub.kelee.one
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Safari.png
+#!date=2026-10-11
+
+[Rewrite]
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=bd\+([^&]+).+/i as urlMatch then redirect(307, "https://www.baidu.com/s?wd=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=bdimg\+([^&]+).+/i as urlMatch then redirect(307, "https://image.baidu.com/search/index?tn=baiduimage&word=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=gimg\+([^&]+).+/i as urlMatch then redirect(307, "https://www.google.com/search?&tbm=isch&q=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=b\+([^&]+).+/i as urlMatch then redirect(307, "https://www.bing.com/search?q=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=wk\+([^&]+).+/i as urlMatch then redirect(307, "https://zh.wikipedia.org/wiki/${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=qm\+([^&]+).+/i as urlMatch then redirect(307, "https://www.qimai.cn/search/index/country/cn/search/${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=gh\+([^&]+).+/i as urlMatch then redirect(307, "https://github.com/search?q=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=(?!(?:bd|bdimg|gimg|b|wk|qm|gh)\+)([^&]+).+/i as urlMatch then redirect(307, "https://www.google.com/search?q=${urlMatch.1}")
+
+[MitM]
+hostname=duckduckgo.com
